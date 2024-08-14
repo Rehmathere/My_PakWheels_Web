@@ -1,0 +1,273 @@
+.Bikes {
+  border: 0.1px solid transparent;
+  padding: 4.5em 1em;
+}
+.Bikes h1 {
+  border: 0.1px solid transparent;
+  padding: 0.5em 0.1em;
+  font-size: 3em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.Bikes_Button {
+  border: 0.1px solid transparent;
+  padding: 1.5em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.Bikes button {
+  border: 0.1px solid #303640;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  margin: 0em 1em;
+  align-self: center;
+  border-radius: 5px;
+  color: #303640;
+}
+.Bikes button:hover {
+  background-color: #303640;
+  color: white;
+}
+#Img_Parent {
+  border: 0px solid transparent;
+  padding: 1em 1em 0.1em 1em;
+}
+#Sub_Img_Parent {
+  border: 0px solid transparent;
+  padding: 1em 1em 0.1em 1em;
+}
+#Sub_Img_Parent Img {
+  border: 0px solid transparent;
+  display: block;
+  margin: 0em auto;
+}
+
+/* Blogs CSS */
+.My_underHeadingCont {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 1em 0.2em;
+}
+
+.My_adCard {
+  border: 0px solid transparent;
+  display: flex;
+  padding: 20px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  margin: 0.5em 0em;
+  border-radius: 0.2em 0.2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.My_adCard:hover {
+  transform: translate(0.5em);
+}
+
+.My_detailHolder {
+  border: 0px solid transparent;
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0em 0em 0em;
+  border-radius: 0.2em 0.2em;
+  text-decoration: none !important;
+}
+
+.My_imgHolder {
+  width: 100px;
+  height: 100px;
+}
+
+.My_imgHolder img {
+  width: 100px;
+  height: 100px;
+}
+
+.My_detailHolder h4 {
+  border: 0px solid transparent;
+  text-decoration: none !important;
+  color: #cd0100;
+}
+
+.My_detailHolder p {
+  border: 0px solid transparent;
+  text-decoration: none !important;
+  color: black;
+}
+
+/* One Blog Detail */
+
+.My_imgHolder_Detail {
+  border: 0px solid transparent;
+  width: 100%;
+  padding: 2em 1em 4em 1em;
+}
+
+.My_imgHolder_Detail img {
+  border: 0px solid transparent;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0em auto;
+}
+
+.My_Date {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 2em 0.5em;
+  text-align: right;
+}
+/* New Cars Page 1 */
+#My_NewCars_Box {
+  border: 0px solid transparent;
+  padding: 3em 1em;
+}
+#My_NewCars_Box_Sub {
+  border: 0.1px solid #f0efef;
+  padding: 1em 1em;
+  width: 61%;
+  margin: 0em auto;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+#My_NewCars_Box_Sub h2 {
+  border: 0px solid transparent;
+  padding: 1em 0.5em 0.5em 0.5em;
+  letter-spacing: 1px;
+}
+#My_NewCars_Box_Sub input {
+  border: 0.1px solid gray;
+  padding: 0.4em 1em;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  margin: 0em 0em 0em 1em;
+}
+#My_NewCars_Box_Sub input:focus {
+  outline: rgb(39, 39, 39);
+  background-color: #e6e6e6;
+}
+#My_NewCars_Box_Sub button {
+  border: 0.1px solid rgb(39, 39, 224);
+  background-color: rgb(39, 39, 224);
+  padding: 0.5em 0.5em;
+  letter-spacing: 1.8px;
+  border-radius: 5px;
+  color: white;
+  margin: 1em 1em;
+  width: 95%;
+}
+#My_NewCars_Box_Sub button:hover {
+  border: 0.1px solid rgb(16, 16, 197);
+  background-color: rgb(16, 16, 197);
+  font-weight: bold;
+}
+/* New Cars Page 2 */
+#My_CarDetails_Parent_Box_0 {
+  border: 0px solid transparent;
+  padding: 2em 1em;
+}
+#My_CarDetails_Parent_Box_0_Sub {
+  border: 0px solid transparent;
+  /* border: 0.1px solid black; */
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#My_CarDetails_Box {
+  border: 0.1px solid rgb(216, 213, 213);
+  padding: 1em 1em 0em 1em;
+  width: 23%;
+  color: black;
+  border-radius: 10px 10px;
+}
+#My_CarDetails_Box h2 {
+  border: 0px solid transparent;
+  padding: 0.5em 0.3em 0.5em 0.3em;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+#My_VS{
+  color: #cd0100;
+  font-weight: bold;
+  font-size: 3em;
+}
+#My_CarDetails_Box_Img {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em;
+}
+#My_CarDetails_Box_Img img {
+  border: 0px solid transparent;
+  width: 100%;
+}
+#My_CarDetails_Box span {
+  border-top: 0.05px solid rgb(216, 213, 213);  padding: 0.3em 0.5em 0.3em 0.5em;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  display: block;
+}
+#My_B {
+  color: #3eb549;
+}
+#My_CarDetails_Parent {
+  border: 0px solid transparent;
+  padding: 0.5em 0.1em 1em 0.1em;
+  width: 100%;
+}
+#My_CarDetails_Parent_Box {
+  border: 0px solid transparent;
+  padding: 0.5em 0.1em 2em 0.1em;
+}
+#My_CarDetails_Parent_Box h2 {
+  border: 0px solid transparent;
+  padding: 2em 0.01em 1.2em 0.01em;
+  font-size: 1.35em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+/* Apply styles to the table */
+table {
+  border: 0px solid transparent;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #ffc9c9;
+}
+tr {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em;
+}
+th {
+  border: 0px solid transparent;
+  padding: 0.6em 0.7em;
+  letter-spacing: 0.3px;
+}
+td {
+  border: 1px solid #ffc9c9;
+  padding: 0.6em 0.85em;
+  font-size: 0.85em;
+  letter-spacing: 0.6px;
+  background-color: white;
+}
+#Td_Mid {
+  background-color: white;
+  text-align: center;
+  width: 30%;
+  letter-spacing: 1px;
+}
+#My_Icon_Img {
+  width: 2vw;
+  height: 3.5vh;
+}

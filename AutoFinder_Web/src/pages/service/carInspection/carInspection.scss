@@ -1,0 +1,171 @@
+$border:none;
+.CarInspection{
+  border: $border;
+  color: black;
+  .firstSection{
+    border: $border;
+    display: flex;
+    // justify-content: space-between;
+    padding: 50px 0;
+    width: 80%;
+    margin: 0 auto;
+    gap: 30px;
+    .heading-punchline{
+      border: $border;
+      padding: 10px 10px 10px 0;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      h1{
+        font-weight: bolder;
+        font-size: 47px;
+      }
+      h4{
+        font-style: italic;
+      }
+      button{
+        border: none;
+        outline: none;
+        width: 200px;
+        background-color: #cd0100;
+        color: white;
+        font-weight: 700;
+        padding: 10px;
+        cursor: pointer;  
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        &:hover{
+          background-color: #bd0000;
+        }
+      }
+    }
+    .displayImage{
+      border: $border;
+      width: 40%;
+      padding: 10px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .secondSection{
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0 40px 0;
+    width: 80%;
+    margin: 0 auto;
+    .cont{
+      border:$border;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      .line{
+        top: 65px;
+        position: absolute;
+        border-top: 1px solid rgb(190, 189, 189);
+        width: 100%;
+      }
+      .subCont1{
+        
+        display: flex;
+        justify-content: space-between;
+        // height: 65px;
+        gap: 50px;
+        flex-wrap: wrap;
+        
+        div{
+          flex-grow: 1;
+          border: 1px solid #ccc;
+          flex-basis: 200px;
+          height: 130px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          border-radius: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+          z-index: 10;
+          p{
+            border: $border;
+            font-weight: bolder;
+            font-size: 18px;
+            width: 80%;
+            text-align: center;
+          }
+        }
+      }
+      .subCont2{
+        border: $border;
+        // margin-top: 30px;
+        p{
+          border: $border;
+          text-align: left;
+          font-size: 35px;
+          font-weight: 800;
+          // font-style: italic;
+          width: 60%;
+
+          span{
+            font-size: 50px;
+            line-height: 20px;
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+  .thirdSection{
+    .cont{
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+      .imageCont{
+        border: 1px solid black;
+        width: 40%;
+        border-radius: 25px;
+        overflow: hidden;
+        img{
+          width: 100%;
+        }
+      }
+      .detailCont{
+        border: $border;
+        width: 58%;
+        h3{
+          font-size: 35px;
+          font-weight: bolder;
+          span{
+            font-size: 90px;
+            line-height: 50px;
+          }
+        }
+        ul {
+          list-style-type: none;
+          padding: 0 0 0 5px;
+        li {
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          margin: 10px 0;
+          padding-left: 25px;
+          position: relative;
+          &::before{
+            content: '👉';
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+      
+        
+      }
+    }
+  }
+}

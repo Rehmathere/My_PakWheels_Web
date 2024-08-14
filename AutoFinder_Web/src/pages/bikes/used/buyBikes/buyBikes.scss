@@ -1,0 +1,91 @@
+$border: 1px solid black;
+
+.BuyBikes {
+  padding: 30px 0;
+  width: 80%;
+  margin: auto;
+  opacity: 1;
+  transition: all 1s ease;
+
+  .pageHeadingCont {
+    border: $border;
+
+    h1 {
+      text-align: center;
+      background-color: #cd0100;
+      color: white;
+      font-weight: 900;
+      padding: 10px;
+    }
+  }
+
+
+  .underHeadingCont {
+    margin-top: 30px;
+    border: $border;
+    display: flex;
+    justify-content: space-between;
+
+    .filterCont {
+      width: 25%;
+      // border: 1px solid black;
+      background-color: white;
+      align-self: flex-start;
+      // height: 500px;
+    }
+
+    .carAdsCont {
+      border: $border;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 70%;
+
+      .adCard {
+        border: $border;
+        display: flex;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+
+        .imgHolder {
+          border: $border;
+          width: 200px;
+          padding: 10px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .detailHolder {
+          border: $border;
+          width: 100%;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          position: relative;
+
+          .adTitle {
+            color: rgb(184, 0, 0);
+          }
+
+          .adPrice {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 18px;
+            color: green;
+          }
+        }
+      }
+    }
+  }
+
+}

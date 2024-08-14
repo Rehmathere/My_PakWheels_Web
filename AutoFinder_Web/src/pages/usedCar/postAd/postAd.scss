@@ -1,0 +1,123 @@
+$border: none;
+
+.UsedCarPostAd{
+  width: 80%;
+  margin: 50px 0;
+  border: $border;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  .postAdHeading{
+    border: $border;
+    text-align: center;
+    margin: 10px 0;
+  }
+  form{
+   border: $border;
+   border-top: 1px solid gray;
+   display: flex;
+   flex-direction: column;
+   padding: 10px 0;
+  //  justify-content: center;
+   align-items: center;
+   .formFirstDiv{
+    border: $border;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input[type="text"],input[type="number"]{
+      width: 400px;
+      padding: 10px 10px;
+      border-radius: 5px ;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      &:focus{
+      border-color: #66afe9;
+      outline: none;
+      }
+    }
+    select{
+      width: 400px;
+      padding: 10px 10px;
+      border-radius: 5px ;
+      font-size: 16px;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+    
+   }
+   label{
+    font-weight: bold;
+    font-size: 17px;
+   }
+    button {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  }
+}
+
+.padding-10{
+  padding: 10px 0;
+}
+
+textarea{
+  resize: none;
+}
+
+.modalDiv{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  h1{
+    text-align: center;
+  }
+  .modalButtonHolder{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+    padding: 10px;
+    button{
+      outline: none;
+      border: none;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      &:hover{
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+
+
+.color1{
+  background-color: #1789FC;
+}
+
+.color2{
+  background-color: #296EB4;
+}
+
+.color3{
+  background-color: #7B8CDE;
+}

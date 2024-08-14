@@ -1,0 +1,70 @@
+$border:none;
+.FreeAd {
+  .First {
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 40px 0;
+    width: 80%;
+    margin: auto;
+    .heading {
+      border: $border;
+
+      h1 {
+        text-align: center;
+        font-size: 28px;
+      }
+
+    }
+
+    .firstCardsCont {
+      border:$border;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      
+      .card {
+        border: $border;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #e3f2fd;
+
+        border-radius: 10px;
+        width: 50%;
+        img {
+          width: 50%;
+          margin: auto;
+        }
+
+        ul {
+          li {
+            list-style: none;
+          }
+        }
+
+        button {
+          background-color: #cd0100;
+          outline: none;
+          border: none;
+          padding: 10px 40px;
+          color: white;
+          border-radius: 25px;
+          font-weight: bolder;
+          font-size: 16px;
+          cursor: pointer;
+          width: 200px;
+          margin: auto;
+          margin-top: 30px;
+          &:hover {
+            background-color: rgb(3, 146, 3);
+          }
+        }
+      }
+    }
+  }
+}

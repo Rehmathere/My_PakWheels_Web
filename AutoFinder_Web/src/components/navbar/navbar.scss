@@ -1,0 +1,204 @@
+  $border:none;
+  .Navbar-Comp{
+    // background-color: navy;
+    z-index: 100;
+    border: $border;
+    display: flex;
+    padding: 0 100px;
+    flex-direction: column;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    .navbar{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      // border: 1px solid black;
+      .logo{
+        
+
+        img{
+          border: $border;
+          width: 160px;
+          // height: 100px;
+        }
+      }
+      .links{
+        flex-grow:1;
+        // flex-basis: 300px;
+        border: $border;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-end;
+        // gap: 20px;
+        padding: 0 20px ;
+        flex-wrap: wrap;
+        a{
+          display: flex;
+          position: relative;
+
+          justify-content: center;
+          align-items: center;
+          padding: 0 20px;
+          border: $border;
+          color: black;
+          font-weight: bold;
+          text-decoration: none;
+          &:hover{
+            text-decoration: underline;
+          }
+          &:hover .dropdown{
+            opacity: 1;
+            visibility: visible;
+          }
+          .dropdown{
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            // border: 1px solid black;
+            padding-top: 40px;
+            position: absolute;
+            top: 100%;
+            background-color: white;
+            a{
+              height: 40px;
+              border-top: 1px solid rgb(202, 202, 202);
+            }
+          }
+        }
+        
+        .speacial-btn{
+          background-color:#f5efe8 ;
+          padding: 10px 20px;
+          border-radius: 25px;
+          color: black;
+          transition: all 0.3s ease;
+          margin: 0 10px;
+          &:hover{
+            background-color: #e6dfd8;
+            text-decoration: none;
+          }
+        }
+        .standout-color{
+          background-color:#cd0100;
+          color: white;
+          &:hover{
+            background-color: #bd0000;
+          }
+        }
+
+      }
+    }
+  }
+
+  
+  .modalForm {
+    // max-width: 400px;
+    // margin: 0 auto;
+    padding: 20px;
+    // background-color: #f4f4f4;
+    // border-radius: 5px;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modalForm h2 {
+    margin-bottom: 20px;
+  }
+  
+  .modalFormDiv {
+    margin-bottom: 15px;
+  }
+  
+  .modalFormDiv label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .modalFormDiv input[type="email"],
+  .modalFormDiv input[type="text"],
+  .modalFormDiv input[type="number"],
+  .modalFormDiv input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modalFormDiv input[type="email"]:focus,
+  .modalFormDiv input[type="text"]:focus,
+  .modalFormDiv input[type="number"]:focus,
+  .modalFormDiv input[type="password"]:focus {
+    outline: none;
+    border-color: #66afe9;
+  }
+  
+  .modalForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modalForm button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .modalForm button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modalForm p {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .modalForm .error{
+    color: red;
+  }
+  
+  .modalForm p a {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .modalForm p a:hover {
+    color: #0056b3;
+  }
+
+  .signUpModalll{
+    // background-color: black;
+    // top: 50%;
+    // left: 50%;
+    // right: auto;
+    // bottom: auto;
+    // margin-right: -50%;
+    // transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    width: 30%;
+    outline: none;
+    @media (max-width: 800px) {
+      width: 80%; /* Change width to 100% on devices with maximum width of 768px */
+    }
+  }
+  .overlayyy {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 150 ;
+  }
+  

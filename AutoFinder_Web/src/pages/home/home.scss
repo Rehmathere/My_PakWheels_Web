@@ -1,0 +1,291 @@
+$border:none;
+.Home{
+  .landing{
+    border: $border;
+    // background-color: blue;
+    background-image:url("../../assets/images/homePageMainBannerImage.jpg");
+    background-size: cover;
+    background-position: 50% 80%;
+    background-attachment: fixed;
+    // background-color: black;
+    // height: 40vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 50px 0;
+    position: relative;
+    
+    .bannerOverlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.712);
+    }
+    h1{
+      color: #ffffff;
+      font-size: 80px;
+      // font-style: italic;
+      letter-spacing: 1px;
+      width: 60%;
+      text-align: center;
+      font-weight: 900;
+      z-index: 2;
+    }
+    h2{
+      color: #ffffff;
+      font-size: 25px;
+      letter-spacing: 1px;
+      // width: 60%;
+      text-align: center;
+      margin-bottom: 100px;
+      font-weight: 400;
+      z-index: 2;
+      font-style: italic;
+    }
+    button{
+      background-color: #cd0100;
+      outline: none;
+      border: none;
+      padding: 10px 40px;
+      transform: scale(1.1);
+      color: white;
+      border-radius: 25px;
+      font-weight: bolder;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 2;
+      transition: all 0.3s ease;
+      &:hover{
+        background-color: rgb(255, 0, 0);
+        transform: scale(1.16);
+      }
+    }
+  }
+}
+
+.Home{
+  .widgets{
+    color: black;
+    border: 1px solid #bebebe;
+    display: flex;
+    margin-top: 70px;
+    padding: 30px 0;
+    width: 80%;
+    margin: 70px auto 0 auto;
+    .widgetsContainer{
+      border:$border;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
+      h1{
+        text-align: center;
+        margin-top: -50px;
+        background-color: #fff;
+        display: inline-block;
+        padding: 0 10px;
+        color: black;
+        font-weight: 500;
+      }
+      .childHolder{
+        display: flex;
+        width: 100%;
+        margin-top: 30px;
+        .widget-child1{
+          width: 100%;
+          padding: 20px 50px;
+          border: $border;
+          position: relative;
+          
+          h2{
+            color: #233d7b;
+            font-weight: 500;
+            font-size: 20px;
+
+          }
+          ul{
+            li{
+              list-style: none;
+            }
+          }
+          .btnHolder{
+            display: flex;
+            justify-content: center;
+            width: 70%;
+            
+            button{
+              padding: 10px 30px;
+              outline: none;
+              border: none;
+              background-color: #b73439;
+              color: white;
+              border-radius: 25px;
+              margin-top: 20px;
+              font-size: 16px;
+            }
+          }
+          
+        }
+        .widget-child2{
+          width: 100%;
+          padding: 20px 50px;
+          border: $border;
+          border-left: 1px solid gray;
+          position: relative;
+          &::after{
+            content: "OR";
+            position: absolute;
+            left: -14px;
+            top:45%;
+            background-color: #fff;
+            padding: 3px;
+          }
+          h2{
+            color: #233d7b;
+            font-weight: 500;
+            font-size: 20px;
+          }
+          ul{
+            li{
+              list-style: none;
+            }
+          }
+          .btnHolder{
+            display: flex;
+            justify-content: center;
+            width: 70%;
+            button{
+              padding: 10px 30px;
+              outline: none;
+              border: none;
+              background-color: #518ecb;
+              color: white;
+              border-radius: 25px;
+              margin-top: 20px;
+              font-size: 16px;
+
+            }
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+/* For screens smaller than 950px */
+@media (max-width: 950px) {
+  .Home .landing h1 {
+    font-size: 40px; /* Adjust as needed for smaller screens */
+  }
+
+  .Home .widgets .childHolder {
+    flex-direction: column;
+  }
+
+  .Home .widgets .childHolder .widget-child1 {
+    border-left:none !important;/* Set border to 1px solid black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .Home .widgets .childHolder .widget-child2 {
+    border-left:none !important;/* Set border to 1px solid black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .Home .widgets .childHolder .widget-child2::after {
+    content: "" !important; /* Remove the content after pseudo-element */
+  }
+}
+
+
+.serviceCardSection{
+  width: 80%;
+  margin:auto;
+  border: $border;
+  padding: 40px 0;
+  .serviceCardDiv{
+    border: $border;
+    h1{
+      text-align: center;
+      margin: 50px 0;
+    }
+    .cardHolder{
+      border: $border;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      .serviceCard{
+        border: 1px solid #ccc;
+        // width: 300px;
+        flex-basis: 30%;
+        min-width: 200px;
+        height: 200px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.1s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        &:hover{
+          transform: scale(1.02);
+        }
+        p{
+          border: $border;
+          text-align: center;
+          // align-self: flex-end;
+          font-size:20px;
+          font-weight: bolder;
+        }
+        .serviceImg{
+          height: 100px;
+          width: 100px;
+          // background-image: url("../../assets/servicesImages/inspectionCar.png");
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+.carInspectionImage{
+  background-image: url("../../assets/servicesImages/inspectionCar.png");
+}
+
+.freeAdsImage{
+  background-image: url("../../assets/servicesImages/free_ads.png");
+}
+
+.featuredAdImage{
+  background-image: url("../../assets/servicesImages/premium_ads.png");
+}
+
+.buyCarForMeImage{
+  background-image: url("../../assets/servicesImages/buy_car_for_me.png");
+}
+
+.listItForYouImage{
+  background-image: url("../../assets/servicesImages/list_it_for_you.png");
+}
+
+.carRentalImage{
+  background-image: url("../../assets/servicesImages/rent_car.png");
+}

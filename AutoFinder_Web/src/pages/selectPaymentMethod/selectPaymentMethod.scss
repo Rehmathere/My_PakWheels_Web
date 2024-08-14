@@ -1,0 +1,98 @@
+$border:none  ;
+
+.SelectPaymentMethod{
+  width: 80%;
+  margin: auto;
+  border: $border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  background-color: white;
+  margin-top: 50px;
+  h1{
+    border: $border;
+    text-align: center;
+  }
+  .importantNoticeHolder{
+    background-color: rgba(129, 0, 0, 0.904);
+    width: 90%;
+    border-radius: 10px;
+    margin: 10px 0;
+    p{
+      color: white;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+  div{
+    border: $border;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    width: 100%;
+    button{
+      width: 40%;
+      outline: none;
+      border:none;
+      background-color: rgb(2, 101, 230);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 10px;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    p{
+      border: $border;
+      font-size: 24px;
+      font-weight: bolder;
+      color: darkblue;
+      .price{
+        color: green;
+      }
+    }
+  }
+}
+
+
+.paymentDetailModal{
+  display: flex;
+  flex-direction: column;
+  .btnHolder{
+    border: $border;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 5px 0;
+    .closeBtn{
+      background-color: rgb(241, 4, 4);
+      &:hover{
+        background-color: red;
+      }
+    }
+    button{
+      
+      outline: none;
+      border:none;
+      background-color: rgb(2, 101, 230);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      &:hover{
+        opacity: 0.8;
+      }
+
+    }
+  }
+}
+
