@@ -40,6 +40,8 @@ import Buy_Auto_PartAd_Detail from "./pages/AutoParts/Buy_Auto_Part_Ad/Buy_Auto_
 import Bike_dealerPackages from "./pages/packages/dealerPackages/bike_dealerPackages";
 import My_NewCars from "./pages/NewCars/My_NewCars";
 import My_NewCarsDetail from "./pages/NewCars/My_NewCarsDetail";
+import My_FindNewCars from "./pages/NewCars/My_FindNewCars";
+import My_NewCarsDetail_2 from "./pages/NewCars/My_NewCarsDetail_2";
 
 function App() {
   // const {user , dispatch} = useContext(UserContext)
@@ -88,7 +90,9 @@ function App() {
             {/* --- Bike Verify Payment  --- */}
             {/* --- New Cars  --- */}
             <Route path="/My_NewCars" element={<My_NewCars/>} />
+            <Route path="/My_FindNewCars" element={<My_FindNewCars/>} />
             <Route path="/My_NewCarsDetail" element={<My_NewCarsDetail/>} />
+            <Route path="/My_NewCarsDetail_2/:id" element={<My_NewCarsDetail_2/>} />
             {/* --- New Cars  --- */}
             {/* User Profile */}
             <Route path="/user" element={<User/>}>

@@ -5,6 +5,7 @@ import logo from "../../assets/images/logo.png";
 import Modal from "react-modal";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
+
 const Navbar = () => {
   const { user, dispatch } = useContext(UserContext);
   //login variables
@@ -194,26 +195,17 @@ const Navbar = () => {
         </div>
         <div className="links">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/packages/dealer">Packages</NavLink>
           {/* New Cars */}
           <NavLink>
             New Cars
             <div className="dropdown">
               <div className="dropdown-content">
+                <NavLink to="/My_FindNewCars">Find New Cars</NavLink>
                 <NavLink to="/My_NewCars">Comparison</NavLink>
               </div>
             </div>
           </NavLink>
           {/* New Cars */}
-          <NavLink>
-            More
-            <div className="dropdown">
-              <div className="dropdown-content">
-                <NavLink to="/blogs">Blogs</NavLink>
-                <NavLink to="/videos">Videos</NavLink>
-              </div>
-            </div>
-          </NavLink>
           <NavLink>
             Bikes
             <div className="dropdown">
@@ -232,6 +224,16 @@ const Navbar = () => {
             </div>
           </NavLink>
           {/* Auto Parts */}
+          <NavLink to="/packages/dealer">Packages</NavLink>
+          <NavLink>
+            More
+            <div className="dropdown">
+              <div className="dropdown-content">
+                <NavLink to="/blogs">Blogs</NavLink>
+                <NavLink to="/videos">Videos</NavLink>
+              </div>
+            </div>
+          </NavLink>
           <NavLink
             className="standout-color speacial-btn "
             to="/service/free-ad"

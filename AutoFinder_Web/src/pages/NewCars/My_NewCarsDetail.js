@@ -58,31 +58,188 @@ function My_NewCarsDetail() {
                     <div id="My_CarDetails_Box">
                       <h2>Car 1</h2>
                       <div id="My_CarDetails_Box_Img">
-                        <img src={Car_1} alt="NA" />
+                        <img src={carData[0].image} alt="NA" />
                       </div>
-                      <span>Year : <b id="My_B">{carData[0].year}</b></span>
-                      <span>Make : <b id="My_B">{carData[0].make}</b></span>
-                      <span>Model : <b id="My_B">{carData[0].model}</b></span>
+                      <span>
+                        Year : <b id="My_B">{carData[0].year}</b>
+                      </span>
+                      <span>
+                        Make : <b id="My_B">{carData[0].make}</b>
+                      </span>
+                      <span>
+                        Model : <b id="My_B">{carData[0].model}</b>
+                      </span>
                     </div>
                     {/* Box */}
-                    <div id="My_CarDetails_Box" style={{ border: "0px solid transparent" }}>
+                    <div
+                      id="My_CarDetails_Box"
+                      style={{ border: "0px solid transparent" }}
+                    >
                       <h2 id="My_VS">Vs</h2>
                     </div>
                     {/* Box */}
                     <div id="My_CarDetails_Box">
                       <h2>Car 2</h2>
                       <div id="My_CarDetails_Box_Img">
-                        <img src={Car_2} alt="NA" />
+                        <img src={carData[1].image} alt="NA" />
                       </div>
-                      <span>Year : <b id="My_B">{carData[1].year}</b></span>
-                      <span>Make : <b id="My_B">{carData[1].make}</b></span>
-                      <span>Model : <b id="My_B">{carData[1].model}</b></span>
+                      <span>
+                        Year : <b id="My_B">{carData[1].year}</b>
+                      </span>
+                      <span>
+                        Make : <b id="My_B">{carData[1].make}</b>
+                      </span>
+                      <span>
+                        Model : <b id="My_B">{carData[1].model}</b>
+                      </span>
                     </div>
                   </div>
                 </div>
+                {/* --- First Table Data Portion --- */}
+                <br /><br />
+                <h2 id="MyExtra_h2">Compare Specifications :</h2>
+                {/* Key Specifications Table */}
+                <table>
+                  <thead>
+                    <tr>
+                      <th colSpan={3}>Key Specifications</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Price</td>
+                      <td id="Td_Mid">{carData[0].keySpecifications.price}</td>
+                      <td id="Td_Mid">{carData[1].keySpecifications.price}</td>
+                    </tr>
+                    <tr>
+                      <td>Body Type</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.bodyType}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.bodyType}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dimensions</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.dimensions}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.dimensions}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Ground Clearance</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.groundClearance}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.groundClearance}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Horse Power</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.horsePower}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.horsePower}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Boot Space</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.bootSpace}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.bootSpace}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Fuel Type</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.fuelType}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.fuelType}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Battery Capacity</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.batteryCapacity}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.batteryCapacity || "-"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Charging Time</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.chargingTime}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.chargingTime ||  "-"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Top Speed</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.topSpeed}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.topSpeed}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Range</td>
+                      <td id="Td_Mid">{carData[0].keySpecifications.range}</td>
+                      <td id="Td_Mid">{carData[1].keySpecifications.range ||  "-"}</td>
+                    </tr>
+                    <tr>
+                      <td>Transmission</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.transmission}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.transmission}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Kerb Weight</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.kerbWeight}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.kerbWeight}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Seating Capacity</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.seatingCapacity}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.seatingCapacity}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Tyre Size</td>
+                      <td id="Td_Mid">
+                        {carData[0].keySpecifications.tyreSize}
+                      </td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.tyreSize}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                {/* --- First Table Data Portion --- */}
                 {/* Table */}
                 <div id="My_CarDetails_Parent_Box">
                   {/* --- All Table Portion Starts --- */}
+                  <br /><br />
                   <h2>Compare Specifications :</h2>
                   {/* Dimensions Table */}
                   <table>
