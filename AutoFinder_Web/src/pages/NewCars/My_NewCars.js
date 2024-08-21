@@ -26,25 +26,13 @@ function My_NewCars() {
     setIsLoading(true); // Start loading
 
     try {
-      const response = await fetch(
-        "https://autofinder-backend.vercel.app/api/newCar/compare",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      // Save car makes to localStorage
+      localStorage.setItem("car1Make", car1.make);
+      localStorage.setItem("car2Make", car2.make);
 
-      if (response.ok) {
-        console.log("Data successfully posted");
-        navigate("/My_NewCarsDetail");
-      } else {
-        console.error("Failed to post data");
-      }
+      navigate("/My_NewCarsDetail");
     } catch (error) {
-      console.error("Error posting data", error);
+      console.error("Error saving data", error);
     } finally {
       setIsLoading(false); // Stop loading
     }
@@ -122,4 +110,3 @@ function My_NewCars() {
 }
 
 export default My_NewCars;
-

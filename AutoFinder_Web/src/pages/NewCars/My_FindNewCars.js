@@ -4,6 +4,14 @@ import LoaderComponent from "../../components/loaderComponent/loaderComponent";
 import "../AutoParts/Auto_Parts.css";
 import ReactLoading from "react-loading";
 import axios from "axios";
+import MG from "../../assets/images/mg.jpg";
+import Honda from "../../assets/images/honda.webp";
+import Hyundai from "../../assets/images/hyundai.webp";
+import Toyota from "../../assets/images/toyota.webp";
+import Proton from "../../assets/images/proton.webp";
+import Audi from "../../assets/images/audi.webp";
+import Changan from "../../assets/images/changan.webp";
+import Dfsk from "../../assets/images/dfsk.webp";
 
 function My_FindNewCars() {
   const navigate = useNavigate();
@@ -56,7 +64,87 @@ function My_FindNewCars() {
     );
     setSearchResult(result);
   };
-
+  // Brand Function
+  const handleSearch_Toyota = () => {
+    const searchTerm = "toyota"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_MG = () => {
+    const searchTerm = "mg"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_Honda = () => {
+    const searchTerm = "honda"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_Hyundai = () => {
+    const searchTerm = "hyundai"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_changan = () => {
+    const searchTerm = "changan"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_audi = () => {
+    const searchTerm = "audi"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_proton = () => {
+    const searchTerm = "proton"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Brand Function
+  const handleSearch_dfsk = () => {
+    const searchTerm = "dfsk"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  // Main Body
   return (
     <div>
       {isLoading && <LoaderComponent />} {/* Show loader if loading */}
@@ -66,9 +154,69 @@ function My_FindNewCars() {
             <div className="pageHeadingCont">
               <h1>Find New Cars</h1>
             </div>
+            {/* --- Search New Cars By Brands --- */}
             <br />
             <br />
+            <br />
+            <h3 id="New_Cars_Popular_heading">New Cars by Make</h3>
+            <div id="New_Cars_Box_Parent">
+              {/* Brand Row */}
+              <div id="New_Cars_Box_Parent_Sub">
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_MG}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={MG} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_Honda}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Honda} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_Hyundai}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Hyundai} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_Toyota}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Toyota} alt="" />
+                  </div>
+                </div>
+              </div>
+              {/* Brand Row */}
+              <div id="New_Cars_Box_Parent_Sub">
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_changan}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Changan} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_audi}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Audi} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_proton}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Proton} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_dfsk}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Dfsk} alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* --- Find New Cars --- */}
+            <br />
             <br />
             <span id="New_Cars_Popular_heading">Find New Cars</span>
             <p id="New_Cars_Popular_P">
@@ -98,7 +246,6 @@ function My_FindNewCars() {
                 </div>
               </div>
             </div>
-
             {/* Display search result */}
             {searchResult && (
               <>
@@ -130,7 +277,8 @@ function My_FindNewCars() {
               </>
             )}
             {/* --- Popular New Cars --- */}
-            <br /><br />
+            <br />
+            <br />
             <h3 id="New_Cars_Popular_heading">Popular New Cars</h3>
             <div id="New_Cars_Box_Parent">
               <div id="New_Cars_Box_Parent_Sub">

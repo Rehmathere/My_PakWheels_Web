@@ -4,8 +4,6 @@ import "../AutoParts/Auto_Parts.css";
 // Images
 import True_Img from "../../assets/images/True_Img.png";
 import False_Img from "../../assets/images/False_Img.png";
-import Car_1 from "../../assets/images/Car_1.png";
-import Car_2 from "../../assets/images/Car_2.png";
 
 function My_NewCarsDetail() {
   const [carData, setCarData] = useState([]);
@@ -13,12 +11,27 @@ function My_NewCarsDetail() {
 
   useEffect(() => {
     const fetchCarData = async () => {
+      const car1Make = localStorage.getItem("car1Make");
+      const car2Make = localStorage.getItem("car2Make");
+
+      if (!car1Make || !car2Make) {
+        console.error("No car makes found in localStorage");
+        setIsLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(
           "https://autofinder-backend.vercel.app/api/newCar"
         );
         const data = await response.json();
-        setCarData(data.data);
+
+        // Filter data based on makes
+        const filteredData = data.data.filter(
+          (car) => car.make === car1Make || car.make === car2Make
+        );
+
+        setCarData(filteredData);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching car data", error);
@@ -28,6 +41,7 @@ function My_NewCarsDetail() {
 
     fetchCarData();
   }, []);
+
   // Image Function
   const renderFeature = (value) => {
     if (value === true) {
@@ -96,7 +110,8 @@ function My_NewCarsDetail() {
                   </div>
                 </div>
                 {/* --- First Table Data Portion --- */}
-                <br /><br />
+                <br />
+                <br />
                 <h2 id="MyExtra_h2">Compare Specifications :</h2>
                 {/* Key Specifications Table */}
                 <table>
@@ -108,8 +123,12 @@ function My_NewCarsDetail() {
                   <tbody>
                     <tr>
                       <td>Price</td>
-                      <td id="Td_Mid">{carData[0].keySpecifications.price}</td>
-                      <td id="Td_Mid">{carData[1].keySpecifications.price}</td>
+                      <td id="Td_Mid">
+                        PKR {carData[0].keySpecifications.price}
+                      </td>
+                      <td id="Td_Mid">
+                        PKR {carData[1].keySpecifications.price}
+                      </td>
                     </tr>
                     <tr>
                       <td>Body Type</td>
@@ -180,7 +199,7 @@ function My_NewCarsDetail() {
                         {carData[0].keySpecifications.chargingTime}
                       </td>
                       <td id="Td_Mid">
-                        {carData[1].keySpecifications.chargingTime ||  "-"}
+                        {carData[1].keySpecifications.chargingTime || "-"}
                       </td>
                     </tr>
                     <tr>
@@ -195,7 +214,9 @@ function My_NewCarsDetail() {
                     <tr>
                       <td>Range</td>
                       <td id="Td_Mid">{carData[0].keySpecifications.range}</td>
-                      <td id="Td_Mid">{carData[1].keySpecifications.range ||  "-"}</td>
+                      <td id="Td_Mid">
+                        {carData[1].keySpecifications.range || "-"}
+                      </td>
                     </tr>
                     <tr>
                       <td>Transmission</td>
@@ -239,7 +260,8 @@ function My_NewCarsDetail() {
                 {/* Table */}
                 <div id="My_CarDetails_Parent_Box">
                   {/* --- All Table Portion Starts --- */}
-                  <br /><br />
+                  <br />
+                  <br />
                   <h2>Compare Specifications :</h2>
                   {/* Dimensions Table */}
                   <table>

@@ -91,7 +91,7 @@ function My_NewCarsDetail_2() {
                     <tbody>
                       <tr>
                         <td>Price</td>
-                        <td id="Td_Mid">{carDetail.keySpecifications.price}</td>
+                        <td id="Td_Mid">PKR {carDetail.keySpecifications.price}</td>
                       </tr>
                       <tr>
                         <td>Body Type</td>

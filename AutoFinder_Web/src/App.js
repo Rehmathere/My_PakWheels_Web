@@ -42,6 +42,7 @@ import My_NewCars from "./pages/NewCars/My_NewCars";
 import My_NewCarsDetail from "./pages/NewCars/My_NewCarsDetail";
 import My_FindNewCars from "./pages/NewCars/My_FindNewCars";
 import My_NewCarsDetail_2 from "./pages/NewCars/My_NewCarsDetail_2";
+import Compare from "./pages/NewCars/Compare";
 
 function App() {
   // const {user , dispatch} = useContext(UserContext)
@@ -93,6 +94,7 @@ function App() {
             <Route path="/My_FindNewCars" element={<My_FindNewCars/>} />
             <Route path="/My_NewCarsDetail" element={<My_NewCarsDetail/>} />
             <Route path="/My_NewCarsDetail_2/:id" element={<My_NewCarsDetail_2/>} />
+            <Route path="/Compare" element={<Compare/>} />
             {/* --- New Cars  --- */}
             {/* User Profile */}
             <Route path="/user" element={<User/>}>
