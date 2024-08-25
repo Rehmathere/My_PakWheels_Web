@@ -1,23 +1,23 @@
-$border:none;
-.Home{
-  .landing{
+$border: none;
+.Home {
+  .landing {
     border: $border;
     // background-color: blue;
-    background-image:url("../../assets/images/homePageMainBannerImage.jpg");
+    background-image: url("../../assets/images/homePageMainBannerImage.jpg");
     background-size: cover;
     background-position: 50% 80%;
     background-attachment: fixed;
     // background-color: black;
     // height: 40vh;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px 0 50px 0;
     position: relative;
-    
-    .bannerOverlay{
+
+    .bannerOverlay {
       position: absolute;
       top: 0;
       left: 0;
@@ -25,7 +25,7 @@ $border:none;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.712);
     }
-    h1{
+    h1 {
       color: #ffffff;
       font-size: 80px;
       // font-style: italic;
@@ -35,7 +35,7 @@ $border:none;
       font-weight: 900;
       z-index: 2;
     }
-    h2{
+    h2 {
       color: #ffffff;
       font-size: 25px;
       letter-spacing: 1px;
@@ -46,7 +46,7 @@ $border:none;
       z-index: 2;
       font-style: italic;
     }
-    button{
+    button {
       background-color: #cd0100;
       outline: none;
       border: none;
@@ -59,7 +59,7 @@ $border:none;
       cursor: pointer;
       z-index: 2;
       transition: all 0.3s ease;
-      &:hover{
+      &:hover {
         background-color: rgb(255, 0, 0);
         transform: scale(1.16);
       }
@@ -67,8 +67,8 @@ $border:none;
   }
 }
 
-.Home{
-  .widgets{
+.Home {
+  .widgets {
     color: black;
     border: 1px solid #bebebe;
     display: flex;
@@ -76,14 +76,14 @@ $border:none;
     padding: 30px 0;
     width: 80%;
     margin: 70px auto 0 auto;
-    .widgetsContainer{
-      border:$border;
+    .widgetsContainer {
+      border: $border;
       width: 100%;
       display: flex;
       flex-direction: column;
       // justify-content: center;
       align-items: center;
-      h1{
+      h1 {
         text-align: center;
         margin-top: -50px;
         background-color: #fff;
@@ -92,33 +92,32 @@ $border:none;
         color: black;
         font-weight: 500;
       }
-      .childHolder{
+      .childHolder {
         display: flex;
         width: 100%;
         margin-top: 30px;
-        .widget-child1{
+        .widget-child1 {
           width: 100%;
           padding: 20px 50px;
           border: $border;
           position: relative;
-          
-          h2{
+
+          h2 {
             color: #233d7b;
             font-weight: 500;
             font-size: 20px;
-
           }
-          ul{
-            li{
+          ul {
+            li {
               list-style: none;
             }
           }
-          .btnHolder{
+          .btnHolder {
             display: flex;
             justify-content: center;
             width: 70%;
-            
-            button{
+
+            button {
               padding: 10px 30px;
               outline: none;
               border: none;
@@ -129,37 +128,36 @@ $border:none;
               font-size: 16px;
             }
           }
-          
         }
-        .widget-child2{
+        .widget-child2 {
           width: 100%;
           padding: 20px 50px;
           border: $border;
           border-left: 1px solid gray;
           position: relative;
-          &::after{
+          &::after {
             content: "OR";
             position: absolute;
             left: -14px;
-            top:45%;
+            top: 45%;
             background-color: #fff;
             padding: 3px;
           }
-          h2{
+          h2 {
             color: #233d7b;
             font-weight: 500;
             font-size: 20px;
           }
-          ul{
-            li{
+          ul {
+            li {
               list-style: none;
             }
           }
-          .btnHolder{
+          .btnHolder {
             display: flex;
             justify-content: center;
             width: 70%;
-            button{
+            button {
               padding: 10px 30px;
               outline: none;
               border: none;
@@ -168,13 +166,11 @@ $border:none;
               border-radius: 25px;
               margin-top: 20px;
               font-size: 16px;
-
             }
           }
         }
       }
     }
-    
   }
 }
 
@@ -189,14 +185,14 @@ $border:none;
   }
 
   .Home .widgets .childHolder .widget-child1 {
-    border-left:none !important;/* Set border to 1px solid black */
+    border-left: none !important; /* Set border to 1px solid black */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
   .Home .widgets .childHolder .widget-child2 {
-    border-left:none !important;/* Set border to 1px solid black */
+    border-left: none !important; /* Set border to 1px solid black */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,26 +204,25 @@ $border:none;
   }
 }
 
-
-.serviceCardSection{
+.serviceCardSection {
   width: 80%;
-  margin:auto;
+  margin: auto;
   border: $border;
   padding: 40px 0;
-  .serviceCardDiv{
+  .serviceCardDiv {
     border: $border;
-    h1{
+    h1 {
       text-align: center;
       margin: 50px 0;
     }
-    .cardHolder{
+    .cardHolder {
       border: $border;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
-      .serviceCard{
+      .serviceCard {
         border: 1px solid #ccc;
         // width: 300px;
         flex-basis: 30%;
@@ -245,17 +240,17 @@ $border:none;
         transition: all 0.1s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-        &:hover{
+        &:hover {
           transform: scale(1.02);
         }
-        p{
+        p {
           border: $border;
           text-align: center;
           // align-self: flex-end;
-          font-size:20px;
+          font-size: 20px;
           font-weight: bolder;
         }
-        .serviceImg{
+        .serviceImg {
           height: 100px;
           width: 100px;
           // background-image: url("../../assets/servicesImages/inspectionCar.png");
@@ -266,26 +261,127 @@ $border:none;
   }
 }
 
-.carInspectionImage{
+.carInspectionImage {
   background-image: url("../../assets/servicesImages/inspectionCar.png");
 }
 
-.freeAdsImage{
+.freeAdsImage {
   background-image: url("../../assets/servicesImages/free_ads.png");
 }
 
-.featuredAdImage{
+.featuredAdImage {
   background-image: url("../../assets/servicesImages/premium_ads.png");
 }
 
-.buyCarForMeImage{
+.buyCarForMeImage {
   background-image: url("../../assets/servicesImages/buy_car_for_me.png");
 }
 
-.listItForYouImage{
+.listItForYouImage {
   background-image: url("../../assets/servicesImages/list_it_for_you.png");
 }
 
-.carRentalImage{
+.carRentalImage {
   background-image: url("../../assets/servicesImages/rent_car.png");
+}
+
+#Heading_Parent {
+  border: 0px solid transparent;
+  padding: 1em 9.1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#Heading_Parent h1 {
+  border: 0px solid transparent;
+  padding: 0.1em 0.16em;
+  font-size: 1.5em;
+  width: 80%;
+  letter-spacing: 0.5px;
+}
+#Heading_Parent p {
+  border: 0px solid transparent;
+  padding: 0.05em 0.5em 0.05em 0.05em;
+  font-size: 1em;
+  width: 20%;
+  text-align: right;
+  letter-spacing: 1px;
+  color: #bc0000;
+}
+#Heading_Parent p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#Car_Data_Parent {
+  border: 0px solid transparent;
+  padding: 1em 1em;
+}
+/* --- Managed Ads --- */
+#Home_New_Cars_Box_Parent {
+  border: 0px solid transparent;
+  padding: 0.2em 5em;
+}
+#Home_New_Cars_Box_Parent_Sub {
+  border: 0px solid transparent;
+  padding: 0.1em 3em 1em 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#Home_New_Cars_Box {
+  border: 0.1px solid rgb(155, 155, 155);
+  padding: 0em 0em 0.5em 0em;
+  width: 20%;
+  margin: 2em 0em 0em 3em;
+  border-radius: 5px;
+}
+#Home_New_Cars_Box:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */
+}
+#Home_My_NewCar_imgHolder {
+  border: 0px solid transparent;
+  padding: 0em 0em;
+}
+#Home_My_NewCar_imgHolder img {
+  border: 0px solid transparent;
+  width: 100%;
+  border-radius: 5px;
+}
+#Home_My_NewCar_detailHolder {
+  border: 0px solid transparent;
+  // border: 1px solid black;
+  padding: 0.3em 0.5em;
+}
+#Home_My_New_adMake {
+  border: 0px solid transparent;
+  padding: 0.05em 0.5em;
+  text-align: center;
+  font-size: 1.25em;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #cc0100;
+  display: block;
+}
+#Home_My_New_adMake_2 {
+  border: 0px solid transparent;
+  padding: 0.15em 0.5em;
+  text-align: center;
+  font-size: 0.9em;
+  letter-spacing: 0.7px;
+  color: rgb(59, 59, 59);
+  display: block;
+}
+#Home_My_New_adPrice {
+  border: 0px solid transparent;
+  display: block;
+  padding: 0.05em 0.5em;
+  text-align: center;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+  color: green;
 }

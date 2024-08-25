@@ -1,0 +1,60 @@
+.modalForm {
+    border: 0px solid transparent;
+    /* background-color: lightgreen; */
+    border-radius: 10px 10px;
+    padding: 1em 3em;
+}
+#My_Img_Parent {
+    border: 0px solid transparent;
+    padding: 1.1em 1.1em;
+    border-radius: 10px 10px;
+}
+#My_Img_Parent img{
+    border: 0px solid transparent;
+    width: 75%;
+    display: block;
+    margin: 0em auto;
+}
+.modalForm h2 {
+    border: 0px solid transparent;
+    padding: 0.2em 0em;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.1em;
+}
+.modalForm label {
+    border: 0px solid transparent;
+    padding: 0em 0em;
+    letter-spacing: 1.8px;
+    font-size: 12px;
+}
+.modalForm input {
+    border: 0px solid transparent;
+    padding: 0em 0em;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+.modalForm button {
+    border: 0px solid transparent;
+    padding: 0.5em 0.1em;
+    background-color: #BD0000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.modalForm button:hover {
+    background-color: #640000;
+}
+#Extra_Parent {
+    border: 0.1px solid black;
+    padding: 1em 1em;
+}
+#Extra_Parent_Sub {
+    border: 0.1px solid black;
+    padding: 1em 1em;
+}
+#Extra_Parent_Sub_Box {
+    border: 0.1px solid black;
+    padding: 1em 1em;
+}

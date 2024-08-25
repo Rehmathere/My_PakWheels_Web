@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoaderComponent from "../../components/loaderComponent/loaderComponent";
-import "../AutoParts/Auto_Parts.css";
 import ReactLoading from "react-loading";
 import axios from "axios";
 import MG from "../../assets/images/mg.jpg";
@@ -12,6 +11,8 @@ import Proton from "../../assets/images/proton.webp";
 import Audi from "../../assets/images/audi.webp";
 import Changan from "../../assets/images/changan.webp";
 import Dfsk from "../../assets/images/dfsk.webp";
+import "./NC.scss";
+import "../AutoParts/Auto_Parts.css"
 
 function My_FindNewCars() {
   const navigate = useNavigate();

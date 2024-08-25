@@ -28,8 +28,9 @@ const UsedCarBuyNow = () => {
           limit:3
         });
         if (response.data.ok) {
-          // console.log(response.data.data);
-          setData((prevData) => [...prevData, ...response.data.data]);
+          console.log(response.data.data);
+          setData(response.data.data);
+          // setData((prevData) => [...prevData, ...response.data.data]);
           setIsLoading(false)
           setLoadingMore(false)
         }

@@ -5,10 +5,11 @@ import logo from "../../assets/images/logo.png";
 import Modal from "react-modal";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
+import "./navbar.css";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(UserContext);
-  //login variables
+
   const [loginPhoneNumber, setLoginPhoneNumber] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -21,8 +22,13 @@ const Navbar = () => {
     address: "",
     phoneNumber: "",
   });
+  const [otpError, setOtpError] = useState("");
+  const [otpCode, setOtpCode] = useState("");
 
-  // CUSTOM FUNCTINOS ////////////////
+  const [modalIsOpenLogin, setIsOpenLogin] = useState(false);
+  const [modalIsOpenSignup, setIsOpenSignup] = useState(false);
+  const [modalIsOpenOtp, setIsOpenOtp] = useState(false);
+
   const handleOpenLoginModal = () => {
     openModalLogin();
   };
@@ -58,7 +64,6 @@ const Navbar = () => {
         closeModalLogin();
       }
     } catch (error) {
-      // console.log(error.response.data.error)
       setLoginError(error.response.data.error);
       setDisableBtn(false);
       emptyLoginFields();
@@ -74,7 +79,7 @@ const Navbar = () => {
 
   const signupValidation = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phonePattern = /^03\d{9}$/; // Phone number should start with 03 and be followed by 9 digits
+    const phonePattern = /^03\d{9}$/;
 
     if (
       !signupForm.name ||
@@ -131,12 +136,57 @@ const Navbar = () => {
     });
   };
 
-  const handleSignup = async (e) => {
+  const handleGenerateOtp = async (e) => {
     e.preventDefault();
     if (!signupValidation()) {
       return;
     }
-    // console.log("here")
+    try {
+      setDisableBtn(true);
+      const response = await axios.post(
+        "https://autofinder-backend.vercel.app/api/user/generateotp",
+        { phone: "+923335448744" }
+      );
+      if (response.data.ok) {
+        setDisableBtn(false);
+        setSignupError("");
+        // Do not close the signup modal here
+        openModalOtp(); // Open OTP modal
+      }
+    } catch (error) {
+      console.log(error);
+      setDisableBtn(false);
+      setSignupError(error.response.data.error);
+    }
+  };
+
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://autofinder-backend.vercel.app/api/user/verifyotp",
+        { codeOTP: otpCode }
+      );
+      if (response.data.ok) {
+        setOtpError("OTP Code Is Correct");
+        setTimeout(() => {
+          closeModalOtp(); // Close OTP modal
+          handleSignup();
+        }, 1000);
+        // openModalSignup(); // Open Signup modal again
+      } else {
+        setOtpError("OTP Code Is Wrong");
+      }
+    } catch (error) {
+      setOtpError("OTP Code Is Wrong");
+    }
+  };  
+
+  const handleSignup = async () => {
+    // No need to call e.preventDefault() if there's no event object
+    if (!signupValidation()) {
+      return;
+    }
     try {
       setDisableBtn(true);
       const response = await axios.post(
@@ -147,6 +197,7 @@ const Navbar = () => {
         setDisableBtn(false);
         setSignupError("");
         emptySignupFields();
+        closeModalOtp(); // Close OTP modal on successful signup
         openModalLogin();
       }
     } catch (error) {
@@ -161,14 +212,11 @@ const Navbar = () => {
     dispatch({ type: "LOGOUT" });
   };
 
-  //MODAL FUNCTIONS //////////////
-
-  const [modalIsOpenLogin, setIsOpenLogin] = useState(false);
-  const [modalIsOpenSignup, setIsOpenSignup] = useState(false);
   function openModalLogin() {
     closeModalSignup();
     setIsOpenLogin(true);
   }
+
   function openModalSignup() {
     closeModalLogin();
     setIsOpenSignup(true);
@@ -179,14 +227,24 @@ const Navbar = () => {
     emptyLoginFields();
     setIsOpenLogin(false);
   }
+
   function closeModalSignup() {
     setSignupError("");
-    emptySignupFields();
-    setIsOpenSignup(false);
+    // Do not reset signupForm here
+    setIsOpenSignup(false);  }
+
+  function openModalOtp() {
+    setIsOpenOtp(true);
   }
 
-  // MODAL FUNCTION END ///////////////
-
+  function closeModalOtp() {
+    setOtpError("");
+    setOtpCode("");
+    setIsOpenOtp(false);
+  }
+  // Button Logic
+  const [isButton2Visible, setIsButton2Visible] = useState(false);
+  // Main Body
   return (
     <div className="Navbar-Comp">
       <div className="navbar">
@@ -195,6 +253,8 @@ const Navbar = () => {
         </div>
         <div className="links">
           <NavLink to="/">Home</NavLink>
+          {/* Used Cars */}
+          <NavLink to="/used-car/buy">Used Cars</NavLink>
           {/* New Cars */}
           <NavLink>
             New Cars
@@ -205,7 +265,7 @@ const Navbar = () => {
               </div>
             </div>
           </NavLink>
-          {/* New Cars */}
+          {/* Bikes */}
           <NavLink>
             Bikes
             <div className="dropdown">
@@ -257,22 +317,26 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      {/* --- Login --- */}
       <Modal
         isOpen={modalIsOpenLogin}
         onRequestClose={closeModalLogin}
-        style={customStyles}
         contentLabel="Login Modal"
         ariaHideApp={false}
         className="signUpModalll"
         overlayClassName="overlayyy"
       >
         <form className="modalForm">
+          <div id="My_Img_Parent">
+            <img src={logo} alt="" />
+          </div>
           <h2>Login</h2>
           <div className="modalFormDiv">
             <label htmlFor="email">Email Address:</label>
             <input
               type="number"
-              placeholder="03XX1234567"
+              placeholder=" Enter Email Or Number "
               onChange={(e) => setLoginPhoneNumber(e.target.value)}
               value={loginPhoneNumber}
             />
@@ -293,30 +357,33 @@ const Navbar = () => {
               Login
             </button>
           )}
-
           <p>
-            Don't have an account?{" "}
+            Don't have an account? &nbsp;&nbsp;
             <NavLink onClick={() => openModalSignup()}>Sign Up</NavLink>
           </p>
         </form>
       </Modal>
+
+      {/* --- Signup --- */}
       <Modal
         isOpen={modalIsOpenSignup}
         onRequestClose={closeModalSignup}
-        style={customStyles}
         contentLabel="Signup Modal"
         ariaHideApp={false}
         className="signUpModalll"
         overlayClassName="overlayyy"
       >
         <form className="modalForm">
-          <h2>Signup</h2>
+          <div id="My_Img_Parent">
+            <img src={logo} alt="" />
+          </div>
+          <h2>Sign Up</h2>
           <div className="modalFormDiv">
             <label htmlFor="name">Name:</label>
             <input
               type="text"
               name="name"
-              placeholder="e.g: John Doe"
+              placeholder=" Enter Your Name "
               onChange={handleChangeSignupForm}
               value={signupForm.name}
             />
@@ -326,17 +393,17 @@ const Navbar = () => {
             <input
               type="email"
               name="email"
-              placeholder="username@email.com"
+              placeholder=" Enter Your Email "
               onChange={handleChangeSignupForm}
               value={signupForm.email}
             />
           </div>
           <div className="modalFormDiv">
-            <label htmlFor="email">Phone Number:</label>
+            <label htmlFor="phoneNumber">Phone Number:</label>
             <input
               type="number"
               name="phoneNumber"
-              placeholder="12345"
+              placeholder=" Enter Your Phone Number "
               onChange={handleChangeSignupForm}
               value={signupForm.phoneNumber}
             />
@@ -352,23 +419,57 @@ const Navbar = () => {
             />
           </div>
           <div className="modalFormDiv">
-            <label htmlFor="password">address:</label>
+            <label htmlFor="address">Address:</label>
             <input
               type="text"
               name="address"
-              placeholder="Enter Address"
+              placeholder="Enter Your Address"
               onChange={handleChangeSignupForm}
               value={signupForm.address}
             />
           </div>
           {signupError && <p className="error">{signupError}</p>}
-          {!disableBtn && <button onClick={handleSignup}>Submit</button>}
-          {disableBtn && <button disabled>Submit</button>}
-
+          {!disableBtn && <button onClick={handleGenerateOtp}>Submit</button>}
+          {disableBtn && (
+            <button onClick={handleGenerateOtp} disabled>
+              Sign Up
+            </button>
+          )}
           <p>
-            Already have an account?{" "}
+            Already have an account? &nbsp;&nbsp;
             <NavLink onClick={() => openModalLogin()}>Login</NavLink>
           </p>
+        </form>
+      </Modal>
+      {/* --- OTP --- */}
+      <Modal
+        isOpen={modalIsOpenOtp}
+        onRequestClose={closeModalOtp}
+        contentLabel="OTP Modal"
+        ariaHideApp={false}
+        className="signUpModalll"
+        overlayClassName="overlayyy"
+      >
+        <form className="modalForm">
+          <br />
+          <div id="My_Img_Parent">
+            <img src={logo} alt="" />
+          </div>
+          <h2>Verify OTP</h2>
+          <div className="modalFormDiv">
+            <label htmlFor="otp">OTP Code:</label>
+            <input
+              type="number"
+              name="otp"
+              placeholder=" Enter OTP Code "
+              onChange={(e) => setOtpCode(e.target.value)}
+              value={otpCode}
+            />
+          </div>
+          {otpError && <p className="error">{otpError}</p>}
+          <button onClick={handleVerifyOtp}>Verify OTP</button>
+          <br />
+          <br />
         </form>
       </Modal>
     </div>
@@ -376,27 +477,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-const customStyles = {
-  // content: {
-  //   top: "50%",
-  //   left: "50%",
-  //   right: "auto",
-  //   bottom: "auto",
-  //   marginRight: "-50%",
-  //   transform: "translate(-50%, -50%)",
-  //   backgroundColor: "#f4f4f4",
-  //   width:"30%",
-  //   "@media (maxWidth: 768px)": {
-  //     width: "100%", // Change width to 100% on devices with maximum width of 768px
-  //   },
-  // },
-  // overlay: {
-  //   position: "fixed",
-  //   top: 0,
-  //   left: 0,
-  //   right: 0,
-  //   bottom: 0,
-  //   backgroundColor: "rgba(0, 0, 0, 0.5)",
-  // },
-};

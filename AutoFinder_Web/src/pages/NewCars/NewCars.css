@@ -1,0 +1,156 @@
+/* --- Find New Cars --- */
+#New_Cars_Popular_heading {
+    border: 0px solid transparent;
+    padding: 0em 0.6em;
+    font-weight: bold;
+    display: block;
+    font-size: 1.6em;
+  }
+  #New_Cars_Popular_P {
+    border: 0px solid transparent;
+    padding: 0.3em 1em;
+  }
+  #New_Cars_Box_Parent {
+    border: 0px solid transparent;
+    padding: 0.2em 0.2em;
+  }
+  #New_Cars_Box_Parent_Sub {
+    border: 0px solid transparent;
+    padding: 0.1em 0.2em 1em 0.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #New_Cars_Box {
+    border: 0.1px solid rgb(155, 155, 155);
+    padding: 0.5em 0.5em;
+    width: 23.5%;
+    margin: 2em 0em 0em 0.85em;
+    border-radius: 10px;
+  }
+  #New_Cars_Box:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */
+  }
+  #My_NewCar_imgHolder {
+    border: 0px solid transparent;
+    padding: 0.5em 0.5em;
+  }
+  #My_NewCar_imgHolder img {
+    border: 0px solid transparent;
+    width: 100%;
+    border-radius: 5px;
+  }
+  #My_NewCar_detailHolder {
+    border: 0px solid transparent;
+    padding: 0.2em 0.5em;
+  }
+  #My_NewCar_detailHolder_E {
+    border: 0px solid transparent;
+    border: 1px solid black;
+    padding: 2em 2em;
+  }
+  #My_NewCar_imgHolder_E img {
+    border: 0px solid transparent;
+    width: 40%;
+    border-radius: 5px;
+    display: block;
+    margin: 0em auto;
+  }
+  #My_New_adMake {
+    border: 0px solid transparent;
+    padding: 0.05em 0.5em;
+    text-align: center;
+    font-size: 1.25em;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    color: #cc0100;
+    display: block;
+  }
+  #My_New_adMake_2 {
+    border: 0px solid transparent;
+    padding: 0.15em 0.5em;
+    text-align: center;
+    font-size: 0.9em;
+    letter-spacing: 0.7px;
+    color: rgb(59, 59, 59);
+    display: block;
+  }
+  #My_New_adPrice {
+    border: 0px solid transparent;
+    display: block;
+    padding: 0.05em 0.5em;
+    text-align: center;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+    color: green;
+  }
+  /* Find Portion */
+  #New_Cars_Find_Parent {
+    border: 0px solid transparent;
+    padding: 1em 1em;
+  }
+  #New_Cars_Find_Parent_Sub {
+    border: 0px solid transparent;
+    padding: 1em 1em;
+  }
+  #New_Cars_Find_Parent_Sub_Box {
+    border: 0px solid transparent;
+    padding: 4em 4em;
+    width: 60%;
+    margin: 0em auto;
+    background-color: #f39c12;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  #New_Cars_Find_Parent_Sub_Box_Main {
+    border: 0.1px solid white;
+    padding: 0.15em 0.1em 0.18em 0.1em;
+    width: 100%;
+    margin: 0em auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 50px 50px 50px;
+  }
+  #New_Cars_My_Input {
+    width: 100%;
+    padding: 1em 0.5em 1em 1em;
+    border: 0.1px solid white;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    border-radius: 30px 0px 0px 30px;
+  }
+  #New_Cars_My_Input:focus {
+    outline: none;
+  }
+  #New_Cars_My_Input_Btn {
+    border: 0px solid transparent;
+    background-color: #bd0000;
+    padding: 1em 1em;
+    width: 13%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 50%;
+  }
+  #New_Cars_My_Input_Btn_I {
+    font-size: 1.5em;
+    color: white;
+  }
+  #New_Cars_My_Input_Btn:hover {
+    background-color: #6d0000;
+  }
+  #New_Cars_My_Input_Btn:focus {
+    background-color: #6d0000;
+  }
+  /* --- Find New Cars --- */
+  

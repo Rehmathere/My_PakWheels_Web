@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import LoaderComponent from "../../components/loaderComponent/loaderComponent";
-import "../AutoParts/Auto_Parts.css";
 // Images
 import True_Img from "../../assets/images/True_Img.png";
 import False_Img from "../../assets/images/False_Img.png";
+import "../AutoParts/Auto_Parts.css";
 
 function My_NewCarsDetail() {
   const [carData, setCarData] = useState([]);
