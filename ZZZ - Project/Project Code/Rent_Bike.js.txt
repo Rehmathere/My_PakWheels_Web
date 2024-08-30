@@ -1,0 +1,299 @@
+import React from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  StatusBar,
+} from "react-native";
+import { useState, useEffect, useContext } from "react";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import SyncStorage from "sync-storage"; // Import SyncStorage for checking login status
+import { UserContext } from "../../context/userContext"; // Import UserContext for user data
+import SearchBar from "../searchBar";
+
+const Rent_Bike = () => {
+  const navigation = useNavigation();
+  const { user } = useContext(UserContext); // Get user data from context
+
+  const handleBack = () => {
+    navigation.goBack();
+  };
+
+  const handleRentABike = () => {
+    if (SyncStorage.get("token")) {
+      navigation.navigate("Rent_Bike_Post");
+    } else {
+      navigation.navigate("welcome");
+    }
+  };
+
+  // API
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://autofinder-backend.vercel.app/api/bike"
+      );
+      setData(response.data.data);
+    } catch (error) {
+      console.error("Error fetching bike data: ", error);
+    }
+  };
+
+  // Main Body
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleBack} style={styles.backButton}>
+          <Image
+            source={require("../../assets/back-arrow.png")}
+            style={styles.backIcon}
+          />
+        </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Rent Bike</Text>
+        </View>
+      </View>
+      {/* - Search Bar - */}
+      <View style={styles.rowContainer}>
+        {/* Search bar */}
+        <View style={styles.SearchBar}>
+          {/* Your search bar component goes here */}
+          <SearchBar />
+        </View>
+      </View>
+      {/* - Search Bar - */}
+      <View style={styles.Container_Sub}>
+        {/* Body */}
+        <ScrollView>
+          {data.length > 0 &&
+            data.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() =>
+                  navigation.navigate("Rent_Bike_Details", { item })
+                }
+              >
+                <View style={[styles.card]}>
+                  <View style={styles.imageContainer}>
+                    {item.images.length > 0 && (
+                      <Image
+                        source={{ uri: item.images[0] }}
+                        style={styles.image}
+                      />
+                    )}
+                  </View>
+                  <View style={styles.detailsContainer}>
+                    <Text style={styles.name}>{item.model}</Text>
+                    <Text style={styles.variant}>{item.brand}</Text>
+                    <Text style={styles.price}>PKR {item.price}</Text>
+
+                    {/* Upper view */}
+                    <View style={styles.upperView}>
+                      <View style={styles.infoContainer}>
+                        <Image
+                          source={require("../../assets/modelYear.png")}
+                          style={styles.infoImage}
+                        />
+                        <Text style={styles.infoText}>{item.year}</Text>
+                      </View>
+                      <View style={styles.infoContainer}>
+                        <Image
+                          source={require("../../assets/carMeter.png")}
+                          style={styles.infoImage}
+                        />
+                        <Text style={styles.infoText}>{item.KmDriven}</Text>
+                      </View>
+                    </View>
+
+                    {/* Lower view */}
+                    <View style={styles.lowerView}>
+                      <View style={styles.infoContainer}>
+                        <Image
+                          source={require("../../assets/fuelIcon.png")}
+                          style={styles.infoImage}
+                        />
+                        <Text style={styles.infoText}>{item.fuelType}</Text>
+                      </View>
+                      <View style={styles.infoContainer}>
+                        <Image
+                          source={require("../../assets/locationIcon.png")}
+                          style={styles.infoImage}
+                        />
+                        <Text style={styles.infoText}>{item.location}</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ))}
+        </ScrollView>
+      </View>
+      <View style={styles.button_Parent}>
+        <TouchableOpacity style={styles.button} onPress={handleRentABike}>
+          <Text style={styles.buttonText}>Rent Your Bike</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  header: {
+    backgroundColor: "#bd2a2a",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingTop: StatusBar.currentHeight,
+  },
+  backButton: {
+    // paddingRight: 20,
+    tintColor: "white",
+    marginLeft: 5,
+  },
+  backIcon: {
+    width: 25,
+    height: 25,
+    tintColor: "white",
+  },
+  titleContainer: {
+    flex: 1,
+  },
+  title: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    alignSelf: "center",
+  },
+  Container_Sub: {
+    flex: 1,
+    // backgroundColor: "lightgreen",
+  },
+  button_Parent: {
+    // borderWidth: 0.5,
+    backgroundColor: "white",
+  },
+  button: {
+    backgroundColor: "#bd2a2a",
+    padding: 15,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  card: {
+    backgroundColor: "#fff",
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    flexDirection: "row",
+    position: "relative",
+    marginBottom: 1,
+  },
+  imageContainer: {
+    width: 100,
+    marginRight: 10,
+    justifyContent: "center", // Center vertically
+    alignItems: "center", // Center horizontally
+  },
+  image: {
+    width: "100%",
+    height: 100,
+    borderRadius: 5,
+    // marginTop: 20,
+  },
+  featuredIcon: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    width: 30,
+    height: 30,
+  },
+  detailsContainer: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: "bold",
+    marginBottom: 5,
+    color: "#bd2a2a",
+  },
+  variant: {
+    fontSize: 12,
+    marginBottom: 5,
+    color: "grey",
+  },
+  price: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "black",
+    marginBottom: 10,
+  },
+  upperView: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 5,
+  },
+  lowerView: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  infoContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  infoImage: {
+    width: 15,
+    height: 15,
+    marginRight: 5,
+    tintColor: "#bd2a2a",
+  },
+  infoText: {
+    fontSize: 12,
+  },
+  rowContainer: {
+    backgroundColor: "#bd2a2a",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 8,
+    paddingBottom: 10,
+  },
+  SearchBar: {
+    alignSelf: "center",
+    backgroundColor: "#bd2a2a",
+    borderRadius: 5,
+    paddingHorizontal: 1,
+    width: "90%",
+    borderColor: "transparent",
+    marginHorizontal: 20,
+  },
+});
+
+export default Rent_Bike;

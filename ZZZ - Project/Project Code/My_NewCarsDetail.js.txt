@@ -1,0 +1,150 @@
+import React, { useEffect, useState } from "react";
+import LoaderComponent from "../../components/loaderComponent/loaderComponent";
+import "../AutoParts/Auto_Parts.css";
+
+function My_NewCarsDetail() {
+  const [carData, setCarData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCarData = async () => {
+      try {
+        const response = await fetch(
+          "https://autofinder-backend.vercel.app/api/newCar"
+        );
+        const data = await response.json();
+        setCarData(data.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching car data", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchCarData();
+  }, []);
+
+  return (
+    <>
+      {isLoading && <LoaderComponent />}
+
+      <div className={`BuyNow ${isLoading ? "Fade-out" : "Fade-in"}`}>
+        {!isLoading && carData.length > 0 && (
+          <>
+            <div className="pageHeadingCont">
+              <h1>Car Details</h1>
+            </div>
+            <div className="underHeadingCont">
+              {/* ---- Displaying data for the first car ----
+                <div>
+                  <h2>Car 1</h2>
+                  <p>Year: {carData[0].year}</p>
+                  <p>Make: {carData[0].make}</p>
+                  <p>Model: {carData[0].model}</p>
+
+                  <h3>Specifications</h3>
+                  <div>
+                    <h4>Dimensions</h4>
+                    <p>Overall Length: {carData[0].specifications.dimensions.overallLength}</p>
+                    <p>Overall Width: {carData[0].specifications.dimensions.overallWidth}</p>
+                    <p>Overall Height: {carData[0].specifications.dimensions.overallHeight}</p>
+                    <p>Wheel Base: {carData[0].specifications.dimensions.wheelBase}</p>
+                    <p>Ground Clearance: {carData[0].specifications.dimensions.groundClearance}</p>
+                    <p>Kerb Weight: {carData[0].specifications.dimensions.kerbWeight}</p>
+                    <p>Boot Space: {carData[0].specifications.dimensions.bootSpace}</p>
+                    <p>Seating Capacity: {carData[0].specifications.dimensions.seatingCapacity}</p>
+                    <p>No. of Doors: {carData[0].specifications.dimensions.noOfDoors}</p>
+                  </div>
+                </div>
+
+                ---- Displaying data for the second car ----
+                <div>
+                  <h2>Car 2</h2>
+                  <p>Year: {carData[1].year}</p>
+                  <p>Make: {carData[1].make}</p>
+                  <p>Model: {carData[1].model}</p>
+
+                  <h3>Specifications</h3>
+                  <div>
+                    <h4>Dimensions</h4>
+                    <p>Overall Length: {carData[1].specifications.dimensions.overallLength}</p>
+                    <p>Overall Width: {carData[1].specifications.dimensions.overallWidth}</p>
+                    <p>Overall Height: {carData[1].specifications.dimensions.overallHeight}</p>
+                    <p>Wheel Base: {carData[1].specifications.dimensions.wheelBase}</p>
+                    <p>Ground Clearance: {carData[1].specifications.dimensions.groundClearance}</p>
+                    <p>Kerb Weight: {carData[1].specifications.dimensions.kerbWeight}</p>
+                    <p>Boot Space: {carData[1].specifications.dimensions.bootSpace}</p>
+                    <p>Seating Capacity: {carData[1].specifications.dimensions.seatingCapacity}</p>
+                    <p>No. of Doors: {carData[1].specifications.dimensions.noOfDoors}</p>
+                  </div>
+                </div> */}
+              <div id="My_CarDetails_Parent">
+                <div id="My_CarDetails_Parent_Box">
+                  <h2>Compare Specifications :</h2>
+                  {/* --- Table --- */}
+                  <table>
+                    <thead>
+                      <tr>
+                        <th colSpan={3}>Dimensions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Overall Length</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.overallLength}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.overallLength}</td>
+                      </tr>
+                      <tr>
+                        <td>Overall Width</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.overallWidth}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.overallWidth}</td>
+                      </tr>
+                      <tr>
+                        <td>Overall Height</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.overallHeight}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.overallHeight}</td>
+                      </tr>
+                      <tr>
+                        <td>Wheel Base</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.wheelBase}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.wheelBase}</td>
+                      </tr>
+                      <tr>
+                        <td>Ground Clearance</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.groundClearance}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.groundClearance}</td>
+                      </tr>
+                      <tr>
+                        <td>Kerb Weight</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.kerbWeight}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.kerbWeight}</td>
+                      </tr>
+                      <tr>
+                        <td>Boot Space</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.bootSpace}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.bootSpace}</td>
+                      </tr>
+                      <tr>
+                        <td>Seating Capacity</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.seatingCapacity}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.seatingCapacity}</td>
+                      </tr>
+                      <tr>
+                        <td>No. of Doors</td>
+                        <td id="Td_Mid">{carData[0].specifications.dimensions.noOfDoors}</td>
+                        <td id="Td_Mid">{carData[1].specifications.dimensions.noOfDoors}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {/* --- Table --- */}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  );
+}
+
+export default My_NewCarsDetail;

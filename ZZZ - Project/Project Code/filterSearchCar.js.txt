@@ -1,0 +1,940 @@
+import React from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  TextInput,
+  StatusBar,
+} from "react-native";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import LocationPicker from "../locationPicker";
+import CarModelPicker from "../carModelPicker";
+import RegisteredPicker from "../registeredPicker";
+import BodyColorPicker from "../bodyColor";
+import DescribeYourCar from "./pendingAds";
+import FuelTypePicker from "../fuelTypePicker";
+import InputRange from "../inputRange";
+import FilterApply from "../filterApply";
+import axios from "axios";
+import CarModelFilter from "../carModelFilter";
+import BrandFilter from "../carBrandFilter";
+// import RangeSlider, { Slider } from 'react-native-range-slider-expo';
+// import { Slider } from '@react-native-community/slider';
+
+const filterSearchCar = () => {
+  // let A = '';
+  const navigation = useNavigation();
+  const [locationModalVisible, setLocationModalVisible] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState("");
+  // const [carModelModalVisible, setCarModelModalVisible] = useState(false);
+  // const [selectedYear, setSelectedYear] = useState("");
+  // const [selectedBrand, setSelectedBrand] = useState("");
+  // const [selectedVariant, setSelectedVariant] = useState("");
+  const [registeredModalVisible, setRegisteredModalVisible] = useState(false);
+  const [selectedRegisteredLocation, setSelectedRegisteredLocation] =
+    useState("");
+  const [bodyColorModalVisible, setBodyColorModalVisible] = useState(false);
+  const [selectedBodyColor, setSelectedBodyColor] = useState("");
+  const [selectedKmDriven, setSelectedKmDriven] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedDescription, setSelectedDescription] = useState("");
+  const [describeYourCarModalVisible, setDescribeYourCarModalVisible] =
+    useState(false);
+  const [selectedSuggestions, setSelectedSuggestions] = useState([]);
+  const [fuelTypeModalVisible, setFuelTypeModalVisible] = useState(false);
+  const [selectedFuelType, setSelectedFuelType] = useState("");
+  const [selectedTransmission, setSelectedTransmission] = useState("");
+  const [selectedAssembly, setSelectedAssembly] = useState("");
+  const [isFeaturePickerVisible, setIsFeaturePickerVisible] = useState(false);
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const [selectedDriveOption, setSelectedDriveOption] = useState("");
+  const [area, setArea] = useState("");
+  const [selectedFilters, setSelectedFilters] = useState({});
+  const [location, setLocation] = useState("");
+  const [isReset, setIsReset] = useState(false);
+
+  // const [minYear, setMinYear] = useState(0);
+  // const [maxYear, setMaxYear] = useState(0);
+
+  // State variables for model year range
+  const [minModelYear, setMinModelYear] = useState(1940);
+  const [maxModelYear, setMaxModelYear] = useState(2022);
+
+  // State variables for price range
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(24000000);
+
+  // State variables for kilometers driven
+  const [minKMDriven, setMinKMDriven] = useState(0);
+  const [maxKMDriven, setMaxKMDriven] = useState(200000);
+
+  // State variables for engine capacity
+  const [minEngineCapacity, setMinEngineCapacity] = useState(400);
+  const [maxEngineCapacity, setMaxEngineCapacity] = useState(2000);
+
+  const [carModelModalFilterVisible, setCarModelModalFilterVisible] =
+    useState(false);
+  const [selectedCarModelFilter, setSelectedCarModelFilter] = useState("");
+
+  const [brandModalFilterVisible, setBrandModalFilterVisible] = useState(false);
+  const [selectedBrandFilter, setSelectedBrandFilter] = useState("");
+
+  const handleYearRange = (minValue, maxValue) => {
+    setMinModelYear(minValue);
+    setMaxModelYear(maxValue);
+  };
+
+  const handlePriceRange = (minValue, maxValue) => {
+    setMinPrice(minValue);
+    setMaxPrice(maxValue);
+  };
+
+  const handleKMDrivenRange = (minValue, maxValue) => {
+    setMinKMDriven(minValue);
+    setMaxKMDriven(maxValue);
+  };
+
+  const handleEngineCapacityRange = (minValue, maxValue) => {
+    setMinEngineCapacity(minValue);
+    setMaxEngineCapacity(maxValue);
+  };
+
+  const applyFilters = async (filters) => {
+    // Update the selected filters state here
+    setSelectedFilters(filters);
+    const filterObject = {
+      minModelYear: minModelYear,
+      maxModelYear: maxModelYear,
+      minPrice: minPrice,
+      maxPrice: maxPrice,
+      minKMDriven: minKMDriven,
+      maxKMDriven: maxKMDriven,
+      minEngineCapacity: minEngineCapacity,
+      maxEngineCapacity: maxEngineCapacity,
+      selectedLocation: selectedLocation,
+      selectedBodyColor: selectedBodyColor,
+      selectedAssembly: selectedAssembly,
+      selectedFuelType: selectedFuelType,
+      selectedTransmission: selectedTransmission,
+      selectedRegisteredLocation: selectedRegisteredLocation,
+      selectedBrand: "",
+      selectedCarModelFilter: selectedCarModelFilter,
+      selectedBrandFilter: selectedBrandFilter,
+    };
+    console.log("here")
+    navigation.navigate("buyNow", { ...filterObject, dataIs: "FilterData" });
+  };
+
+  const handleBack = () => {
+    navigation.goBack();
+  };
+  const handleOpenLocationPicker = () => {
+    setLocationModalVisible(true);
+  };
+  const handleCloseLocationPicker = () => {
+    setLocationModalVisible(false);
+  };
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    // A = location;
+    handleCloseLocationPicker();
+    // console.log(A);
+  };
+  // const handleOpenCarModelPicker = () => {
+  //   setCarModelModalVisible(true);
+  // };
+  // const handleCloseCarModelPicker = () => {
+  //   setCarModelModalVisible(false);
+  // };
+  // const handleYearSelect = (year) => {
+  //   setSelectedYear(year);
+  //   handleCloseCarModelPicker();
+  //   // Implement logic to open brand picker
+  // };
+  // const handleBrandSelect = (brand) => {
+  //   setSelectedBrand(brand);
+  //   handleCloseCarModelPicker();
+  //   // Implement logic to open variant picker
+  // };
+  // const handleVariantSelect = (variant) => {
+  //   setSelectedVariant(variant);
+  //   handleCloseCarModelPicker();
+  // };
+
+  const handleOpenRegisteredPicker = () => {
+    setRegisteredModalVisible(true);
+  };
+  const handleCloseRegisteredPicker = () => {
+    setRegisteredModalVisible(false);
+  };
+  const handleRegisteredSelect = (location) => {
+    setSelectedRegisteredLocation(location);
+    handleCloseRegisteredPicker();
+  };
+  const handleOpenBodyColorPicker = () => {
+    setBodyColorModalVisible(true);
+  };
+  const handleCloseBodyColorPicker = () => {
+    setBodyColorModalVisible(false);
+  };
+  const handleBodyColorSelect = (color) => {
+    setSelectedBodyColor(color);
+    handleCloseBodyColorPicker();
+  };
+  const handleViewSuggestions = () => {
+    setDescribeYourCarModalVisible(true);
+  };
+  const handleDescribeYourCarDone = (selectedOptions) => {
+    setSelectedDescription(selectedOptions.join(", "));
+    setDescribeYourCarModalVisible(false);
+  };
+  const handleOpenFuelTypePicker = () => {
+    setFuelTypeModalVisible(true);
+  };
+  const handleCloseFuelTypePicker = () => {
+    setFuelTypeModalVisible(false);
+  };
+  const handleFuelTypeSelect = (fuelType) => {
+    setSelectedFuelType(fuelType);
+    handleCloseFuelTypePicker();
+  };
+  const handleFeaturePickerDone = (selectedFeatures) => {
+    setSelectedFeatures(selectedFeatures);
+    setIsFeaturePickerVisible(false);
+  };
+  const handlePostYourAd = () => {
+    // Handle the logic for posting the ad
+    console.log("Ad posted!");
+    // Add any additional logic you need for posting the ad
+  };
+
+  const handlePremiumAdService = () => {
+    // Handle the logic for navigating to Premium Ad Service or any other action
+    console.log("Navigate to Premium Ad Service");
+  };
+
+  const handleTransmissionSelect = (transmissionType) => {
+    setSelectedTransmission(transmissionType);
+  };
+
+  const handleDriveOptionSelect = (driveOption) => {
+    setSelectedDriveOption(driveOption);
+  };
+
+  const handleAssemblySelect = (assemblyType) => {
+    setSelectedAssembly(assemblyType);
+  };
+  const handleSelectAvailability = (availability) => {
+    setSelectedAvailability(availability);
+  };
+
+  const handleApplyFilter = () => {};
+
+  const handleResetFilter = () => {
+    setIsReset(true);
+
+    // Reset isReset after a short delay to allow re-render
+    setTimeout(() => {
+      setIsReset(false);
+    }, 100);
+  };
+
+  const handleOpenCarModelFilterPicker = () => {
+    setCarModelModalFilterVisible(true);
+  };
+
+  const handleCloseCarModelFilterPicker = () => {
+    setCarModelModalFilterVisible(false);
+  };
+
+  const handleCarModelFilterSelect = (model) => {
+    setSelectedCarModelFilter(model);
+    handleCloseCarModelFilterPicker();
+  };
+
+  const handleOpenBrandFilterPicker = () => {
+    setBrandModalFilterVisible(true);
+  };
+
+  const handleCloseBrandFilterPicker = () => {
+    setBrandModalFilterVisible(false);
+  };
+
+  const handleBrandFilterSelect = (brand) => {
+    setSelectedBrandFilter(brand);
+    handleCloseBrandFilterPicker();
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleBack} style={styles.backButton}>
+          <Image
+            source={require("../../assets/back-arrow.png")}
+            style={styles.backIcon}
+          />
+        </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Filter your search</Text>
+        </View>
+      </View>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <InputRange
+          min={1940}
+          max={2022}
+          title={"Model Year Range"}
+          steps={1}
+          onValueChange={handleYearRange}
+        />
+
+        <InputRange
+          min={0}
+          max={24000000}
+          title={"Price Range"}
+          steps={1} // Specify the step value
+          onValueChange={handlePriceRange}
+        />
+
+        <InputRange
+          min={0}
+          max={200000}
+          title={"KMs Driven"}
+          steps={1} // Specify the step value
+          onValueChange={handleKMDrivenRange}
+        />
+
+        <InputRange
+          min={400}
+          max={2000}
+          title={"Engine Capacity CC"}
+          steps={1} // Specify the step value
+          onValueChange={handleEngineCapacityRange}
+        />
+
+        <TouchableOpacity
+          style={styles.selectLocationButton}
+          onPress={handleOpenLocationPicker}
+        >
+          <Image
+            source={require("../../assets/locationIcon.png")}
+            style={styles.locationIcon}
+          />
+          <Text style={styles.selectLocationText}>
+            {selectedLocation || "Location"}
+          </Text>
+        </TouchableOpacity>
+        <LocationPicker
+          isVisible={locationModalVisible}
+          onClose={handleCloseLocationPicker}
+          onSelectLocation={handleLocationSelect}
+        />
+
+        <TouchableOpacity
+          style={styles.selectRegisteredButton}
+          onPress={handleOpenCarModelFilterPicker}
+        >
+          <Image
+            source={require("../../assets/carFrontIcon.png")} // Assuming you have a car icon
+            style={styles.locationIcon}
+          />
+          <Text style={styles.selectLocationText}>
+            {selectedCarModelFilter || "Choose Model"}
+          </Text>
+        </TouchableOpacity>
+        <CarModelFilter
+          isVisible={carModelModalFilterVisible}
+          onClose={handleCloseCarModelFilterPicker}
+          onSelectModel={handleCarModelFilterSelect}
+        />
+
+        <TouchableOpacity
+          style={styles.selectRegisteredButton}
+          onPress={handleOpenBrandFilterPicker}
+        >
+          <Image
+            source={require("../../assets/brand.png")}
+            style={styles.locationIcon}
+          />
+          <Text style={styles.selectLocationText}>
+            {selectedBrandFilter || "Choose Brand"}
+          </Text>
+        </TouchableOpacity>
+        <BrandFilter
+          isVisible={brandModalFilterVisible}
+          onClose={handleCloseBrandFilterPicker}
+          onSelectBrand={handleBrandFilterSelect}
+        />
+
+        {/* <TouchableOpacity
+          style={styles.selectCarModelButton}
+          onPress={handleOpenCarModelPicker}
+        >
+          <Image
+            source={require("../assets/carFrontIcon.png")}
+            style={styles.carModelIcon}
+          />
+          <Text style={styles.selectCarModelText}>
+            {selectedYear ? `${selectedYear} ` : ""}
+            {selectedBrand ? `${selectedBrand} ` : ""}
+            {selectedVariant || "Car Model"}
+          </Text>
+        </TouchableOpacity>
+
+        <CarModelPicker
+          isVisible={carModelModalVisible}
+          onClose={handleCloseCarModelPicker}
+          onSelectYear={handleYearSelect}
+          onSelectBrand={handleBrandSelect}
+          onSelectVariant={handleVariantSelect}
+        /> */}
+
+        <TouchableOpacity
+          style={styles.selectRegisteredButton}
+          onPress={handleOpenRegisteredPicker}
+        >
+          <Image
+            source={require("../../assets/registered.png")}
+            style={styles.locationIcon}
+          />
+          <Text style={styles.selectLocationText}>
+            {selectedRegisteredLocation || "Registration Site"}
+          </Text>
+        </TouchableOpacity>
+        <RegisteredPicker
+          isVisible={registeredModalVisible}
+          onClose={handleCloseRegisteredPicker}
+          onSelectCity={handleRegisteredSelect}
+        />
+
+        <TouchableOpacity
+          style={styles.selectBodyColorButton}
+          onPress={handleOpenBodyColorPicker}
+        >
+          <Image
+            source={require("../../assets/bodycolour.png")}
+            style={styles.bodyColorIcon}
+          />
+          <Text style={styles.selectBodyColorText}>
+            {selectedBodyColor || "Body Shade"}
+          </Text>
+        </TouchableOpacity>
+
+        <BodyColorPicker
+          isVisible={bodyColorModalVisible}
+          onClose={handleCloseBodyColorPicker}
+          onSelectColor={handleBodyColorSelect}
+        />
+
+        <TouchableOpacity
+          style={styles.selectFuelTypeButton}
+          onPress={handleOpenFuelTypePicker}
+        >
+          <Image
+            source={require("../../assets/fuelIcon.png")}
+            style={styles.fuelTypeIcon}
+          />
+          <Text style={styles.selectFuelTypeText}>
+            {selectedFuelType || "Fuel Type"}
+          </Text>
+        </TouchableOpacity>
+
+        <FuelTypePicker
+          isVisible={fuelTypeModalVisible}
+          onClose={handleCloseFuelTypePicker}
+          onSelectFuelType={handleFuelTypeSelect}
+        />
+
+        <View style={styles.selectTransmissionContainer}>
+          <Text style={styles.selectTransmissionText}>Gear Transmission</Text>
+          <View style={styles.toggleButtonContainer}>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                selectedTransmission === "Automatic" && styles.selectedButton,
+              ]}
+              onPress={() => setSelectedTransmission("Automatic")}
+            >
+              <Text
+                style={[
+                  styles.toggleButtonText,
+                  selectedTransmission === "Automatic" &&
+                    styles.selectedButtonText,
+                ]}
+              >
+                Automatic
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                selectedTransmission === "Manual" && styles.selectedButton,
+              ]}
+              onPress={() => setSelectedTransmission("Manual")}
+            >
+              <Text
+                style={[
+                  styles.toggleButtonText,
+                  selectedTransmission === "Manual" &&
+                    styles.selectedButtonText,
+                ]}
+              >
+                Manual
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.selectAssemblyContainer}>
+          <Text style={styles.selectAssemblyText}>Assembly Integrated</Text>
+          <View style={styles.toggleButtonContainer}>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                selectedAssembly === "Imported" && styles.selectedButton,
+              ]}
+              onPress={() => handleAssemblySelect("Imported")}
+            >
+              <Text
+                style={[
+                  styles.toggleButtonText,
+                  selectedAssembly === "Imported" && styles.selectedButtonText,
+                ]}
+              >
+                Imported
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.toggleButton,
+                selectedAssembly === "Local" && styles.selectedButton,
+              ]}
+              onPress={() => handleAssemblySelect("Local")}
+            >
+              <Text
+                style={[
+                  styles.toggleButtonText,
+                  selectedAssembly === "Local" && styles.selectedButtonText,
+                ]}
+              >
+                Local
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+      <FilterApply
+        onApplyFilter={applyFilters}
+        onResetFilter={handleResetFilter}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // alignItems: 'center',
+    // backgroundColor: "white",
+    // padding: 10
+  },
+  InputRange: {
+    flex: 1,
+  },
+  header: {
+    backgroundColor: "#bd2a2a",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 5,
+  },
+  backButton: {
+    // paddingRight: 20,
+    tintColor: "white",
+  },
+  backIcon: {
+    width: 20,
+    height: 20,
+    tintColor: "white",
+  },
+  titleContainer: {
+    flex: 1,
+  },
+  title: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    alignSelf: "center",
+    marginLeft: 5,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    // alignItems: 'center',
+  },
+  selectLocationButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 40,
+    alignSelf: "center",
+  },
+  locationIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 10,
+    marginTop: 15,
+    tintColor: "lightgrey",
+  },
+  selectLocationText: {
+    fontSize: 14,
+    color: "black",
+    marginLeft: 15,
+    marginTop: 13,
+  },
+  selectCarModelButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  carModelIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 10,
+    tintColor: "lightgrey",
+  },
+  selectCarModelText: {
+    fontSize: 13,
+    color: "grey",
+    marginLeft: 15,
+    // Other text styles
+  },
+  selectRegisteredButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 10,
+    // justifyContent: 'center',
+    alignSelf: "center",
+  },
+  selectBodyColorButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  bodyColorIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 10,
+    tintColor: "lightgrey",
+  },
+  selectBodyColorText: {
+    fontSize: 14,
+    color: "grey",
+    marginLeft: 15,
+  },
+  selectKmDrivenButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  kmIcon: {
+    width: 30,
+    height: 30,
+    marginLeft: 5,
+    justifyContent: "center",
+    tintColor: "#bd2a2a",
+  },
+  textInput: {
+    flex: 1,
+    height: "100%",
+    borderColor: "white",
+    borderWidth: 1, // Remove the border to make it look like other fields
+    borderRadius: 5,
+    paddingLeft: 10,
+    fontSize: 14,
+  },
+  selectPriceButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 2,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  priceIcon: {
+    width: 25,
+    height: 25,
+    marginLeft: 5,
+    justifyContent: "center",
+    tintColor: "#bd2a2a",
+  },
+
+  selectDescriptionButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 2,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  descriptionIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 5,
+    justifyContent: "center",
+    tintColor: "#bd2a2a",
+  },
+  viewSuggestionsText: {
+    color: "#2884ec",
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop: 20,
+    textAlign: "center",
+  },
+  selectDriveOptionContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+    alignSelf: "center",
+  },
+  selectDriveOptionText: {
+    fontSize: 16,
+    marginRight: 30,
+    fontWeight: "bold",
+    color: "black",
+  },
+  selectFuelTypeButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 300,
+    borderColor: "#bd2a2a",
+    // borderWidth: 1,
+    // borderRadius: 5,
+    borderBottomWidth: 1,
+    marginTop: 10,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  fuelTypeIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 5,
+    justifyContent: "center",
+    tintColor: "lightgrey",
+  },
+  selectFuelTypeText: {
+    fontSize: 14,
+    color: "grey",
+    marginLeft: 15,
+    // marginTop: 13,
+  },
+  selectTransmissionContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+    alignSelf: "center",
+  },
+  selectTransmissionText: {
+    fontSize: 16,
+    marginRight: 30,
+    fontWeight: "bold",
+    color: "black",
+  },
+
+  toggleButtonContainer: {
+    flexDirection: "column",
+  },
+  toggleButton: {
+    backgroundColor: "white",
+    borderColor: "#bd2a2a",
+    borderWidth: 1,
+    borderRadius: 20,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginRight: 20,
+  },
+  toggleButtonText: {
+    fontSize: 14,
+    color: "#bd2a2a",
+    textAlign: "center",
+  },
+  selectedButton: {
+    backgroundColor: "#bd2a2a",
+  },
+  selectedButtonText: {
+    color: "white",
+  },
+  selectAssemblyContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+    marginLeft: 20,
+    alignSelf: "center",
+  },
+  selectAssemblyText: {
+    fontSize: 16,
+    marginRight: 30,
+    fontWeight: "bold",
+    color: "black",
+  },
+  toggleButtonContainer: {
+    flexDirection: "column",
+  },
+  toggleButton: {
+    backgroundColor: "white",
+    borderColor: "#bd2a2a",
+    borderWidth: 1,
+    borderRadius: 30,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    marginRight: 20,
+    marginTop: 10,
+  },
+  toggleButtonText: {
+    fontSize: 14,
+    color: "#bd2a2a",
+    textAlign: "center",
+  },
+  selectedButton: {
+    backgroundColor: "#bd2a2a",
+  },
+  selectedButtonText: {
+    color: "white",
+  },
+
+  selectFeatureButton: {
+    flexDirection: "row",
+    height: 50,
+    width: 370,
+    borderColor: "#bd2a2a",
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 10,
+    alignItems: "center",
+  },
+  featureIcon: {
+    width: 20,
+    height: 20,
+    marginLeft: 10,
+    tintColor: "#Ac3803",
+  },
+  selectFeatureText: {
+    fontSize: 14,
+    color: "grey",
+    marginLeft: 15,
+  },
+
+  contactInfoContainer: {
+    backgroundColor: "ghostwhite", // Set your desired background color
+    padding: 10,
+    borderRadius: 5,
+    width: "100%", // Ensure it spans the full width
+    marginBottom: 10, // Add margin at the bottom
+    marginTop: 20,
+  },
+  contactInfoText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 10,
+    color: "black",
+  },
+  contactInput: {
+    height: 40,
+    borderBottomColor: "black", // Set the bottom border color
+    borderBottomWidth: 1, // Set the bottom border width
+    borderRadius: 5,
+    marginTop: 5,
+    paddingLeft: 15,
+  },
+  Postbutton: {
+    backgroundColor: "#bd2a2a",
+    width: 300,
+    padding: 15,
+    margin: 5,
+    borderRadius: 5,
+    marginTop: 10,
+    alignSelf: "center",
+  },
+  PostbuttonText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  noteContainer: {
+    backgroundColor: "white",
+    padding: 10,
+    marginTop: 10,
+  },
+  noteHeading: {
+    color: "black",
+    fontSize: 16,
+    marginLeft: 10,
+    fontWeight: "bold",
+  },
+  noteText: {
+    color: "grey",
+    fontSize: 14,
+    marginLeft: 10,
+  },
+  PremiumAdButton: {
+    backgroundColor: "#bd2a2a",
+    width: 380,
+    padding: 15,
+    margin: 5,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  PremiumAdButtonText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  selectDriveOptionContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
+  },
+});
+
+export default filterSearchCar;

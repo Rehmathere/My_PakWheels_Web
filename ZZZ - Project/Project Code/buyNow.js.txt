@@ -1,0 +1,217 @@
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  ActivityIndicator,
+  TouchableOpacity,
+  Image,
+  StatusBar
+} from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/core";
+import { AntDesign } from "@expo/vector-icons";
+import SearchBar from "../searchBar";
+import BuyNowCard from "../buyNowCards";
+import axios from "axios";
+import SyncStorage from "sync-storage"; // Import SyncStorage for checking login status
+
+const BuyNow = () => {
+  const route = useRoute();
+  const filter = route.params;
+  const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [noDataError, setNoDataError] = useState("");
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        let response;
+        if (filter) {
+          response = await axios.post("https://autofinder-backend.vercel.app/api/carAd/filter", filter);
+        } else {
+          response = await axios.post("https://autofinder-backend.vercel.app/api/carAd/");
+        }
+        if (response.data.ok) {
+          if (response.data.data.length > 0) {
+            setData(response.data.data);
+          } else {
+            setNoDataError("No Data To Show");
+          }
+        } else {
+          setNoDataError("No Data To Show");
+        }
+      } catch (error) {
+        console.error(error);
+        setNoDataError(error.response?.data?.error || "An error occurred");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getData();
+  }, [filter]);
+
+  const handleFilterPress = () => {
+    navigation.navigate("filterSearchCar");
+  };
+
+  const handleCardPress = (itemId) => {
+    navigation.navigate("sellerCarDetail", { itemId: itemId });
+  };
+
+  const handlePostCarPress = () => {
+    if (SyncStorage.get("token")) {
+      navigation.navigate("PostCar");
+    } else {
+      navigation.navigate("welcome");
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Image
+            source={require("../../assets/back-arrow.png")}
+            style={styles.backIcon}
+          />
+        </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Buy Now</Text>
+        </View>
+      </View>
+
+      <View style={styles.rowContainer}>
+        <View style={styles.SearchBar}>
+          <SearchBar />
+        </View>
+        <TouchableOpacity style={styles.filterButton} onPress={handleFilterPress}>
+          <Text style={styles.filterText}>Filter</Text>
+          <AntDesign name="filter" size={22} color="#fc6f03" />
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={styles.scrollView}>
+        {isLoading ? (
+          <View style={[styles.container, styles.horizontal]}>
+            <ActivityIndicator size="large" color="gray" />
+          </View>
+        ) : data.length === 0 ? (
+          <Text>{noDataError}</Text>
+        ) : (
+          data.map((item) => (
+            <TouchableOpacity key={item._id} onPress={() => handleCardPress(item._id)}>
+              <BuyNowCard
+                carImage={item.images[0]}
+                name={item.brand}
+                model={item.model}
+                variant={item.variant}
+                price={item.price}
+                year={item.year}
+                fuelType={item.fuelType}
+                kmReading={item.kmDriven}
+                location={item.location}
+                isInspected={item.inspected}
+                isFeatured={item.featured}
+                isManagedByAutoFinder={item.ManagedByAutoFinder}
+              />
+            </TouchableOpacity>
+          ))
+        )}
+      </ScrollView>
+
+      <View style={styles.button_Parent}>
+        <TouchableOpacity style={styles.button} onPress={handlePostCarPress}>
+          <Text style={styles.buttonText}>Post Your Car</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    backgroundColor: "#bd2a2a",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingTop: StatusBar.currentHeight,
+  },
+  backButton: {
+    tintColor: "white",
+    marginLeft: 5,
+  },
+  backIcon: {
+    width: 25,
+    height: 25,
+    tintColor: "white",
+  },
+  titleContainer: {
+    flex: 1,
+    paddingBottom: 5,
+  },
+  title: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    alignSelf: "center",
+  },
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    alignItems: "center",
+  },
+  SearchBar: {
+    flex: 1,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 5,
+    marginRight: 10,
+    paddingHorizontal: 10,
+  },
+  filterButton: {
+    flexDirection: "row",
+    backgroundColor: "#2e8b57",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  filterText: {
+    color: "#fff",
+    marginRight: 5,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  button_Parent: {
+    backgroundColor: "white",
+  },
+  button: {
+    backgroundColor: "#bd2a2a",
+    padding: 15,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10,
+  },
+});
+
+export default BuyNow;
+
+
+

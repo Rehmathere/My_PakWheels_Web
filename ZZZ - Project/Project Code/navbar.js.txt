@@ -1,0 +1,15 @@
+// My Button Code Logic
+  const [isButton2Visible, setIsButton2Visible] = useState(false);
+
+  // Function to handle Button 1 click
+  const handleButton1Click = () => {
+    setIsButton2Visible(true);
+  };
+  // Main Bdody
+  return (
+    <>
+      <div>
+        <button onClick={handleButton1Click}>Button 1</button>
+        {isButton2Visible && <button>Button 2</button>}
+      </div>
+    </>
