@@ -43,6 +43,33 @@ const Navbar = () => {
     setLoginPassword("");
   };
 
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   if (!loginValidation()) {
+  //     setLoginError("Please enter your email and password.");
+  //     return;
+  //   }
+  //   setDisableBtn(true);
+  //   try {
+  //     const response = await axios.post(
+  //       "https://autofinder-backend.vercel.app/api/user/login",
+  //       { phoneNumber: loginPhoneNumber, password: loginPassword }
+  //     );
+  //     if (response.data.ok) {
+  //       localStorage.setItem("token", response.data.token);
+  //       setLoginError("");
+  //       setDisableBtn(false);
+  //       emptyLoginFields();
+  //       dispatch({ type: "LOGIN", payload: response.data.data });
+  //       closeModalLogin();
+  //     }
+  //   } catch (error) {
+  //     setLoginError(error.response.data.error);
+  //     setDisableBtn(false);
+  //     emptyLoginFields();
+  //   }
+  // };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!loginValidation()) {
@@ -55,20 +82,31 @@ const Navbar = () => {
         "https://autofinder-backend.vercel.app/api/user/login",
         { phoneNumber: loginPhoneNumber, password: loginPassword }
       );
+  
       if (response.data.ok) {
+        const userData = response.data.data;
+        
+        // Check if the user type is 'USER'
+        if (userData.userType !== "USER") {
+          alert("Only 'USER' type accounts are allowed to log in.");
+          setDisableBtn(false);
+          emptyLoginFields();
+          return;
+        }
+  
         localStorage.setItem("token", response.data.token);
         setLoginError("");
         setDisableBtn(false);
         emptyLoginFields();
-        dispatch({ type: "LOGIN", payload: response.data.data });
+        dispatch({ type: "LOGIN", payload: userData });
         closeModalLogin();
       }
     } catch (error) {
-      setLoginError(error.response.data.error);
+      setLoginError(error.response?.data?.error || "An error occurred during login.");
       setDisableBtn(false);
       emptyLoginFields();
     }
-  };
+  };  
 
   const handleChangeSignupForm = (e) => {
     setSignupForm({
@@ -145,6 +183,7 @@ const Navbar = () => {
       setDisableBtn(true);
       const response = await axios.post(
         "https://autofinder-backend.vercel.app/api/user/generateotp",
+        // { phone: "+923315261836" }
         { phone: "+923335448744" }
       );
       if (response.data.ok) {
@@ -429,9 +468,13 @@ const Navbar = () => {
             />
           </div>
           {signupError && <p className="error">{signupError}</p>}
-          {!disableBtn && <button onClick={handleGenerateOtp}>Submit</button>}
+          {/* {!disableBtn && <button onClick={handleGenerateOtp}>Submit</button>} */}
+          {!disableBtn && <button onClick={handleSignup}>Sign Up</button>}
           {disableBtn && (
-            <button onClick={handleGenerateOtp} disabled>
+            // <button onClick={handleGenerateOtp} disabled>
+            //   Sign Up
+            // </button>
+            <button onClick={handleSignup} disabled>
               Sign Up
             </button>
           )}

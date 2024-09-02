@@ -14,7 +14,7 @@ const UsedCarBuyNow = () => {
   const [data, setData] = useState([]);
   const [noDataError, setNoDataError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [loadingMore , setLoadingMore] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(true);
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -22,24 +22,26 @@ const UsedCarBuyNow = () => {
   useEffect(() => {
     async function getData() {
       try {
-        setLoadingMore(true)
-        const response = await axios.post("https://autofinder-backend.vercel.app/api/carAd", {
-          page,
-          limit:3
-        });
+        setLoadingMore(true);
+        const response = await axios.post(
+          "https://autofinder-backend.vercel.app/api/carAd",
+          {
+            page,
+            limit: 3,
+          }
+        );
         if (response.data.ok) {
           console.log(response.data.data);
           setData(response.data.data);
           // setData((prevData) => [...prevData, ...response.data.data]);
-          setIsLoading(false)
-          setLoadingMore(false)
+          setIsLoading(false);
+          setLoadingMore(false);
         }
       } catch (error) {
         console.log(error);
         setNoDataError(error.response.data.error);
-        setIsLoading(false)
-        setLoadingMore(false)
-
+        setIsLoading(false);
+        setLoadingMore(false);
       }
     }
     console.time("timer");
@@ -54,7 +56,7 @@ const UsedCarBuyNow = () => {
   const handleFilterApply = async (filterData) => {
     console.log("Filter applied with values:", filterData);
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       setData([]);
       const response = await axios.post(
         "https://autofinder-backend.vercel.app/api/carAd/filter",
@@ -64,87 +66,100 @@ const UsedCarBuyNow = () => {
       if (response.data.ok) {
         if (response.data.data.length > 0) {
           setData(response.data.data);
-          setIsLoading(false)
+          setIsLoading(false);
         } else {
           setNoDataError("No Data To Show");
           setData([]);
-          setIsLoading(false)
+          setIsLoading(false);
         }
       }
     } catch (error) {
       console.log(error);
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
-
   return (
     <>
-    {isLoading && <LoaderComponent/>}
-    
-    <div className={`BuyNow ${isLoading?"Fade-out":"Fade-in"}`}>
-      {
-        !isLoading && 
-        <>
-        
-       
-      <div className="pageHeadingCont">
-        <h1>Buy Cars</h1>
-      </div>
-      <div className="underHeadingCont">
-        <aside className="filterCont">
-          <Filter onFilterApply={handleFilterApply} />
-        </aside>
+      {isLoading && <LoaderComponent />}
 
-        <div className="carAdsCont">
-          {!data && !noDataError && (
-            <span className="loaderCont">
-              <ReactLoading
-                type={"bars"}
-                color={"#cd0100"}
-                height={"50px"}
-                width={"50px"}
-              />
-            </span>
-          )}
-          {data &&
-            data.map((item) => (
-              <div
-                key={item._id}
-                className="adCard"
-                onClick={() => handleNavigateToSingleCarAd(item._id)}
-              >
-                <div className="imgHolder">
-                  <img src={item.images[0]} alt="" />
-                </div>
-                <div className="detailHolder">
-                  <h4 className="adTitle">
-                    {item.brand} {item.model} {item.year} {item.varient}
-                  </h4>
-                  <p> {item.location}</p>
-                  <p>
-                    {item.kmDriven.toLocaleString()} km | {item.assembly} |{" "}
-                    {item.fuelType} | {item.transmission}{" "}
-                  </p>
-                  <p>
-                    {" "}
-                    posted {formatDistanceToNow(
-                      new Date(item.createdAt)
-                    )} ago{" "}
-                  </p>
-                  <h4 className="adPrice">{item.price.toLocaleString()}</h4>
-                  {item.featured && <div className="featuredTag">Featured</div>}
-                </div>
+      <div className={`BuyNow ${isLoading ? "Fade-out" : "Fade-in"}`}>
+        {!isLoading && (
+          <>
+            <div className="pageHeadingCont">
+              <h1>Buy Cars</h1>
+            </div>
+            <div className="underHeadingCont">
+              <aside className="filterCont">
+                <Filter onFilterApply={handleFilterApply} />
+              </aside>
+
+              <div className="carAdsCont">
+                {!data && !noDataError && (
+                  <span className="loaderCont">
+                    <ReactLoading
+                      type={"bars"}
+                      color={"#cd0100"}
+                      height={"50px"}
+                      width={"50px"}
+                    />
+                  </span>
+                )}
+                {data &&
+                  data.map((item) => (
+                    <div
+                      key={item._id}
+                      className="adCard"
+                      onClick={() => handleNavigateToSingleCarAd(item._id)}
+                    >
+                      <div className="imgHolder">
+                        <img src={item.images?.[0] || ""} alt="" />
+                      </div>
+                      <div className="detailHolder">
+                        <h4 className="adTitle">
+                          {item.brand || "-"} {item.model || "-"}{" "}
+                          {item.year || "-"} {item.varient || "-"}
+                        </h4>
+                        <p>{item.location || "-"}</p>
+                        <p>
+                          {item.kmDriven !== undefined
+                            ? item.kmDriven.toLocaleString()
+                            : "-"}{" "}
+                          km | {item.assembly || "-"} | {item.fuelType || "-"} |{" "}
+                          {item.transmission || "-"}
+                        </p>
+                        <p>
+                          posted{" "}
+                          {item.createdAt
+                            ? formatDistanceToNow(new Date(item.createdAt)) +
+                              " ago"
+                            : "-"}
+                        </p>
+                        <h4 className="adPrice">
+                          {item.price !== undefined
+                            ? item.price.toLocaleString()
+                            : "-"}
+                        </h4>
+                        {item.featured && (
+                          <div className="featuredTag">Featured</div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                {!noDataError && (
+                  <button onClick={() => setPage(page + 1)}>
+                    {loadingMore ? "LOADING MORE..." : "LOAD MORE"}
+                  </button>
+                )}
+
+                {noDataError && (
+                  <span className="loaderCont">No Data To Show</span>
+                )}
               </div>
-            ))}
-            {!noDataError && <button onClick={() => setPage(page + 1)}>{loadingMore?"LOADING MORE...":"LOAD MORE"}</button> }
-          
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
-        </div>
+            </div>
+          </>
+        )}
       </div>
-      </>
-      }
-    </div>
     </>
   );
 };

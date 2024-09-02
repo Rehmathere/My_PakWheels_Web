@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import CityPicker from "../../components/cityPicker/cityPicker";
-import CarModelPicker from "../../components/carModelPicker/carModelPicker";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import "./serviceRequest.scss";
@@ -24,20 +23,10 @@ const ServiceRequest = () => {
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [variant, setVariant] = useState("");
-  const setYearFn = (value) => {
-    setYear(value);
-  };
-  const setBrandFn = (value) => {
-    setBrand(value);
-  };
-  const setModelFn = (value) => {
-    setModel(value);
-  };
-  const setVariantFn = (value) => {
-    setVariant(value);
-  };
 
-  //////////
+  const handleChangeLocation = (value) => {
+    setLocation(value);
+  };
 
   const setData = () => {
     const data = {
@@ -59,7 +48,7 @@ const ServiceRequest = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validation()) openModal();
-    else alert("Pleaes Fill All the Fields");
+    else alert("Please Fill All the Fields");
   };
 
   const handleSelectPackage = (packageType) => {
@@ -94,10 +83,6 @@ const ServiceRequest = () => {
     navigate("/select-payment-method", {
       state: { adData: { ...adData, priceToPay, packageType } },
     });
-  };
-
-  const handleChangeLocation = (value) => {
-    setLocation(value);
   };
 
   useEffect(() => {
@@ -141,117 +126,157 @@ const ServiceRequest = () => {
 
   if (loading) return <div>LOADING...</div>;
 
-  if (!loading) return (
-    <div className="UsedCarPostAd">
-      {service === "001" && (
-        <h1 className="postAdHeading">List It For You Service</h1>
-      )}
-      {service === "002" && (
-        <h1 className="postAdHeading">Car Inspection Service</h1>
-      )}
-      {service === "003" && (
-        <h1 className="postAdHeading">Buy Car For Me Service</h1>
-      )}
+  if (!loading)
+    return (
+      <div className="UsedCarPostAd">
+        {service === "001" && (
+          <h1 className="postAdHeading">List It For You Service</h1>
+        )}
+        {service === "002" && (
+          <h1 className="postAdHeading">Car Inspection Service</h1>
+        )}
+        {service === "003" && (
+          <h1 className="postAdHeading">Buy Car For Me Service</h1>
+        )}
 
-      <form action="">
-        <div className="formFirstDiv">
-          <CityPicker passValueFn={handleChangeLocation} label={"Location"} />
-        </div>
-        <div className="formFirstDiv">
-          <CarModelPicker
-            setYearPropFn={setYearFn}
-            setBrandPropFn={setBrandFn}
-            setModelPropFn={setModelFn}
-            setVariantPropFn={setVariantFn}
-          />
-        </div>
-        <div className="formFirstDiv padding-10">
-          <label>Description</label>
-          <textarea
-            name=""
-            id=""
-            cols="60"
-            rows="10"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-        <div className="formFirstDiv padding-10">
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
-      </form>
-      {/* ======================================================== */}
-      <Modal
-        isOpen={modalIsOpenSelectPackage}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Select Pacakge"
-        ariaHideApp={false}
-      >
-        <div className="modalDiv">
-          <h1>Please Select A Desired Pacakge</h1>
-          <div>
-            {
-            service!=="003"?<>
-            
-            <p>
-              ✔️ Silver Package: For vehicles up to 1000cc - Price{" "}
-              <strong>{service === "002" && "$3200"}{service === "001" && "$1800"}</strong>{" "}
-            </p>
-            <p>
-              ✔️ Diamond Package: For vehicles up to 2000cc - Price{" "}
-              <strong>{service === "002" && "$4250"}{service === "001" && "$4000"}</strong>{" "}
-            </p>
-            <p>
-              ✔️ Platinum Package: For vehicles over 2000cc, SUVs, Jeeps, and
-              German cars - Price <strong>{service === "002" && "$5200"}{service === "001" && "$5500"}</strong>{" "}
-            </p>
-            </>
-            :<>
-            <p>
-              ✔️ This initial payment that you have to make 
-              <strong>$5000</strong>{" "}
-            </p>
-            </>
-            }
+        <form action="">
+          {/* --- User ID --- */}
+          <p id="My_Para">User ID : {user ? user._id : ""} </p>
+          <p id="My_Para">User Name : {user ? user.name : ""} </p>
+          {/* --- User ID --- */}
+          <div className="formFirstDiv">
+            <CityPicker passValueFn={handleChangeLocation} label={"Location"} />
           </div>
-          <div className="modalButtonHolder">
-            {service !== "003"?
-            <>
-              
-              <button
-              className="silver"
-              onClick={() => handleSelectPackage("Silver")}
-              >
-              Silver Package
-            </button>
-            <button
-              className="deepSkyBlue"
-              onClick={() => handleSelectPackage("Diamond")}
-              >
-              Diamond Package
-            </button>
-            <button
-              className="silver"
-              onClick={() => handleSelectPackage("Platinum")}
-              >
-              Platinum Package
-            </button>
-            
-            </>:
-            <button
-            className="silver"
-            onClick={() => handleSelectPackage("Standard")}
-            >
-            Standard Payment
-          </button>
-            }
+          {/* Year Input */}
+          <div className="formFirstDiv">
+            <label>Year :</label>
+            <input
+              type="text"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              placeholder=" Enter Year "
+              className="My_Input"
+              />
           </div>
-        </div>
-      </Modal>
-    </div>
-  );
+          {/* Brand Input */}
+          <div className="formFirstDiv">
+            <label>Brand :</label>
+            <input
+              type="text"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+              placeholder=" Enter Brand "
+              className="My_Input"
+              />
+          </div>
+          {/* Model Input */}
+          <div className="formFirstDiv">
+            <label>Model :</label>
+            <input
+              type="text"
+              value={model}
+              onChange={(e) => setModel(e.target.value)}
+              placeholder=" Enter Model "
+              className="My_Input"
+              />
+          </div>
+          {/* Variant Input */}
+          <div className="formFirstDiv">
+            <label>Variant :</label>
+            <input
+              type="text"
+              value={variant}
+              onChange={(e) => setVariant(e.target.value)}
+              placeholder=" Enter Variant "
+              className="My_Input"
+            />
+          </div>
+          <div className="formFirstDiv padding-10">
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
+        </form>
+        {/* ======================================================== */}
+        <Modal
+          isOpen={modalIsOpenSelectPackage}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Select Package"
+          ariaHideApp={false}
+        >
+          <div className="modalDiv">
+            <h1>Please Select A Desired Package</h1>
+            <div>
+              {service !== "003" ? (
+                <>
+                  <p>
+                    ✔️ Silver Package: For vehicles up to 1000cc - Price{" "}
+                    <strong>
+                      {service === "002" && "$3200"}
+                      {service === "001" && "$1800"}
+                    </strong>{" "}
+                  </p>
+                  <p>
+                    ✔️ Diamond Package: For vehicles up to 2000cc - Price{" "}
+                    <strong>
+                      {service === "002" && "$4250"}
+                      {service === "001" && "$4000"}
+                    </strong>{" "}
+                  </p>
+                  <p>
+                    ✔️ Platinum Package: For vehicles over 2000cc, SUVs, Jeeps,
+                    and German cars - Price{" "}
+                    <strong>
+                      {service === "002" && "$5200"}
+                      {service === "001" && "$5500"}
+                    </strong>{" "}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    ✔️ This initial payment that you have to make
+                    <strong>$5000</strong>{" "}
+                  </p>
+                </>
+              )}
+            </div>
+            <div className="modalButtonHolder">
+              {service !== "003" ? (
+                <>
+                  <button
+                    className="silver"
+                    onClick={() => handleSelectPackage("Silver")}
+                  >
+                    Silver Package
+                  </button>
+                  <button
+                    className="deepSkyBlue"
+                    onClick={() => handleSelectPackage("Diamond")}
+                  >
+                    Diamond Package
+                  </button>
+                  <button
+                    className="silver"
+                    onClick={() => handleSelectPackage("Platinum")}
+                  >
+                    Platinum Package
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="silver"
+                  onClick={() => handleSelectPackage("Standard")}
+                >
+                  Standard Payment
+                </button>
+              )}
+            </div>
+          </div>
+        </Modal>
+      </div>
+    );
 };
 
 export default ServiceRequest;

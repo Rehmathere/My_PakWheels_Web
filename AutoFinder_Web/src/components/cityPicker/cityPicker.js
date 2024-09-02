@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./cityPicker.scss"
 const CityPicker = ({passValueFn , label}) => {
-  const cityData = ["Islamabad", "Lahore", "Karachi", "Multan", "Faisalabad"];
+  const cityData = ["Islamabad", "Lahore", "Karachi", "Multan", "Faisalabad", "Rawalpindi", "Sukkur", "Peshawar"];
   const [city, setCity] = useState("");
 
   return (
     <div className="CityPicker">
-      <label>{label}:</label>
+      <label>{label} :</label>
       <select
         name=""
         id=""
