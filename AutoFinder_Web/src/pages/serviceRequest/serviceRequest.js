@@ -22,7 +22,7 @@ const ServiceRequest = () => {
   const [year, setYear] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
-  const [variant, setVariant] = useState("");
+  const [varient, setVarient] = useState("");
 
   const handleChangeLocation = (value) => {
     setLocation(value);
@@ -33,7 +33,7 @@ const ServiceRequest = () => {
       location,
       brand,
       model,
-      variant,
+      varient,
       year,
       service,
       user: user?._id,
@@ -182,12 +182,12 @@ const ServiceRequest = () => {
           </div>
           {/* Variant Input */}
           <div className="formFirstDiv">
-            <label>Variant :</label>
+            <label>Varient :</label>
             <input
               type="text"
-              value={variant}
-              onChange={(e) => setVariant(e.target.value)}
-              placeholder=" Enter Variant "
+              value={varient}
+              onChange={(e) => setVarient(e.target.value)}
+              placeholder=" Enter Varient "
               className="My_Input"
             />
           </div>

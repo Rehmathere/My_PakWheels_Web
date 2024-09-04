@@ -19,6 +19,7 @@ const User = () => {
         <NavLink to={"ads"}>My Ads</NavLink>
         <NavLink to={"package"}>My Package</NavLink>
         <NavLink to={"favorite"}>Favorites</NavLink>
+        <NavLink to={"My_Request"}>Inspection</NavLink>
       </div>
       <div className="userPageOutlet">
         <Outlet context={[user]} />

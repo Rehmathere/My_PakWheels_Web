@@ -43,6 +43,7 @@ import My_NewCarsDetail from "./pages/NewCars/My_NewCarsDetail";
 import My_FindNewCars from "./pages/NewCars/My_FindNewCars";
 import My_NewCarsDetail_2 from "./pages/NewCars/My_NewCarsDetail_2";
 import Compare from "./pages/NewCars/Compare";
+import My_Request from "./pages/user/myRequest/My_Request";
 
 function App() {
   // const {user , dispatch} = useContext(UserContext)
@@ -102,6 +103,8 @@ function App() {
               <Route path="ads" element={<UserAds/>} />
               <Route path="package" element={<UserPackage/>} />
               <Route path="favorite" element={<FavoriteAds/>}/>
+              {/* New My Request */}
+              <Route path="My_Request" element={<My_Request/>}/>
             </Route>
             {/* // Blogs */}
             <Route path="/blogs" element={<Blogs/>}/>

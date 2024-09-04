@@ -100,3 +100,37 @@ $border:none;
 
 }
 
+// My_Request.js
+
+#My_Request_Parent {
+  padding: 0.5em 2em;
+  background-color: #e3f2fd;
+}
+#My_Request_Parent h2{
+  border: 0px solid transparent;
+  text-align: center;
+  padding: 1em 0em;
+  font-size: 2.2em;
+  background-color: #e3f2fd;
+}
+.My_Err {
+  text-align: center;
+  padding: 2em 0em;
+  background-color: #e3f2fd;
+}
+#My_Report_Btn {
+  padding: 0.5em 2em;
+  background: "red";
+  border-radius: 10px;
+  border: 0.1px solid rgb(168, 167, 167);
+}
+
+
+
+
+
+
+
+
+
+

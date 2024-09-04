@@ -23,7 +23,7 @@ const Home = () => {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/carAd/",
           {
-            limit: 3,
+            limit: 4,
           }
         );
         if (response.data.ok) {
