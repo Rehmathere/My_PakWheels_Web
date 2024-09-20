@@ -28,7 +28,8 @@ const Buy_Auto_PartAd = () => {
         const response = await axios.get("https://autofinder-backend.vercel.app/api/autoPart/");
         if (response.data.ok) {
           console.log(response.data.data);
-          setData((prevData) => [...prevData, ...response.data.data]);
+          // setData((prevData) => [...prevData, ...response.data.data]);
+          setData(response.data.data);
           setIsLoading(false);
           setLoadingMore(false);
         }

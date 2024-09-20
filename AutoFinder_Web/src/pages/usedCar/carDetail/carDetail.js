@@ -55,7 +55,9 @@ const CarDetail = () => {
           <div className="parallel-layout">
             <div className="leftSide">
               <div>
-                <button onClick={handleAddToFavorite}>Add to Favorite</button>
+                <button className="My_Fav" onClick={handleAddToFavorite}>
+                  Add to Favorite
+                </button>
               </div>
               <div className="car-name-location">
                 <h1>
@@ -63,8 +65,7 @@ const CarDetail = () => {
                   {carDetail.year || "-"} {carDetail.varient || "-"}
                 </h1>
                 <p>
-                  {carDetail.location || "-"}{" "}
-                  {carDetail?.user?.address || "-"}
+                  {carDetail.location || "-"} {carDetail?.user?.address || "-"}
                 </p>
               </div>
               <div className="car-images">

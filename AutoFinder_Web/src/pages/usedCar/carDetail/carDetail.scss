@@ -30,6 +30,21 @@ $border :none;
           font-size: 30px;
         }
       }
+      // New ( Favorite Btn )
+      .My_Fav {
+        border: 0px solid transparent;
+        background-color: #bc0000;
+        color: white;
+        padding: 0.5em 1em 0.5em 1em;
+        border-radius: 20px;
+      }
+      .My_Fav:hover {
+        background-color: #7a0000;
+      }
+      .My_Fav:focus {
+        background-color: #7a0000;
+      }
+      // New ( Favorite Btn )
       .car-images{
         border: $border; 
         background-color: rgba(0, 0, 0, 0.445);

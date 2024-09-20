@@ -37,7 +37,9 @@ const FavoriteAds = () => {
   };
   return (
     <div className="UserAds">
-      <h1 style={{ textAlign: "center" }}>Your Advertisements</h1>
+      <br />
+      <h2 style={{ textAlign: "center", letterSpacing: 1.5 }}>Your Favorite Ads</h2>
+      <br />
       <div className="myAdsCont">
         {!data && (
           <span className="loaderCont">
@@ -69,7 +71,7 @@ const FavoriteAds = () => {
                 </p>
                 <p>
                   {" "}
-                  posted {formatDistanceToNow(
+                  Posted {formatDistanceToNow(
                     new Date(item.createdAt)
                   )} ago{" "}
                 </p>
@@ -77,6 +79,7 @@ const FavoriteAds = () => {
               </div>
             </div>
           ))}
+        <br />
       </div>
     </div>
   );

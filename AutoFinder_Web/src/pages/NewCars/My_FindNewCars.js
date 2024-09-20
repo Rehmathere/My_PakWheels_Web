@@ -3,16 +3,32 @@ import { useNavigate } from "react-router-dom";
 import LoaderComponent from "../../components/loaderComponent/loaderComponent";
 import ReactLoading from "react-loading";
 import axios from "axios";
-import MG from "../../assets/images/mg.jpg";
-import Honda from "../../assets/images/honda.webp";
-import Hyundai from "../../assets/images/hyundai.webp";
-import Toyota from "../../assets/images/toyota.webp";
-import Proton from "../../assets/images/proton.webp";
-import Audi from "../../assets/images/audi.webp";
-import Changan from "../../assets/images/changan.webp";
-import Dfsk from "../../assets/images/dfsk.webp";
+import MG from "../../assets/images/mg.png";
+import Honda from "../../assets/images/Honda.png";
+import Hyundai from "../../assets/images/hyundai.png";
+import Toyota from "../../assets/images/Tyota.png";
+import Proton from "../../assets/images/proton.png";
+import Audi from "../../assets/images/audi.png";
+import Changan from "../../assets/images/changan.jpg";
+import Dfsk from "../../assets/images/DFSK.png";
+import Tesla from "../../assets/images/Tesla.png";
+import United from "../../assets/images/united.png";
+import Suzuki from "../../assets/images/Suzuki.png";
+import Prince from "../../assets/images/prince.png";
+import fordland from "../../assets/images/JW-Forland.png";
+import kia from "../../assets/images/kia.png";
+import porche from "../../assets/images/porche.png";
+import mercedes from "../../assets/images/mercedes.png";
+import peugeot from "../../assets/images/peugeot.png";
+import baic from "../../assets/images/baic.png";
+import haval from "../../assets/images/hava.png";
+import daehan from "../../assets/images/Daehan.png";
+import faw from "../../assets/images/FAW.png";
+import chery from "../../assets/images/chery.png";
+import isuzu from "../../assets/images/Isuzu.png";
+import bmw from "../../assets/images/bmw.png";
 import "./NC.scss";
-import "../AutoParts/Auto_Parts.css"
+import "../AutoParts/Auto_Parts.css";
 
 function My_FindNewCars() {
   const navigate = useNavigate();
@@ -160,8 +176,9 @@ function My_FindNewCars() {
             <br />
             <br />
             <h3 id="New_Cars_Popular_heading">New Cars by Make</h3>
+            <br />
             <div id="New_Cars_Box_Parent">
-              {/* Brand Row */}
+              {/* --- 1 - Brand Row --- */}
               <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
                 <div id="New_Cars_Box" onClick={handleSearch_MG}>
@@ -187,9 +204,6 @@ function My_FindNewCars() {
                     <img src={Toyota} alt="" />
                   </div>
                 </div>
-              </div>
-              {/* Brand Row */}
-              <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
                 <div id="New_Cars_Box" onClick={handleSearch_changan}>
                   <div id="My_NewCar_imgHolder_E">
@@ -202,6 +216,9 @@ function My_FindNewCars() {
                     <img src={Audi} alt="" />
                   </div>
                 </div>
+              </div>
+              {/* --- 2 - Brand Row --- */}
+              <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
                 <div id="New_Cars_Box" onClick={handleSearch_proton}>
                   <div id="My_NewCar_imgHolder_E">
@@ -214,8 +231,112 @@ function My_FindNewCars() {
                     <img src={Dfsk} alt="" />
                   </div>
                 </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Tesla} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Prince} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={Suzuki} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={United} alt="" />
+                  </div>
+                </div>
+              </div>
+              {/* --- 3 - Brand Row --- */}
+              <div id="New_Cars_Box_Parent_Sub">
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_proton}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={fordland} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_dfsk}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={kia} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={peugeot} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={mercedes} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={porche} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={baic} alt="" />
+                  </div>
+                </div>
+              </div>
+              {/* --- 4 - Brand Row --- */}
+              <div id="New_Cars_Box_Parent_Sub">
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_proton}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={faw} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box" onClick={handleSearch_dfsk}>
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={bmw} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={haval} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={daehan} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={chery} alt="" />
+                  </div>
+                </div>
+                {/* Box */}
+                <div id="New_Cars_Box">
+                  <div id="My_NewCar_imgHolder_E">
+                    <img src={isuzu} alt="" />
+                  </div>
+                </div>
               </div>
             </div>
+            {/* - End - */}
+            <br />
             {/* --- Find New Cars --- */}
             <br />
             <br />
@@ -250,11 +371,13 @@ function My_FindNewCars() {
             {/* Display search result */}
             {searchResult && (
               <>
+                <br />
+                <br />
                 <h3 id="New_Cars_Popular_heading">Your Searched Car</h3>
                 <div id="New_Cars_Box_Parent">
                   <div id="New_Cars_Box_Parent_Sub">
                     <div
-                      id="New_Cars_Box"
+                      id="New_Cars_Box_Simple"
                       onClick={() =>
                         handleNavigateToSingleCarAd(searchResult._id)
                       }
@@ -277,6 +400,8 @@ function My_FindNewCars() {
                 </div>
               </>
             )}
+            {/* - End - */}
+            <br />
             {/* --- Popular New Cars --- */}
             <br />
             <br />
@@ -297,7 +422,7 @@ function My_FindNewCars() {
                   data.map((item) => (
                     <div
                       key={item._id}
-                      id="New_Cars_Box"
+                      id="New_Cars_Box_Simple"
                       onClick={() => handleNavigateToSingleCarAd(item._id)}
                     >
                       <div id="My_NewCar_imgHolder">

@@ -59,16 +59,19 @@
             visibility: hidden;
             transition: all 0.2s ease;
             // border: 1px solid black;
-            padding-top: 40px;
+            padding-top: 37px;
             position: absolute;
             top: 100%;
-            background-color: rgb(255, 255, 255);
+            width: 10vw;
+            // background-color: rgb(255, 255, 255);
+            background-color: white;
             a{
-              font-size: 13px;
-              letter-spacing: 0.1px;
-              height: 40px;
-              padding: 10px 10px;
-              border-top: 1px solid rgb(202, 202, 202);
+              font-size: 12px;
+              letter-spacing: 1.8px;
+              // height: 40px;
+              padding: 15px 0px;
+              border-top: 1px solid #bd0000;
+              font-weight:600;
             }
           }
         }
@@ -78,11 +81,14 @@
           padding: 10px 20px;
           border-radius: 25px;
           color: black;
+          letter-spacing: 0.2px;
+          font-size: 13.5px;
           transition: all 0.3s ease;
           margin: 0 10px;
           &:hover{
             background-color: #e6dfd8;
             text-decoration: none;
+            box-shadow: rgba(180, 180, 180, 0.692) 0px 7px 29px 0px;
           }
         }
         .standout-color{
