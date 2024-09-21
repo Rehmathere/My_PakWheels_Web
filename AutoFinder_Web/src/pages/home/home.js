@@ -7,30 +7,46 @@ import LoaderComponent from "../../components/loaderComponent/loaderComponent";
 import ReactLoading from "react-loading";
 import axios from "axios";
 // New Cars Logo Img
-import honda from "../../assets/new cars logo/Honda.png"
-import suzuki from "../../assets/new cars logo/Suzuki.png"
-import toyota from "../../assets/new cars logo/Tyota.png"
-import hyundai from "../../assets/new cars logo/hyundai.png"
-import kia from "../../assets/new cars logo/kia.png"
-import mg from "../../assets/new cars logo/mg.png"
-import audi from "../../assets/new cars logo/audi.png"
-import bmw from "../../assets/new cars logo/bmw.png"
-import changan from "../../assets/new cars logo/changan.jpg"
-import united from "../../assets/new cars logo/united.png"
-import proton from "../../assets/new cars logo/proton.png"
-import porche from "../../assets/new cars logo/porche.png"
-import dfsk from "../../assets/new cars logo/DFSK.png"
-import faw from "../../assets/new cars logo/FAW.png"
-import isuzu from "../../assets/new cars logo/Isuzu.png"
-import hava from "../../assets/new cars logo/hava.png"
-import mercedes from "../../assets/new cars logo/mercedes.png"
-import prince from "../../assets/new cars logo/prince.png"
-import daehan from "../../assets/new cars logo/Daehan.png"
-import jw_forland from "../../assets/new cars logo/JW-Forland.png"
-import baic from "../../assets/new cars logo/baic.png"
-import chery from "../../assets/new cars logo/chery.png"
-import peugeot from "../../assets/new cars logo/peugeot.png"
-import tesla from "../../assets/new cars logo/Tesla.png"
+import honda from "../../assets/new cars logo/Honda.png";
+import suzuki from "../../assets/new cars logo/Suzuki.png";
+import toyota from "../../assets/new cars logo/Tyota.png";
+import hyundai from "../../assets/new cars logo/hyundai.png";
+import kia from "../../assets/new cars logo/kia.png";
+import mg from "../../assets/new cars logo/mg.png";
+import audi from "../../assets/new cars logo/audi.png";
+import bmw from "../../assets/new cars logo/bmw.png";
+import changan from "../../assets/new cars logo/changan.jpg";
+import united from "../../assets/new cars logo/united.png";
+import proton from "../../assets/new cars logo/proton.png";
+import porche from "../../assets/new cars logo/porche.png";
+import dfsk from "../../assets/new cars logo/DFSK.png";
+import faw from "../../assets/new cars logo/FAW.png";
+import isuzu from "../../assets/new cars logo/Isuzu.png";
+import hava from "../../assets/new cars logo/hava.png";
+import mercedes from "../../assets/new cars logo/mercedes.png";
+import prince from "../../assets/new cars logo/prince.png";
+import daehan from "../../assets/new cars logo/Daehan.png";
+import jw_forland from "../../assets/new cars logo/JW-Forland.png";
+import baic from "../../assets/new cars logo/baic.png";
+import chery from "../../assets/new cars logo/chery.png";
+import peugeot from "../../assets/new cars logo/peugeot.png";
+import tesla from "../../assets/new cars logo/Tesla.png";
+// Bikes By Make
+import honda_bike from "../../assets/new bikes logo/Honda.png";
+import united_bike from "../../assets/new bikes logo/United.png";
+import yamaha from "../../assets/new bikes logo/Yamaha.png";
+import hispeed from "../../assets/new bikes logo/hi-Speed.png";
+import unique_bike from "../../assets/new bikes logo/unique.png";
+import kawa from "../../assets/new bikes logo/Kawasaki.png";
+import superpower from "../../assets/new bikes logo/Super-Power.png";
+import roadprince from "../../assets/new bikes logo/Road-prince.png";
+import superstar from "../../assets/new bikes logo/SuperStar.png";
+import crown from "../../assets/new bikes logo/crown.png";
+import hero from "../../assets/new bikes logo/hero.png";
+// Car Compare
+import Car_Compare_1 from "../../assets/images/Car_1.png";
+import Car_Compare_2 from "../../assets/images/Car_2.png";
+import Car_Compare_VS from "../../assets/images/VS.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -511,6 +527,38 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* New Cars Comparison */}
+      <br />
+      <br />
+      <br />
+      <div id="Heading_Parent">
+        <h1>Car Comparison</h1>
+        <p onClick={() => navigate("/My_NewCars")}>Compare Cars</p>
+      </div>
+      <div id="Home_New_Cars_Box_Parent">
+        <div id="Home_New_Cars_Box_Parent_Sub_CarCompare">
+          {/* Parent Box Whole */}
+          <div
+            id="Home_New_Cars_Compare_Boxh_Parent"
+            onClick={() => navigate("/My_NewCars")}
+          >
+            {/* Compare Box */}
+            <div id="Home_New_Cars_Compare_Boxh">
+              <img src={Car_Compare_1} alt="" />
+              <p>Car 1</p>
+            </div>
+            {/* Compare Box */}
+            <div id="Home_New_Cars_Compare_Boxh_VS">
+              <img src={Car_Compare_VS} alt="" />
+            </div>
+            {/* Compare Box */}
+            <div id="Home_New_Cars_Compare_Boxh">
+              <img src={Car_Compare_2} alt="" />
+              <p>Car 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Popular New Bikes */}
       <br />
       <br />
@@ -552,6 +600,82 @@ const Home = () => {
         </div>
       </div>
       <br />
+      {/* New Bikes By Make */}
+      <br />
+      <br />
+      <br />
+      <div id="Heading_Parent">
+        <h1>New Bikes By Make</h1>
+        <p onClick={() => navigate("/bikes/used/buy")}>View All</p>
+      </div>
+      <div id="Home_New_Cars_Box_Parent">
+        {/* 1 - Logo Parent - */}
+        <div id="Home_New_Cars_Box_Parent_Sub_Logo">
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={suzuki} alt="" />
+            <p>Suzuki</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={unique_bike} alt="" />
+            <p>Unique</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={yamaha} alt="" />
+            <p>Yamaha</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={united_bike} alt="" />
+            <p>United</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={honda_bike} alt="" />
+            <p>Honda</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={hispeed} alt="" />
+            <p>Hi Speed</p>
+          </div>
+        </div>
+        {/* 2 - Logo Parent - */}
+        <div id="Home_New_Cars_Box_Parent_Sub_Logo">
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={kawa} alt="" />
+            <p>Kawasaki</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={hero} alt="" />
+            <p>Hero</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={superpower} alt="" />
+            <p>Super Power</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={superstar} alt="" />
+            <p>Super Star</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={roadprince} alt="" />
+            <p>Road Prince</p>
+          </div>
+          {/* Logo Box */}
+          <div id="Home_New_Cars_Logo_Boxed">
+            <img src={crown} alt="" />
+            <p>Crown</p>
+          </div>
+        </div>
+      </div>
       {/* Popular Auto Parts */}
       <br />
       <br />

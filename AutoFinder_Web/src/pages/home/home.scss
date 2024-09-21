@@ -367,6 +367,66 @@ $border: none;
   align-items: center;
   flex-wrap: wrap;
 }
+#Home_New_Cars_Box_Parent_Sub_CarCompare {
+  border: 0px solid transparent;
+  padding: 0.1em 3em 1em 4.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+#Home_New_Cars_Compare_Boxh_Parent {
+  border: 0.1px solid transparent;
+  background-color: rgb(240, 239, 239);
+  width: 50%;
+  margin: 0.5em 0em 0em 0em;
+  padding: 2em 1.5em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#Home_New_Cars_Compare_Boxh_Parent:hover {
+  background-color: rgb(228, 228, 228);
+  cursor: pointer;
+}
+#Home_New_Cars_Compare_Boxh {
+  border: 0px solid transparent;
+  width: 60%;
+  padding: 0.2em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Home_New_Cars_Compare_Boxh img {
+  border: 0px solid transparent;
+  width: 100%;
+}
+#Home_New_Cars_Compare_Boxh_VS {
+  border: 0px solid transparent;
+  width: 30%;
+  padding: 0.2em 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#Home_New_Cars_Compare_Boxh_VS img {
+  border: 0px solid transparent;
+  width: 100%;
+}
+#Home_New_Cars_Compare_Boxh p {
+  border: 0px solid transparent;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+  padding: 1em 0em 1em 0em;
+  letter-spacing: 2px;
+  color: rgb(43, 43, 43);
+  font-weight: bold;
+}
 #Home_New_Cars_Box_Parent_Sub_Logo {
   border: 0px solid transparent;
   padding: 0em 3em 0em 1.5em;

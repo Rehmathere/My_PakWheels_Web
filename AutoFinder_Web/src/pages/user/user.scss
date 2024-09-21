@@ -1,60 +1,118 @@
-$border:none;
+$border: none;
 
-.User{
+.User {
   border: $border;
   margin: 50px auto;
   width: 80%;
-  .userPageNavBar{
+
+  .userPageNavBar {
     border: $border;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    a{
+    a {
       border: $border;
-      width: 100px;
+      padding: 0.1em 1em;
       text-align: center;
       height: 40px;
       line-height: 40px;
       color: black;
-      font-weight: 600;
-      text-decoration:none;
-      &:hover{
-        text-decoration: underline;
+      letter-spacing: 1px;
+      text-decoration: none;
+      &:hover {
+        // text-decoration: underline;
+        font-weight: 600;
       }
     }
   }
-  .userPageOutlet{
-    background-color: #e3f2fd;
-
+  .userPageOutlet {
+    // background-color: #e3f2fd;
+    background-color: #ffe9e9;
     padding: 20px 0;
-    
-    
   }
-  .active{
-    background-color: #e3f2fd;
-
+  .active {
+    // background-color: #e3f2fd;
+    background-color: #ffe9e9;
   }
 }
 
-.UserProfile{
+.UserProfile {
   border: $border;
-  h1{
-    border: $border;
+
+  h1 {
+    border: 0px solid transparent;
+    text-align: center;
+    padding: 0.5em 0em 2em 0em;
+    font-size: 2em;
+    letter-spacing: 2.5px;
   }
 
+  .Profile_Head {
+    border: 0px solid transparent;
+    padding: 0.5em 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-  
+  .Profile_data {
+    border: 0px solid transparent;
+    padding: 0.5em 1.5em;
+    width: 50%;
+  }
+
+  .Profile_data p {
+    border: 0px solid transparent;
+    padding: 0.5em 0.5em;
+    font-size: 0.81em;
+    letter-spacing: 3px;
+    margin: 0em 0em 2em 0em;
+    text-transform: capitalize;
+  }
 }
 
-.UserAds{
-  .myAdsCont{
+.UserAds {
+  h1 {
+    border: 0px solid transparent;
+    text-align: center;
+    padding: 0.5em 0em 2em 0em;
+    font-size: 2em;
+    letter-spacing: 2.5px;
+  }
+
+  #My_Del_Ad_Parent {
+    border: 0px solid transparent;
+    padding: 1em 8em 1.5em 8em;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+
+  #My_Del_Ad {
+    border: 0px solid transparent;
+    padding: 0.4em 1.5em;
+    background-color: #bc0000;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+
+  #My_Del_Ad:hover {
+    background-color: #9c0000;
+  }
+
+  .myAdsCont {
     width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+
   .adCard {
     border: $border;
     display: flex;
@@ -62,7 +120,7 @@ $border:none;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    &:hover{
+    &:hover {
       transform: scale(1.02);
     }
     .imgHolder {
@@ -98,25 +156,60 @@ $border:none;
     }
   }
 
+  #My_Btn_Parent {
+    width: 60%;
+    align-self: flex-end;
+    // border: 0px solid transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .My_BtnHead_1 {
+    border: 0px solid transparent;
+    background-color: green;
+    color: white;
+    letter-spacing: 4px;
+    padding: 0.5em 0em 0.5em 0em;
+    border-radius: 20px;
+    width: 35%;
+  }
+  .My_BtnHead_1:hover {
+    background-color: rgb(0, 102, 0);
+  }
+  .My_BtnHead_2 {
+    border: 0px solid transparent;
+    background-color: red;
+    color: white;
+    letter-spacing: 4px;
+    padding: 0.5em 0em 0.5em 0em;
+    border-radius: 20px;
+    width: 35%;
+  }
+  .My_BtnHead_2:hover {
+    background-color: rgb(202, 0, 0);
+  }
 }
 
 // My_Request.js
-
 #My_Request_Parent {
   padding: 0.5em 2em;
-  background-color: #e3f2fd;
+  // background-color: #e3f2fd;
+  background-color: #ffe9e9;
 }
-#My_Request_Parent h2{
+#My_Request_Parent h2 {
   border: 0px solid transparent;
   text-align: center;
   padding: 1em 0em;
   font-size: 2.2em;
-  background-color: #e3f2fd;
+  // background-color: #e3f2fd;
+  background-color: #ffe9e9;
 }
 .My_Err {
   text-align: center;
   padding: 2em 0em;
-  background-color: #e3f2fd;
+  // background-color: #e3f2fd;
+  background-color: #ffe9e9;
 }
 #My_Report_Btn {
   padding: 0.5em 2em;
@@ -125,12 +218,13 @@ $border:none;
   border: 0.1px solid rgb(168, 167, 167);
 }
 
-
-
-
-
-
-
-
-
-
+// User Package
+.UserPackage {
+  h1 {
+    border: 0px solid transparent;
+    text-align: center;
+    padding: 0.5em 0em 2em 0em;
+    font-size: 2em;
+    letter-spacing: 2.5px;
+  }
+}

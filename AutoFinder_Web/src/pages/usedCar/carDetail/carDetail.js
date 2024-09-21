@@ -37,8 +37,9 @@ const CarDetail = () => {
       if (carDetail && carDetail._id && user && user._id) {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/user/addFavorite",
-          { carAdId: carDetail._id, userId: user._id }
+          { userId: user._id, adId: carDetail._id, adType: "CarAd" }
         );
+        alert(" Added To Favorites ")
         console.log(response);
       }
     } catch (error) {

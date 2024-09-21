@@ -1,22 +1,63 @@
 import { useOutletContext } from "react-router-dom";
 
-
 const UserProfile = () => {
+  const [user] = useOutletContext();
 
-  const [user] = useOutletContext()
-
-
-  return ( 
-    <div className="UserProfile" style={{height:"50vh"}}>
-      <h1 style={{textAlign:"center"}}>User Profile</h1>
-      <div style={{border:"none" , display:"flex" , flexDirection:"column",width:"40%" , margin:"auto"}}>
-        <p><b>User ID : </b> {user?user._id:""} </p>
-        <p><b>Name : </b> {user?user.name:""} </p>
-        <p><b>Email : </b> {user?user.email:""} </p>
-        <p><b>Phone Number : </b> {user?user.phoneNumber:""} </p>
+  return (
+    <div className="UserProfile">
+      <h1 style={{ textAlign: "center" }}>User Profile</h1>
+      <div className="Profile_Head">
+        <div className="Profile_data">
+          <p>
+            <i
+              class="fa fa-user"
+              style={{
+                fontSize: "20px",
+                marginRight: "15px",
+                color: "#bc0000",
+              }}
+            ></i>{" "}
+            <b>User-ID : </b> &nbsp;&nbsp; {user ? user._id : ""}{" "}
+          </p>
+          <p>
+            <i
+              class="fa fa-address-card-o"
+              style={{
+                fontSize: "20px",
+                marginRight: "15px",
+                color: "#bc0000",
+              }}
+            ></i>{" "}
+            <b>Name : </b> &nbsp;&nbsp; {user ? user.name : ""}{" "}
+          </p>
+        </div>
+        <div className="Profile_data">
+          <p>
+            <i
+              class="fa fa-envelope"
+              style={{
+                fontSize: "20px",
+                marginRight: "15px",
+                color: "#bc0000",
+              }}
+            ></i>{" "}
+            <b>Email : </b> &nbsp;&nbsp; {user ? user.email : ""}{" "}
+          </p>
+          <p>
+            <i
+              class="fa fa-phone"
+              style={{
+                fontSize: "20px",
+                marginRight: "15px",
+                color: "#bc0000",
+              }}
+            ></i>{" "}
+            <b>Phone-Number : </b> &nbsp;&nbsp; {user ? user.phoneNumber : ""}{" "}
+          </p>
+        </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default UserProfile;

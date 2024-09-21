@@ -34,11 +34,14 @@ const Buy_Auto_PartAd_Detail = () => {
 
   const handleAddToFavorite = async () => {
     try {
-      const response = await axios.post(
-        "https://autofinder-backend.vercel.app/api/user/addFavorite",
-        { carAdId: carDetail._id, userId: user._id }
-      );
-      console.log(response);
+      if (carDetail && carDetail._id && user && user._id) {
+        const response = await axios.post(
+          "https://autofinder-backend.vercel.app/api/user/addFavorite",
+          { userId: user._id, adId: carDetail._id, adType: "AutoPart" }
+        );
+        alert(" Added To Favorites ");
+        console.log(response);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +56,9 @@ const Buy_Auto_PartAd_Detail = () => {
           <div className="parallel-layout">
             <div className="leftSide">
               <div>
-                <button onClick={handleAddToFavorite}>Add to Favorite</button>
+                <button className="My_Fav" onClick={handleAddToFavorite}>
+                  Add to Favorite
+                </button>
               </div>
               <div className="car-name-location">
                 <h1>

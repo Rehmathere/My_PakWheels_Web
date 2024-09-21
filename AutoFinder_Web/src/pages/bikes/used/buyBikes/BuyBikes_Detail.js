@@ -32,14 +32,20 @@ const BuyBikes_Detail = () => {
     getCarDetail();
   }, []);
 
-  const handleAddToFavorite = async ()=>{
+  const handleAddToFavorite = async () => {
     try {
-      const response = await axios.post("https://autofinder-backend.vercel.app/api/user/addFavorite" , {carAdId : carDetail._id , userId:user._id})
-      console.log(response)
+      if (carDetail && carDetail._id && user && user._id) {
+        const response = await axios.post(
+          "https://autofinder-backend.vercel.app/api/user/addFavorite",
+          { userId: user._id, adId: carDetail._id, adType: "Bike" }
+        );
+        alert(" Added To Favorites ");
+        console.log(response);
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <>
@@ -49,14 +55,16 @@ const BuyBikes_Detail = () => {
         {!isLoading && (
           <div className="parallel-layout">
             <div className="leftSide">
-              <div><button onClick={handleAddToFavorite}>Add to Favorite</button></div>
+              <div>
+                <button className="My_Fav" onClick={handleAddToFavorite}>
+                  Add to Favorite
+                </button>
+              </div>
               <div className="car-name-location">
                 <h1>
                   {carDetail.brand} {carDetail.model} {carDetail.year}
                 </h1>
-                <p>
-                  {carDetail.location}
-                </p>
+                <p>{carDetail.location}</p>
               </div>
               <div className="car-images">
                 {/* <CCarousel controls indicators> */}
@@ -125,10 +133,7 @@ const BuyBikes_Detail = () => {
               <div className="user-detail">
                 <p>Name: {carDetail.user?.name ?? "N/A"}</p>
                 <p>
-                  Email:{" "}
-                  <a>
-                    {carDetail.user?.email ?? "N/A"}
-                  </a>{" "}
+                  Email: <a>{carDetail.user?.email ?? "N/A"}</a>{" "}
                 </p>
                 <p>Member Since: {carDetail.createdAt.split("T")[0]}</p>
               </div>
