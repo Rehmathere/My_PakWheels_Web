@@ -42,6 +42,11 @@ const Blogs = () => {
     navigate(`/blogs/${itemId}`);
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   // Main Body
   return (
     <div className="Blogs">
@@ -73,6 +78,9 @@ const Blogs = () => {
               <div className="My_detailHolder">
                 <h4>{item.title}</h4>
                 <p>{item.subTitle}</p>
+                <h6 className="My_Date">
+                  Posted : {formatDate(item.createdAt)}
+                </h6>
               </div>
             </div>
           ))}

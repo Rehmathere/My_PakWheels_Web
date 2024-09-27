@@ -68,6 +68,7 @@ const VerifyPayment = () => {
           "https://autofinder-backend.vercel.app/api/buyPackageRequest/upload",
           { ...adData, price: adData.priceToPay }
         );
+        console.log(adData);
       } else if (adData.service === "005") {
         response = await axios.post("http://localhost:8000/api/bikeRequest/add" , adData)
         console.log(response.data)

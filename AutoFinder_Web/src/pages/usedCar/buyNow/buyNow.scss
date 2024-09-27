@@ -100,9 +100,11 @@ $border: none;
   position: absolute;
   bottom: 0;
   right: 0;
-  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%);
-  padding: 5px 10px;
-  border-top-left-radius: 10px;
+  background: linear-gradient(to top,#eb0505, #8f0101);
+  padding: 10px 20px;
+  color: white;
+  letter-spacing: 1.5px;
+  border-top-left-radius: 15px;
 }
 
 .Fade-in{

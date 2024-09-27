@@ -48,7 +48,10 @@ const Bike_dealerPackages = () => {
     <>
       {isLoading && <LoaderComponent />}
       <div className={`DealerPackage ${isLoading ? "Fade-out" : "Fade-in"}`}>
-        <h1>Bike Dealer Packages <i class="fa fa-car" style={{ fontSize: 24 }}></i></h1>
+        <h1>
+          Bike Dealer Packages{" "}
+          <i class="fa fa-car" style={{ fontSize: 24 }}></i>
+        </h1>
         <div className="content">
           <div className="mainSide">
             <div className="packagesHolder">
@@ -56,14 +59,32 @@ const Bike_dealerPackages = () => {
                 data.map((packagee) => (
                   <div className="packageCard">
                     <h2>{packagee.heading}</h2>
-                    <p> <b>Package Name : </b> {packagee.packageType} </p>
-                    <p> <b>Premium Bundles : </b> {packagee.premiumBundles} </p>
-                    <p> <b>Booster Packs : </b> {packagee.freeBoosterPack} </p>
-                    <p> <b>Actural Price : </b> {packagee.actualPrice} </p>
-                    <p> <b>Discounted Price : </b> {packagee.discountedRate}</p>
-                    <p> <b>Saved : </b> {packagee.saved} </p>
+                    <p>
+                      {" "}
+                      <b>Package Name : </b> {packagee.packageType}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Premium Bundles : </b> {packagee.premiumBundles}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Booster Packs : </b> {packagee.freeBoosterPack}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Actural Price : </b> {packagee.actualPrice}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Discounted Price : </b> {packagee.discountedRate}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Saved : </b> {packagee.saved}{" "}
+                    </p>
                     <button onClick={() => handleBuyPackage(packagee)}>
-                      Buy
+                      Buy Now
                     </button>
                   </div>
                 ))}
@@ -79,4 +100,3 @@ const Bike_dealerPackages = () => {
 };
 
 export default Bike_dealerPackages;
-

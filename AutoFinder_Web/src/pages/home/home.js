@@ -52,11 +52,13 @@ const Home = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
+  const [data_F, setData_F] = useState([]);
   const [data_1, setData_1] = useState([]);
   const [data_2, setData_2] = useState([]);
   const [data_3, setData_3] = useState([]);
   const [noDataError, setNoDataError] = useState("");
   const [loadingMore, setLoadingMore] = useState(true);
+
   // Managed Ads
   useEffect(() => {
     async function getData() {
@@ -65,12 +67,40 @@ const Home = () => {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/carAd/",
           {
+            featured: false,
             limit: 4,
           }
         );
         if (response.data.ok) {
           // console.log(response.data.data);
           setData(response.data.data);
+          // setData((prevData) => [...prevData, ...response.data.data]);
+        }
+      } catch (error) {
+        console.log(error);
+        setNoDataError(error.response.data.error);
+      }
+    }
+    console.time("timer");
+    getData();
+    console.timeLog("timer");
+  }, [page]);
+
+  // Featured Car Ads
+  useEffect(() => {
+    async function getData() {
+      try {
+        setLoadingMore(true);
+        const response = await axios.post(
+          "https://autofinder-backend.vercel.app/api/carAd/",
+          {
+            featured: true,
+            limit: 4,
+          }
+        );
+        if (response.data.ok) {
+          // console.log(response.data.data);
+          setData_F(response.data.data);
           // setData((prevData) => [...prevData, ...response.data.data]);
         }
       } catch (error) {
@@ -313,7 +343,7 @@ const Home = () => {
       </div>
       <div id="Home_New_Cars_Box_Parent">
         <div id="Home_New_Cars_Box_Parent_Sub">
-          {/* {!data && !noDataError && (
+          {!data_F && !noDataError && (
             <span className="loaderCont">
               <ReactLoading
                 type={"bars"}
@@ -323,8 +353,8 @@ const Home = () => {
               />
             </span>
           )}
-          {data &&
-            data.map((item) => (
+          {data_F &&
+            data_F.map((item) => (
               <div
                 key={item._id}
                 id="Home_New_Cars_Box"
@@ -340,7 +370,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>} */}
+          {noDataError && <span className="loaderCont">No Data To Show</span>}
         </div>
       </div>
       {/* Popular New Cars */}

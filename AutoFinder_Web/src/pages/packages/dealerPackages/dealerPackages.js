@@ -56,20 +56,36 @@ const DealerPackages = () => {
                 data.map((packagee) => (
                   <div className="packageCard">
                     <h2>{packagee.heading}</h2>
-                    <p> <b>Premium Bundles : </b> {packagee.premiumBundles} </p>
-                    <p> <b>Booster Packs : </b> {packagee.freeBoosterPack} </p>
-                    <p> <b>Actural Price : </b> {packagee.actualPrice} </p>
-                    <p> <b>Discounted Price : </b> {packagee.discountedRate}</p>
-                    <p> <b>Saved : </b> {packagee.saved} </p>
+                    <p>
+                      {" "}
+                      <b>Premium Bundles : </b> &nbsp; {packagee.premiumBundles}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Booster Packs : </b> &nbsp; {packagee.freeBoosterPack}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Actural Price : </b> &nbsp; {packagee.actualPrice}{" "}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Discounted Price : &nbsp; </b>{" "}
+                      {packagee.discountedRate}
+                    </p>
+                    <p>
+                      {" "}
+                      <b>Saved : </b> &nbsp; {packagee.saved}{" "}
+                    </p>
                     <button onClick={() => handleBuyPackage(packagee)}>
-                      Buy
+                      Buy Now
                     </button>
                   </div>
                 ))}
             </div>
           </div>
           <aside>
-            <div>THIS IS SIDE DIV INSTRUCTIONS WILL COME HERE</div>
+            {/* <div>THIS IS SIDE DIV INSTRUCTIONS WILL COME HERE</div> */}
           </aside>
         </div>
       </div>

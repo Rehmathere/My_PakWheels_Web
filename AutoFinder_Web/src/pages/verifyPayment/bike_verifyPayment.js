@@ -65,7 +65,7 @@ const Bike_verifyPayment = () => {
         );
       } else if (adData.service === "004") {
         response = await axios.post(
-          "https://autofinder-backend.vercel.app/api/buyPackageRequest/upload",
+          "https://autofinder-backend.vercel.app/api/bikePackageRequest/upload",
           { ...adData, price: adData.priceToPay }
         );
       } else if (adData.service === "005") {

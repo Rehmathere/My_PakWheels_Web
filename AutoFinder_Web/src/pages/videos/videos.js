@@ -78,7 +78,7 @@ const Videos = () => {
               </div>
               <div className="My_detailHolder">
                 <h4>{item.title}</h4>
-                <h6 className="My_Date">Created At: {formatDate(item.createdAt)}</h6>
+                <h6 className="My_Date">Posted : {formatDate(item.createdAt)}</h6>
               </div>
             </div>
           ))}

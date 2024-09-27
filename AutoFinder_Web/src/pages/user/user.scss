@@ -220,6 +220,16 @@ $border: none;
 
 // User Package
 .UserPackage {
+  padding: 1em 2em 1em 2em;
+
+  h4 {
+    border: 0px solid transparent;
+    text-align: left;
+    padding: 0.5em 0em 2em 0em;
+    font-size: 1.2em;
+    letter-spacing: 2.5px;
+  }
+
   h1 {
     border: 0px solid transparent;
     text-align: center;

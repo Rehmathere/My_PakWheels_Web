@@ -376,8 +376,9 @@ $border: none;
   align-items: center;
 }
 #Home_New_Cars_Compare_Boxh_Parent {
-  border: 0.1px solid transparent;
-  background-color: rgb(240, 239, 239);
+  border: 0.1px solid rgb(240, 239, 239);
+  // background-color: rgb(240, 239, 239);
+  background-color: white;
   width: 50%;
   margin: 0.5em 0em 0em 0em;
   padding: 2em 1.5em;
@@ -388,7 +389,7 @@ $border: none;
   align-items: center;
 }
 #Home_New_Cars_Compare_Boxh_Parent:hover {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(240, 239, 239);
   cursor: pointer;
 }
 #Home_New_Cars_Compare_Boxh {
@@ -422,7 +423,7 @@ $border: none;
   font-size: 15px;
   text-align: center;
   width: 100%;
-  padding: 1em 0em 1em 0em;
+  padding: 1.5em 0em 0em 0em;
   letter-spacing: 2px;
   color: rgb(43, 43, 43);
   font-weight: bold;
