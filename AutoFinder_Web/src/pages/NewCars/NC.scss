@@ -213,12 +213,14 @@
 #My_CarDetails_Box span {
   border-top: 0.05px solid rgb(216, 213, 213);
   padding: 0.3em 0.5em 0.3em 0.5em;
-  letter-spacing: 1px;
-  font-size: 1.1em;
+  letter-spacing: 1.5px;
+  font-size: 1em;
   display: block;
 }
 #My_B {
-  color: #3eb549;
+  color: #bc0000;
+  letter-spacing: 1.5px;
+  font-size: 1em;
 }
 #My_CarDetails_Parent {
   border: 0px solid transparent;
@@ -278,3 +280,102 @@ td {
   height: 3.5vh;
 }
   
+// --- My_NewCars.js ( New Code ) 
+#Cars_Compare_X_Parent {
+  border: 0px solid transparent;
+  padding: 2em 1em 2em 1em;
+}
+#Cars_Compare_X_Parent_Sub {
+  border: 0px solid transparent;
+  padding: 2em 1em 2em 1em;
+}
+#Cars_Compare_X_Parent_Sub_Box {
+  border: 0px solid transparent;
+  padding: 2em 2em 2em 2em;
+  width: 50%;
+  margin: 0em auto;
+  background-color: rgba(224, 224, 224, 0.486);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#Cars_Compare_X_Box_Part_1 {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+#Cars_Compare_X_Box_Part_1 img {
+  border: 0px solid transparent;
+  width: 100%;
+  border-radius: 5px;
+}
+#Cars_Compare_X_Box_Part_2 {
+  border: 0px solid transparent;
+  padding: 0.5em 0em 0.5em 0em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:self-end;
+}
+#Cars_Compare_X_Box_Part_2_1 {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  width: 46%;
+}
+#Cars_Compare_X_Box_Part_2_2 {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  width: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items:flex-end;
+}
+#Cars_Compare_X_Box_Part_2_1 h2 , #Cars_Compare_X_Box_Part_2_2 h2 {
+  border: 0px solid transparent;
+  // border: 0.1px solid black;
+  width: 80%;
+  font-size: 1.85em;
+  letter-spacing: 2px;
+  padding: 0.5em 0em;
+  text-align: center;
+}
+#Cars_Compare_X_Box_Part_2_1 input , #Cars_Compare_X_Box_Part_2_2 input {
+  border: 0.1px solid rgb(158, 158, 158);
+  width: 80%;
+  padding: 0.3em 0.2em 0.3em 1em;
+  letter-spacing: 1.5px;
+  font-size: 0.9em;
+  margin: 0em 0em 0.5em 0em;
+  border-radius: 10px;
+}
+#Cars_Compare_X_Box_Part_2_1 input:focus , #Cars_Compare_X_Box_Part_2_2 input:focus {
+  outline: none;
+}
+#Cars_Compare_X_Box_Part_2_E {
+  border: 0px solid transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 8%;
+  padding: 3.8em 0em 3.8em 0em;
+}
+#Cars_Compare_X_Box_Part_2_E img {
+  border: 0px solid transparent;
+  width: 100%;
+}
+#Cars_Compare_X_Box_Part_3 {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 0.5em;
+}
+#Cars_Compare_X_Box_Part_3 button {
+  border: 0px solid transparent;
+  padding: 0.5em 0.5em 0.5em;
+  background-color: #bc0000;
+  width: 100%;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 4px;
+}
+#Cars_Compare_X_Box_Part_3 button:hover , #Cars_Compare_X_Box_Part_3 button:focus {
+  background-color: #960000;
+}

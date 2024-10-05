@@ -473,6 +473,7 @@ $border: none;
   height: 45vh;
   margin: 2em 0em 0em 3em;
   border-radius: 8px;
+  position: relative;
 }
 #Home_New_Cars_Box:hover {
   cursor: pointer;
@@ -482,6 +483,7 @@ $border: none;
 #Home_My_NewCar_imgHolder {
   border: 0px solid transparent;
   padding: 0em 0em;
+  position: relative;
 }
 #Home_My_NewCar_imgHolder img {
   border: 0px solid transparent;
@@ -521,4 +523,19 @@ $border: none;
   font-size: 1.05em;
   letter-spacing: 0.5px;
   color: green;
+}
+#My_Featured_Parent_Txt {
+  border: 0px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px; /* Adjust width if necessary */
+  text-align: center;
+  padding: 0.35em 0;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 20px;
+  background-color: #bc0000;
+  color: white;
+  letter-spacing: 2px;
+  z-index: 1; /* Ensure it appears on top of the image */
 }

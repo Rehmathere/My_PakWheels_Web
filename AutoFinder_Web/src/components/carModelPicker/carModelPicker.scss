@@ -1,11 +1,29 @@
 .CarModelPicker{
   padding: 0;
   width: 100%;
+  
   div{
     padding: 10px 0;
     border: none;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: space-between;
+    width: 82%;
+    margin: 0em auto;
+  }
+
+  label {
+    border: 0px solid transparent;
+    width: 20%;
+  }
+
+  select {
+    border: 0.1px solid rgb(172, 172, 172);
+    width: 41%;
+    // color: grey;
+    letter-spacing: 1.5px;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border-radius: 5px;
   }
 }

@@ -11,7 +11,7 @@
   letter-spacing: 1px;
 }
 .Bikes_Button {
-  border: 0.1px solid transparent;
+  border: 0px solid transparent;
   padding: 1.5em 1em;
   display: flex;
   flex-direction: row;

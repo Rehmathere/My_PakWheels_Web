@@ -46,7 +46,7 @@ const FavoriteAds = () => {
     } catch (error) {
       console.log(error);
     }
-  };  
+  };
   // --- Delete All Favorite Ads ---
 
   const handleNavigateToSingleCarAd = (itemId) => {
@@ -56,11 +56,13 @@ const FavoriteAds = () => {
   return (
     <div className="UserAds">
       <br />
-      <h2 style={{ textAlign: "center", letterSpacing: 1.5 }}>
+      <h2 style={{ textAlign: "center", letterSpacing: 3.5, fontWeight: "600", }}>
         Your Favorite Ads
       </h2>
       <div id="My_Del_Ad_Parent">
-        <button id="My_Del_Ad" onClick={handleDeleteFavorite}>Delete All Ads</button>
+        <button id="My_Del_Ad" onClick={handleDeleteFavorite}>
+          Delete All Ads
+        </button>
       </div>
       <br />
       <div className="myAdsCont">
@@ -102,10 +104,20 @@ const FavoriteAds = () => {
                 )}
                 {/* --- Condition Here For Auto Part & Car , Bike --- */}
                 <p>{item.location ? item.location : " - "}</p>
-                <p>
-                  {item.kmDriven ? item.kmDriven.toLocaleString() : " - "} km |{" "}
-                  {item.fuelType ? item.fuelType : " - "}
-                </p>
+                {/* --- Condition Here For Auto Part Category --- */}
+                {item.fuelType ? (
+                  <p>
+                    {item.kmDriven ? item.kmDriven.toLocaleString() : " - "} km
+                    | {item.fuelType ? item.fuelType : " - "}
+                  </p>
+                ) : (
+                  <p>
+                    {item.category && item.category.name
+                      ? item.category.name
+                      : " - "}
+                  </p>
+                )}
+                {/* --- Condition Here For Auto Part Category --- */}
                 <p>
                   Posted{" "}
                   {item.createdAt

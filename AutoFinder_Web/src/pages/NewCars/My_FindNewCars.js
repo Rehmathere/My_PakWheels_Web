@@ -161,6 +161,15 @@ function My_FindNewCars() {
     );
     setSearchResult(result);
   };
+  const handleSearch_Peugeot = () => {
+    const searchTerm = "peugeot"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
   // Main Body
   return (
     <div>
@@ -259,19 +268,19 @@ function My_FindNewCars() {
               {/* --- 3 - Brand Row --- */}
               <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
-                <div id="New_Cars_Box" onClick={handleSearch_proton}>
+                <div id="New_Cars_Box">
                   <div id="My_NewCar_imgHolder_E">
                     <img src={fordland} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box" onClick={handleSearch_dfsk}>
+                <div id="New_Cars_Box">
                   <div id="My_NewCar_imgHolder_E">
                     <img src={kia} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Peugeot}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={peugeot} alt="" />
                   </div>
@@ -298,13 +307,13 @@ function My_FindNewCars() {
               {/* --- 4 - Brand Row --- */}
               <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
-                <div id="New_Cars_Box" onClick={handleSearch_proton}>
+                <div id="New_Cars_Box">
                   <div id="My_NewCar_imgHolder_E">
                     <img src={faw} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box" onClick={handleSearch_dfsk}>
+                <div id="New_Cars_Box">
                   <div id="My_NewCar_imgHolder_E">
                     <img src={bmw} alt="" />
                   </div>

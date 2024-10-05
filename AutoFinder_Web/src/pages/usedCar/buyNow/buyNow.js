@@ -147,7 +147,17 @@ const UsedCarBuyNow = () => {
                     </div>
                   ))}
                 {!noDataError && (
-                  <button onClick={() => setPage(page + 1)}>
+                  <button
+                    style={{
+                      border: "0px solid transparent",
+                      padding: "0.3em 0em 0.3em 0em",
+                      letterSpacing: "2px",
+                      backgroundColor: "#bc0000",
+                      color: "white",
+                      margin: "1em 0em 1em 0em",
+                    }}
+                    onClick={() => setPage(page + 1)}
+                  >
                     {loadingMore ? "LOADING MORE..." : "LOAD MORE"}
                   </button>
                 )}

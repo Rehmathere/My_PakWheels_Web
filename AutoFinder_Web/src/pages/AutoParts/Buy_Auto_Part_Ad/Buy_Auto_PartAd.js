@@ -8,7 +8,6 @@ import ReactLoading from "react-loading";
 import Filter from "../../../components/filter/filter_AutoParts";
 import LoaderComponent from "../../../components/loaderComponent/loaderComponent";
 
-
 const Buy_Auto_PartAd = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
@@ -25,7 +24,9 @@ const Buy_Auto_PartAd = () => {
       try {
         setLoadingMore(true);
         // const response = await axios.get("http://localhost:8000/api/bike");
-        const response = await axios.get("https://autofinder-backend.vercel.app/api/autoPart/");
+        const response = await axios.get(
+          "https://autofinder-backend.vercel.app/api/autoPart/"
+        );
         if (response.data.ok) {
           console.log(response.data.data);
           // setData((prevData) => [...prevData, ...response.data.data]);
@@ -87,7 +88,7 @@ const Buy_Auto_PartAd = () => {
             </div>
             <div className="underHeadingCont">
               <aside className="filterCont">
-              <Filter onFilterApply={handleFilterApply} />
+                <Filter onFilterApply={handleFilterApply} />
               </aside>
 
               <div className="carAdsCont">
@@ -133,7 +134,17 @@ const Buy_Auto_PartAd = () => {
                     </div>
                   ))}
                 {!noDataError && (
-                  <button onClick={() => setPage(page + 1)}>
+                  <button
+                    style={{
+                      border: "0px solid transparent",
+                      padding: "0.3em 0em 0.3em 0em",
+                      letterSpacing: "2px",
+                      backgroundColor: "#bc0000",
+                      color: "white",
+                      margin: "1em 0em 1em 0em",
+                    }}
+                    onClick={() => setPage(page + 1)}
+                  >
                     {loadingMore ? "LOADING MORE..." : "LOAD MORE"}
                   </button>
                 )}
@@ -151,4 +162,3 @@ const Buy_Auto_PartAd = () => {
 };
 
 export default Buy_Auto_PartAd;
-

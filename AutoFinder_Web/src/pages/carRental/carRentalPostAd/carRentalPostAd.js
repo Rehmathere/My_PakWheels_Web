@@ -18,7 +18,23 @@ const CarRentalPostAd = () => {
   const [loading, setLoading] = useState(true);
   const [disabledBtn, setDisableBtn] = useState(false);
   //
-  const colorData = ["Red", "White", "Black", "Gray"];
+  const colorData = [
+    "Red",
+    "White",
+    "Black",
+    "Gray",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Orange",
+    "Silver",
+    "Brown",
+    "Maroon",
+    "Gold",
+    "Purple",
+    "Pink",
+    "Beige",
+  ];
 
   //
   const [city, setCity] = useState("");
@@ -37,10 +53,12 @@ const CarRentalPostAd = () => {
   const [paymentType, setPaymentType] = useState("");
   const [driverAvailabilty, setDriverAvailability] = useState("");
   const [carAvailability, setCarAvailability] = useState("");
-  const [documentationRequirements, setdocumentationRequirements] = useState([]);
-  const [carType , setCarType] = useState("")
-  const [betweenCities , setBetweenCities] = useState("")
-  const [seatingCapacity ,setSeatingCapacity] = useState("")
+  const [documentationRequirements, setdocumentationRequirements] = useState(
+    []
+  );
+  const [carType, setCarType] = useState("");
+  const [betweenCities, setBetweenCities] = useState("");
+  const [seatingCapacity, setSeatingCapacity] = useState("");
   // CAR MODEL PICKER FUNCTIONS
 
   const [year, setYear] = useState("");
@@ -91,21 +109,21 @@ const CarRentalPostAd = () => {
     const imagesURL = await Promise.all(imagesURLPromises);
     const adData = {
       user: user._id,
-      carType:carType,
+      carType: carType,
       images: imagesURL,
       paymentMethod: paymentType,
       carTransmission: transmission,
       engineCapacity: engineCapacity,
-      seatingCapacity:seatingCapacity,
+      seatingCapacity: seatingCapacity,
       driverAvailability: driverAvailabilty,
-      betweenCities:betweenCities,
+      betweenCities: betweenCities,
       mileage: kmDriven,
       carAssembly: assembly,
       bodyColor: color,
       engineType: fuelType,
       Year: year,
       Days: carAvailability,
-      DocumentationRequirements:documentationRequirements,
+      DocumentationRequirements: documentationRequirements,
       city: city,
       Brand: brand,
       Variant: variant,
@@ -215,15 +233,20 @@ const CarRentalPostAd = () => {
     navigate("/select-payment-method", { state: { adData } });
   };
 
-   // Function to handle checkbox change
-   const handleCheckboxChange = (event) => {
+  // Function to handle checkbox change
+  const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
       // If checkbox is checked, add the value to selectedValues array
-      setdocumentationRequirements(prevSelectedValues => [...prevSelectedValues, value]);
+      setdocumentationRequirements((prevSelectedValues) => [
+        ...prevSelectedValues,
+        value,
+      ]);
     } else {
       // If checkbox is unchecked, remove the value from selectedValues array
-      setdocumentationRequirements(prevSelectedValues => prevSelectedValues.filter(item => item !== value));
+      setdocumentationRequirements((prevSelectedValues) =>
+        prevSelectedValues.filter((item) => item !== value)
+      );
     }
   };
 
@@ -371,8 +394,13 @@ const CarRentalPostAd = () => {
           </div>
           <div className="formFirstDiv padding-10">
             <label>Car Type:</label>
-            <select value={carType} onChange={(e)=>setCarType(e.target.value)}>
-              <option value={""} disabled>Select an option</option>
+            <select
+              value={carType}
+              onChange={(e) => setCarType(e.target.value)}
+            >
+              <option value={""} disabled>
+                Select an option
+              </option>
               <option value="Sedan">Sedan</option>
               <option value="SUV">SUV</option>
             </select>

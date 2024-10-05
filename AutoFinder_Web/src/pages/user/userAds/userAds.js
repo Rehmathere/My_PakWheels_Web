@@ -19,6 +19,7 @@ const UserAds = () => {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/carAd/",
           {
+            limit: 10,
             user: user._id,
           }
         );
@@ -130,8 +131,6 @@ const UserAds = () => {
                   Delete Ad
                 </button>
               </div>
-              <br />
-              <br />
               <br />
             </>
           ))}

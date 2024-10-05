@@ -9,7 +9,6 @@ import LoaderComponent from "../../../../components/loaderComponent/loaderCompon
 // Bike Filter
 import Filter_Bike from "../../../../components/filter/filter_Bike";
 
-
 const BuyBikes = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
@@ -26,10 +25,13 @@ const BuyBikes = () => {
       try {
         setLoadingMore(true);
         // const response = await axios.get("http://localhost:8000/api/bike");
-        const response = await axios.get("https://autofinder-backend.vercel.app/api/bike/");
+        const response = await axios.get(
+          "https://autofinder-backend.vercel.app/api/bike/"
+        );
         if (response.data.ok) {
           console.log(response.data.data);
-          setData((prevData) => [...prevData, ...response.data.data]);
+          // setData((prevData) => [...prevData, ...response.data.data]);
+          setData(response.data.data);
           setIsLoading(false);
           setLoadingMore(false);
         }
@@ -88,7 +90,7 @@ const BuyBikes = () => {
             </div>
             <div className="underHeadingCont">
               <aside className="filterCont">
-              <Filter_Bike onFilterApply={handleFilterApply} />
+                <Filter_Bike onFilterApply={handleFilterApply} />
               </aside>
 
               <div className="carAdsCont">
@@ -137,7 +139,17 @@ const BuyBikes = () => {
                     </div>
                   ))}
                 {!noDataError && (
-                  <button onClick={() => setPage(page + 1)}>
+                  <button
+                    style={{
+                      border: "0px solid transparent",
+                      padding: "0.3em 0em 0.3em 0em",
+                      letterSpacing: "2px",
+                      backgroundColor: "#bc0000",
+                      color: "white",
+                      margin: "1em 0em 1em 0em",
+                    }}
+                    onClick={() => setPage(page + 1)}
+                  >
                     {loadingMore ? "LOADING MORE..." : "LOAD MORE"}
                   </button>
                 )}

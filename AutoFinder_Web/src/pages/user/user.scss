@@ -11,6 +11,7 @@ $border: none;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+
     a {
       border: $border;
       padding: 0.1em 1em;
@@ -45,7 +46,8 @@ $border: none;
     text-align: center;
     padding: 0.5em 0em 2em 0em;
     font-size: 2em;
-    letter-spacing: 2.5px;
+    letter-spacing: 3.5px;
+    font-weight: 600;
   }
 
   .Profile_Head {
@@ -65,11 +67,17 @@ $border: none;
 
   .Profile_data p {
     border: 0px solid transparent;
-    padding: 0.5em 0.5em;
+    background: linear-gradient(to top, white, rgb(247, 246, 246));
+    padding: 0.8em 0.5em 0.8em 1em;
+    border-radius: 20px;
     font-size: 0.81em;
     letter-spacing: 3px;
     margin: 0em 0em 2em 0em;
     text-transform: capitalize;
+  }
+  .Profile_data p:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
   }
 }
 
@@ -79,7 +87,8 @@ $border: none;
     text-align: center;
     padding: 0.5em 0em 2em 0em;
     font-size: 2em;
-    letter-spacing: 2.5px;
+    letter-spacing: 3.5px;
+    font-weight: 600;
   }
 
   #My_Del_Ad_Parent {
@@ -201,9 +210,20 @@ $border: none;
   border: 0px solid transparent;
   text-align: center;
   padding: 1em 0em;
-  font-size: 2.2em;
+  font-size: 2em;
   // background-color: #e3f2fd;
   background-color: #ffe9e9;
+  letter-spacing: 3.5px;
+  font-weight: 600;
+}
+#My_Request_Parent select {
+  border: 0.1px solid lightgrey;
+  margin: 0em 1em 0em 0em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border-radius: 20px;
+}
+#My_Request_Parent select:focus {
+  outline: none;
 }
 .My_Err {
   text-align: center;
@@ -227,7 +247,8 @@ $border: none;
     text-align: left;
     padding: 0.5em 0em 2em 0em;
     font-size: 1.2em;
-    letter-spacing: 2.5px;
+    letter-spacing: 3.5px;
+    // font-weight: 600;
   }
 
   h1 {
@@ -235,6 +256,7 @@ $border: none;
     text-align: center;
     padding: 0.5em 0em 2em 0em;
     font-size: 2em;
-    letter-spacing: 2.5px;
+    letter-spacing: 3.5px;
+    font-weight: 600;
   }
 }

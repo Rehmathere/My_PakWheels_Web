@@ -67,7 +67,7 @@ const Home = () => {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/carAd/",
           {
-            featured: false,
+            // featured: false,
             limit: 4,
           }
         );
@@ -321,6 +321,9 @@ const Home = () => {
                 onClick={() => handleNavigateToSingleCarAd_MangedAds(item._id)}
               >
                 <div id="Home_My_NewCar_imgHolder">
+                  {/* // --- Featured --- */}
+                  {item.featured && <p id="My_Featured_Parent_Txt">Featured</p>}
+                  {/* --- Featured --- */}
                   <img src={item.images[0]} alt="" />
                 </div>
                 <div id="Home_My_NewCar_detailHolder">
@@ -361,6 +364,9 @@ const Home = () => {
                 onClick={() => handleNavigateToSingleCarAd_MangedAds(item._id)}
               >
                 <div id="Home_My_NewCar_imgHolder">
+                  {/* // --- Featured --- */}
+                  {item.featured && <p id="My_Featured_Parent_Txt">Featured</p>}
+                  {/* --- Featured --- */}
                   <img src={item.images[0]} alt="" />
                 </div>
                 <div id="Home_My_NewCar_detailHolder">

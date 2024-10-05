@@ -157,10 +157,10 @@ function My_Request() {
       {/* --- Show Service Select Portion --- */}
       <div style={{ padding: "1em 0em" }}>
         <span style={{ padding: "1em 0em 0em 0em" }}>Choose Service</span>
-        <select
+        &nbsp; <select
           value={selectedService}
           onChange={(e) => setSelectedService(e.target.value)}
-          style={{ width: "10%" }}
+          style={{ width: "10%",  }}
         >
           <option value="001">001</option>
           <option value="002">002</option>

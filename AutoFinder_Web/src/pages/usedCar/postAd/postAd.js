@@ -18,7 +18,23 @@ const UsedCarPostAd = () => {
   const [loading, setLoading] = useState(true);
   const [disabledBtn, setDisableBtn] = useState(false);
   //
-  const colorData = ["Red", "White", "Black", "Gray"];
+  const colorData = [
+    "Red",
+    "White",
+    "Black",
+    "Gray",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Orange",
+    "Silver",
+    "Brown",
+    "Maroon",
+    "Gold",
+    "Purple",
+    "Pink",
+    "Beige",
+  ];
 
   //
   const [city, setCity] = useState("");
@@ -78,9 +94,9 @@ const UsedCarPostAd = () => {
   };
 
   const setAdData = async () => {
-    const imagesURLPromises = images.map(async (imageObj)=>{
-      return await uploadToCloudinary(imageObj)
-    })
+    const imagesURLPromises = images.map(async (imageObj) => {
+      return await uploadToCloudinary(imageObj);
+    });
     const imagesURL = await Promise.all(imagesURLPromises);
     const adData = {
       images: imagesURL,
@@ -121,7 +137,7 @@ const UsedCarPostAd = () => {
     );
     const img = await res.json();
     // console.log(img.url)
-    return img.url
+    return img.url;
   };
 
   const handlePostFreeAd = async (e) => {
@@ -146,7 +162,7 @@ const UsedCarPostAd = () => {
       }
     } catch (error) {
       console.log(error);
-      openFreeModal()
+      openFreeModal();
       setDisableBtn(false);
     }
   };
@@ -213,18 +229,19 @@ const UsedCarPostAd = () => {
 
   // MODAL FUNCTIONS
   const [modalIsOpenSelectPackage, setIsSelectPackage] = useState(false);
-  const [modalIsOpenSelectFreePackage , setIsOpenSelectFreePackage] = useState(false)
+  const [modalIsOpenSelectFreePackage, setIsOpenSelectFreePackage] =
+    useState(false);
   function openModal() {
     setIsSelectPackage(true);
   }
-  function openFreeModal(){
-    setIsOpenSelectFreePackage(true)
+  function openFreeModal() {
+    setIsOpenSelectFreePackage(true);
   }
   function closeModal() {
     setIsSelectPackage(false);
   }
-  function closeFreeModal(){
-    setIsOpenSelectFreePackage(false)
+  function closeFreeModal() {
+    setIsOpenSelectFreePackage(false);
   }
 
   if (loading) return <div>LOADING...</div>;
@@ -448,7 +465,9 @@ const UsedCarPostAd = () => {
           ariaHideApp={false}
         >
           <div className="modalDiv">
-            <h4>Your monthly limit has been reached. Want to post another ad? </h4>
+            <h4>
+              Your monthly limit has been reached. Want to post another ad?{" "}
+            </h4>
 
             <div className="modalButtonHolder">
               <button
@@ -456,7 +475,7 @@ const UsedCarPostAd = () => {
                 className="color1"
               >
                 Post Ad For Only 525 RS
-              </button>   
+              </button>
             </div>
           </div>
         </Modal>

@@ -15,8 +15,9 @@ const UserProfile = () => {
                 fontSize: "20px",
                 marginRight: "15px",
                 color: "#bc0000",
+                padding: "0em 0em 0em 1.5em"
               }}
-            ></i>{" "}
+              ></i>{" "}
             <b>User-ID : </b> &nbsp;&nbsp; {user ? user._id : ""}{" "}
           </p>
           <p>
@@ -26,8 +27,9 @@ const UserProfile = () => {
                 fontSize: "20px",
                 marginRight: "15px",
                 color: "#bc0000",
+                padding: "0em 0em 0em 1.5em"
               }}
-            ></i>{" "}
+              ></i>{" "}
             <b>Name : </b> &nbsp;&nbsp; {user ? user.name : ""}{" "}
           </p>
         </div>
@@ -39,8 +41,9 @@ const UserProfile = () => {
                 fontSize: "20px",
                 marginRight: "15px",
                 color: "#bc0000",
+                padding: "0em 0em 0em 1.5em"
               }}
-            ></i>{" "}
+              ></i>{" "}
             <b>Email : </b> &nbsp;&nbsp; {user ? user.email : ""}{" "}
           </p>
           <p>
@@ -50,6 +53,7 @@ const UserProfile = () => {
                 fontSize: "20px",
                 marginRight: "15px",
                 color: "#bc0000",
+                padding: "0em 0em 0em 1.5em"
               }}
             ></i>{" "}
             <b>Phone-Number : </b> &nbsp;&nbsp; {user ? user.phoneNumber : ""}{" "}
