@@ -23,9 +23,16 @@ const ListItForYou = () => {
             Professionally trained specialists are designated to facilitate the
             sale of every vehicle.
           </h4>
-          <button
+          {/* <button
             onClick={() =>
               navigate("/service/request", { state: { service: service } })
+            }
+          >
+            Get Started
+          </button> */}
+          <button
+            onClick={() =>
+              navigate("/PostAd_ListitForyou")
             }
           >
             Get Started

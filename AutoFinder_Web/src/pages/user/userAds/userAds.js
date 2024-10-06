@@ -23,7 +23,18 @@ const UserAds = () => {
             user: user._id,
           }
         );
-        setData(response.data.data);
+        if (response.data.ok) {
+          const sortedData = response.data.data.sort((a, b) => {
+            if (a.ManagedByAutoFinder && !b.ManagedByAutoFinder) return -1;
+            if (!a.ManagedByAutoFinder && b.ManagedByAutoFinder) return 1;
+            if (a.featured && !b.featured) return -1;
+            if (!a.featured && b.featured) return 1;
+            return 0;
+          });
+
+          setData(sortedData);
+        }
+        // setData(response.data.data);
       } catch (error) {
         if (error.response.status === 400) {
           setNoDataError("No Ads To Show!");
@@ -114,6 +125,12 @@ const UserAds = () => {
                     )} ago{" "}
                   </p>
                   <h4 className="adPrice">{item.price.toLocaleString()}</h4>
+                  {item.featured && (
+                    <div className="featuredTag_a">Featured</div>
+                  )}
+                  {item.ManagedByAutoFinder && (
+                    <div className="ManagedTag_a">Manage Ad By Auto Finder</div>
+                  )}
                 </div>
               </div>
               {/* - Btn - */}

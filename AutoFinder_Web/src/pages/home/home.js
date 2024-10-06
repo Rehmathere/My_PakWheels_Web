@@ -67,7 +67,7 @@ const Home = () => {
         const response = await axios.post(
           "https://autofinder-backend.vercel.app/api/carAd/",
           {
-            // featured: false,
+            ManagedByAutoFinder: true,
             limit: 4,
           }
         );
@@ -126,7 +126,7 @@ const Home = () => {
         if (response.data.ok) {
           // console.log(response.data.data);
           // setData_1(response.data.data);
-          const limitedData = response.data.data.slice(0, 4);
+          const limitedData = response.data.data.slice(8, 12);
           setData_1(limitedData);
           // setData((prevData) => [...prevData, ...response.data.data]);
         }
@@ -322,7 +322,7 @@ const Home = () => {
               >
                 <div id="Home_My_NewCar_imgHolder">
                   {/* // --- Featured --- */}
-                  {item.featured && <p id="My_Featured_Parent_Txt">Featured</p>}
+                  {item.ManagedByAutoFinder && <p id="ManagedTag">Managed</p>}
                   {/* --- Featured --- */}
                   <img src={item.images[0]} alt="" />
                 </div>

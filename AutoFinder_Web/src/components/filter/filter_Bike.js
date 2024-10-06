@@ -70,32 +70,32 @@ const Filter_Bike = ({ onFilterApply }) => {
     "benelli",
   ];
   const modelData = [
-    "honda cd 70",
+    "Honda CD 70",
     "Honda CG 125",
-    "suzuki gs 150",
-    "suzuki gd 110",
-    "yamaha ybr 125",
-    "yamaha ybz 125",
-    "road prince rp 70",
-    "road prince rp 110",
-    "united us 70",
-    "united us 125",
-    "super power sp 70",
-    "super power archi 150",
-    "kawasaki gto 125",
-    "hero rf 70",
-    "zongshen zs 150",
-    "unique ud 70",
-    "unique ud 125",
-    "hi-speed infinity 150",
-    "metro mr 70",
-    "super star ss 70",
-    "ravi piaggio storm 125",
-    "pak hero ph 70",
-    "power pk 70",
-    "qingqi qm 70",
-    "derbi stx 150",
-    "benelli tnt 150",
+    "Suzuki GS 150",
+    "Suzuki GD 110",
+    "YBR 125",
+    "YBZ 125",
+    "Road Prince RP 70",
+    "Road Prince RP 110",
+    "United US 70",
+    "United US 125",
+    "Super Power SP 70",
+    "Super Power Archi 150",
+    "Kawasaki GTO 125",
+    "Hero RF 70",
+    "Zongshen ZS 150",
+    "Unique UD 70",
+    "Unique UD 125",
+    "Hi-Speed Infinity 150",
+    "Metro MR 70",
+    "Super Star SS 70",
+    "Ravi Piaggio Storm 125",
+    "Pak Hero PH 70",
+    "Power PK 70",
+    "Qingqi QM 70",
+    "Derbi STX 150",
+    "Benelli TNT 150",
   ];
 
   const handleApplyFilter = () => {
@@ -112,6 +112,7 @@ const Filter_Bike = ({ onFilterApply }) => {
       selectedFuelType,
       selectedEngineType,
       selectedBrand,
+      selectedModel,
     };
     onFilterApply(data);
   };
@@ -274,6 +275,13 @@ const Filter_Bike = ({ onFilterApply }) => {
               <option value="Gas">Gas</option>
               <option value="Petrol">Petrol</option>
               <option value="High-Octane Petrol">High-Octane Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Electric">Electric</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="CNG">CNG</option>
+              <option value="LPG">LPG</option>
+              <option value="Hydrogen">Hydrogen</option>
+              <option value="Ethanol">Ethanol</option>
             </select>
           </div>
         )}

@@ -27,13 +27,19 @@ const UsedCarBuyNow = () => {
           "https://autofinder-backend.vercel.app/api/carAd",
           {
             page,
-            limit: 3,
+            limit: 4,
           }
         );
         if (response.data.ok) {
-          console.log(response.data.data);
-          setData(response.data.data);
-          // setData((prevData) => [...prevData, ...response.data.data]);
+          const sortedData = response.data.data.sort((a, b) => {
+            if (a.ManagedByAutoFinder && !b.ManagedByAutoFinder) return -1;
+            if (!a.ManagedByAutoFinder && b.ManagedByAutoFinder) return 1;
+            if (a.featured && !b.featured) return -1;
+            if (!a.featured && b.featured) return 1;
+            return 0;
+          });
+
+          setData(sortedData);
           setIsLoading(false);
           setLoadingMore(false);
         }
@@ -142,6 +148,11 @@ const UsedCarBuyNow = () => {
                         </h4>
                         {item.featured && (
                           <div className="featuredTag">Featured</div>
+                        )}
+                        {item.ManagedByAutoFinder && (
+                          <div className="ManagedTag">
+                            Manage Ad By Auto Finder
+                          </div>
                         )}
                       </div>
                     </div>

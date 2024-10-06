@@ -82,6 +82,7 @@ $border: none;
 }
 
 .UserAds {
+
   h1 {
     border: 0px solid transparent;
     text-align: center;
@@ -162,6 +163,39 @@ $border: none;
         font-size: 18px;
         color: green;
       }
+
+      .ManagedTag_a {
+        // border: 1px solid black;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 270px;
+        text-align: center;
+        background: linear-gradient(to top, #ffd428, #caa614);
+        padding: 1em 0em;
+        color: black;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 5px;
+      }
+      
+      .featuredTag_a {
+        border: 0px solid transparent;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 110px; /* Adjust width if necessary */
+        text-align: center;
+        padding: 1em 0em;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 5px;
+        background-color: #bc0000;
+        color: white;
+        letter-spacing: 2px;
+        z-index: 1;
+      }
+
     }
   }
 
@@ -173,6 +207,7 @@ $border: none;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 1em 0em 0em 0em;
   }
   .My_BtnHead_1 {
     border: 0px solid transparent;

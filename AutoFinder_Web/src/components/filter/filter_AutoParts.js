@@ -97,6 +97,10 @@ const Filter_AutoParts = ({ onFilterApply }) => {
             <option value="Exterior">Exterior</option>
             <option value="Interior">Interior</option>
             <option value="Internal">Internal</option>
+            <option value="Body Parts">Body Parts</option>
+            <option value="Engine">Engine</option>
+            <option value="Suspension">Suspension</option>
+            <option value="Car Care">Car Care</option>
           </select>
         )}
       </div>

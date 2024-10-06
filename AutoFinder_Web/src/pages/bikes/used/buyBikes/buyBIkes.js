@@ -31,7 +31,14 @@ const BuyBikes = () => {
         if (response.data.ok) {
           console.log(response.data.data);
           // setData((prevData) => [...prevData, ...response.data.data]);
-          setData(response.data.data);
+          // setData(response.data.data);
+          // setIsLoading(false);
+          // setLoadingMore(false);
+          // --- New ---
+          const sortedData = response.data.data.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+          setData(sortedData);
           setIsLoading(false);
           setLoadingMore(false);
         }

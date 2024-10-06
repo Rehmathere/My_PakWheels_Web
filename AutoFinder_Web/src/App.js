@@ -3,6 +3,7 @@ import Home from "./pages/home/home";
 import Navbar from "./components/navbar/navbar";
 import FreeAd from "./pages/service/freeAd/freeAd";
 import UsedCarPostAd from "./pages/usedCar/postAd/postAd";
+import PostAd_ListitForyou from "./pages/usedCar/postAd/postAd_ListitForyou";
 import { useEffect } from "react";
 import useRehydrateUser from "./hooks/user/rehydrateUser"
 import SelectPaymentMethod from "./pages/selectPaymentMethod/selectPaymentMethod";
@@ -73,6 +74,9 @@ function App() {
             <Route path="/service/request" element={<ServiceRequest/>} />
             {/* //Used car */}
             <Route path="/used-car/post-ad" element={<UsedCarPostAd />} />
+            {/* --- New --- */}
+            <Route path="/PostAd_ListitForyou" element={<PostAd_ListitForyou />} />
+            {/* --- New --- */}
             <Route path="/used-car/buy" element={<UsedCarBuyNow/>}/>
             <Route path="/used-car/detail/:id" element={<CarDetail/>}/>
             {/* // Pacakges */}
