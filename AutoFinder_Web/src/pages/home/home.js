@@ -217,6 +217,7 @@ const Home = () => {
           <div className="childHolder">
             <div className="widget-child1">
               <h2>Post Your Ad On Autofinder</h2>
+              <br />
               <ul>
                 <li>✔️ Post your Ad for Free in 3 Easy Steps</li>
                 <li>✔️ Get Genuine offers from Verified Buyers</li>
@@ -227,14 +228,15 @@ const Home = () => {
               </div>
             </div>
             <div className="widget-child2">
-              <h2>Post Your Ad On Autofinder</h2>
+              <h2>Sell Your Ad On Autofinder</h2>
+              <br />
               <ul>
                 <li>✔️ Post your Ad for Free in 3 Easy Steps</li>
                 <li>✔️ Get Genuine offers from Verified Buyers</li>
                 <li>✔️ Sell your car Fast at the Best Price</li>
               </ul>
               <div className="btnHolder">
-                <button>Register Your Car</button>
+                <button>Sell Your Ad</button>
               </div>
             </div>
           </div>

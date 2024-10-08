@@ -170,6 +170,141 @@ function My_FindNewCars() {
     );
     setSearchResult(result);
   };
+  const handleSearch_Baic = () => {
+    const searchTerm = "baic"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Tesla = () => {
+    const searchTerm = "tesla"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Suzuki = () => {
+    const searchTerm = "suzuki"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_United = () => {
+    const searchTerm = "united"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Kia = () => {
+    const searchTerm = "kia"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Prince = () => {
+    const searchTerm = "prince"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Fordland = () => {
+    const searchTerm = "JW Forland"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Mercedes = () => {
+    const searchTerm = "mercedes"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Porche = () => {
+    const searchTerm = "porsche"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Faw = () => {
+    const searchTerm = "faw"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Bmw = () => {
+    const searchTerm = "bmw"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Haval = () => {
+    const searchTerm = "haval"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Daehan = () => {
+    const searchTerm = "daehan"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Chery = () => {
+    const searchTerm = "chery"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
+  const handleSearch_Isuzu = () => {
+    const searchTerm = "isuzu"; // Hardcoded search term
+    const result = data.find(
+      (car) =>
+        car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResult(result);
+  };
   // Main Body
   return (
     <div>
@@ -241,25 +376,25 @@ function My_FindNewCars() {
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Tesla}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={Tesla} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Prince}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={Prince} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Suzuki}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={Suzuki} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_United}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={United} alt="" />
                   </div>
@@ -268,13 +403,13 @@ function My_FindNewCars() {
               {/* --- 3 - Brand Row --- */}
               <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Fordland}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={fordland} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Kia}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={kia} alt="" />
                   </div>
@@ -286,19 +421,19 @@ function My_FindNewCars() {
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Mercedes}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={mercedes} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Porche}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={porche} alt="" />
                   </div>
                 </div>
-                {/* Box */}
-                <div id="New_Cars_Box">
+                {/* Box */} 
+                <div id="New_Cars_Box" onClick={handleSearch_Baic}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={baic} alt="" />
                   </div>
@@ -307,37 +442,37 @@ function My_FindNewCars() {
               {/* --- 4 - Brand Row --- */}
               <div id="New_Cars_Box_Parent_Sub">
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Faw}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={faw} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Bmw}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={bmw} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Haval}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={haval} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Daehan}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={daehan} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Chery}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={chery} alt="" />
                   </div>
                 </div>
                 {/* Box */}
-                <div id="New_Cars_Box">
+                <div id="New_Cars_Box" onClick={handleSearch_Isuzu}>
                   <div id="My_NewCar_imgHolder_E">
                     <img src={isuzu} alt="" />
                   </div>
