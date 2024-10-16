@@ -335,7 +335,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
+          {/* {noDataError && <span className="loaderCont">No Data To Show</span>} */}
         </div>
       </div>
       {/* Featured Ads */}
@@ -378,7 +378,6 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
         </div>
       </div>
       {/* Popular New Cars */}
@@ -420,7 +419,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
+          {/* {noDataError && <span className="loaderCont">No Data To Show</span>} */}
         </div>
       </div>
       {/* New Cars By Make */}
@@ -634,7 +633,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
+          {/* {noDataError && <span className="loaderCont">No Data To Show</span>} */}
         </div>
       </div>
       <br />
@@ -754,7 +753,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          {noDataError && <span className="loaderCont">No Data To Show</span>}
+          {/* {noDataError && <span className="loaderCont">No Data To Show</span>} */}
         </div>
       </div>
 
