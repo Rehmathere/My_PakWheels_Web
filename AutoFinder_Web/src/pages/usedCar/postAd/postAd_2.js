@@ -1,7 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import CarModelPicker from "../../../components/carModelPicker/carModelPicker";
-// import CityPicker from "../../../components/cityPicker/cityPicker";
-import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import FeatureSelector from "../../../components/featureSelector/featureSelector";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Upload } from "antd";
@@ -9,10 +7,11 @@ import { UserContext } from "../../../context/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./postAd.scss";
+import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import useRehydrateUser from "../../../hooks/user/rehydrateUser";
 import Modal from "react-modal";
 
-const PostAd_ListitForyou = () => {
+const UsedCarPostAd_2 = () => {
   const { rehydrateUser } = useRehydrateUser();
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
@@ -249,11 +248,8 @@ const PostAd_ListitForyou = () => {
   if (!loading)
     return (
       <div className="UsedCarPostAd">
-        <br />
-        <h1 className="postAdHeading">List It For You</h1>
-        <br />
+        <h1 className="postAdHeading">Sell your used car</h1>
         <form>
-          <br />
           <div className="formFirstDiv padding-10">
             <CityPicker passValueFn={handleChangeCity} label={"City"} />
           </div>
@@ -364,22 +360,22 @@ const PostAd_ListitForyou = () => {
             <div>
               <input
                 type="radio"
-                id="manual"
-                name="transmission"
-                value="Manual"
-                onChange={(e) => setTransmission(e.target.value)}
-              />
-              &nbsp;&nbsp;<label htmlFor="manual">Manual</label>
-            </div>
-            <div>
-              <input
-                type="radio"
                 id="automatic"
                 name="transmission"
                 value="Automatic"
                 onChange={(e) => setTransmission(e.target.value)}
               />
-              &nbsp;&nbsp;<label htmlFor="automatic">Automatic</label>
+              &nbsp;&nbsp;<label htmlFor="automatic"> Automatic </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="manual"
+                name="transmission"
+                value="Manual"
+                onChange={(e) => setTransmission(e.target.value)}
+              />
+              &nbsp;&nbsp;<label htmlFor="manual"> Manual </label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">
@@ -423,7 +419,7 @@ const PostAd_ListitForyou = () => {
           <br />
           <div className="formFirstDiv padding-10">
             <button onClick={handlePostFeaturedAd} disabled={disabledBtn}>
-              Submit Request
+              Post Featured Ad
             </button>
           </div>
         </form>
@@ -441,26 +437,22 @@ const PostAd_ListitForyou = () => {
 
             <div className="modalButtonHolder">
               <button
-                onClick={() => handlePackageSelect("7", "1800")}
+                onClick={() => handlePackageSelect("7", "1500")}
                 className="color3"
               >
-                {/* 7-Days Package For PKR 1500 */}
-                ✔️ Silver Package: For vehicles up to 1000cc - Price{" "}
+                7-Days Package For PKR 1500
               </button>
               <button
-                onClick={() => handlePackageSelect("15", "4000")}
+                onClick={() => handlePackageSelect("15", "2250")}
                 className="color1"
               >
-                {/* 15-Days Package For PKR 2250 */}
-                ✔️ Diamond Package: For vehicles up to 2000cc - Price{" "}
+                15-Days Package For PKR 2250
               </button>
               <button
-                onClick={() => handlePackageSelect("30", "5500")}
+                onClick={() => handlePackageSelect("30", "3150")}
                 className="color2"
               >
-                {/* 30-Days Package For PKR 3150 */}
-                ✔️ Platinum Package: For vehicles over 2000cc, SUVs, Jeeps, and
-                German cars - Price{" "}
+                30-Days Package For PKR 3150
               </button>
             </div>
           </div>
@@ -492,7 +484,7 @@ const PostAd_ListitForyou = () => {
     );
 };
 
-export default PostAd_ListitForyou;
+export default UsedCarPostAd_2;
 
 const customStyles = {
   content: {

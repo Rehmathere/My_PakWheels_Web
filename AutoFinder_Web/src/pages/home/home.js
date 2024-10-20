@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/userContext";
 import "../AutoParts/Auto_Parts.css";
 import "./home.scss";
 import LoaderComponent from "../../components/loaderComponent/loaderComponent";
@@ -49,6 +50,7 @@ import Car_Compare_2 from "../../assets/images/Car_2.png";
 import Car_Compare_VS from "../../assets/images/VS.png";
 
 const Home = () => {
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
@@ -252,14 +254,22 @@ const Home = () => {
           <div className="cardHolder">
             <div
               className="serviceCard"
-              onClick={() => navigate("/service/free-ad")}
+              onClick={() =>
+                user
+                  ? navigate("/used-car/post-ad")
+                  : alert("Please Login First")
+              }
             >
               <div className="serviceImg freeAdsImage"></div>
               <p>Post Free Ad</p>
             </div>
             <div
               className="serviceCard"
-              onClick={() => navigate("/service/free-ad")}
+              onClick={() =>
+                user
+                  ? navigate("/used-car/post-ad_2")
+                  : alert("Please Login First")
+              }
             >
               <div className="serviceImg featuredAdImage"></div>
               <p>Post Featured Ad</p>

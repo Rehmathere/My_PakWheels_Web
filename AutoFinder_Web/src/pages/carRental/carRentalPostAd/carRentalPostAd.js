@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import CarModelPicker from "../../../components/carModelPicker/carModelPicker";
-import CityPicker from "../../../components/cityPicker/cityPicker";
+// import CityPicker from "../../../components/cityPicker/cityPicker";
+import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import FeatureSelector from "../../../components/featureSelector/featureSelector";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Upload } from "antd";
@@ -415,7 +416,7 @@ const CarRentalPostAd = () => {
                 value="Yes"
                 onChange={(e) => setBetweenCities(e.target.value)}
               />
-              <label htmlFor="manual">Yes</label>
+              &nbsp;&nbsp;<label htmlFor="manual">Yes</label>
             </div>
             <div>
               <input
@@ -425,7 +426,7 @@ const CarRentalPostAd = () => {
                 value="No"
                 onChange={(e) => setBetweenCities(e.target.value)}
               />
-              <label htmlFor="automatic">No</label>
+              &nbsp;&nbsp;<label htmlFor="automatic">No</label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">
@@ -466,7 +467,7 @@ const CarRentalPostAd = () => {
           </div>
           <div className="formFirstDiv padding-10">
             <Form.Item
-              label="Upload"
+              label="Image Upload"
               valuePropName="fileList"
               getValueFromEvent={(e) => e && e.fileList}
             >
@@ -500,22 +501,22 @@ const CarRentalPostAd = () => {
             <div>
               <input
                 type="radio"
-                id="manual"
-                name="transmission"
-                value="Manual"
-                onChange={(e) => setTransmission(e.target.value)}
-              />
-              <label htmlFor="manual">Manual</label>
-            </div>
-            <div>
-              <input
-                type="radio"
                 id="automatic"
                 name="transmission"
                 value="Automatic"
                 onChange={(e) => setTransmission(e.target.value)}
               />
-              <label htmlFor="automatic">Automatic</label>
+              &nbsp;&nbsp;<label htmlFor="automatic">Automatic</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="manual"
+                name="transmission"
+                value="Manual"
+                onChange={(e) => setTransmission(e.target.value)}
+              />
+              &nbsp;&nbsp;<label htmlFor="manual">Manual</label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">
@@ -528,7 +529,7 @@ const CarRentalPostAd = () => {
                 value="Imported"
                 onChange={(e) => setAssembly(e.target.value)}
               />
-              <label htmlFor="imported">Imported</label>
+              &nbsp;&nbsp;<label htmlFor="imported">Imported</label>
             </div>
             <div>
               <input
@@ -538,7 +539,7 @@ const CarRentalPostAd = () => {
                 value="Local"
                 onChange={(e) => setAssembly(e.target.value)}
               />
-              <label htmlFor="local">Local</label>
+              &nbsp;&nbsp;<label htmlFor="local">Local</label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">

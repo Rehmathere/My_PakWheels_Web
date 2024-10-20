@@ -45,6 +45,7 @@ import My_FindNewCars from "./pages/NewCars/My_FindNewCars";
 import My_NewCarsDetail_2 from "./pages/NewCars/My_NewCarsDetail_2";
 import Compare from "./pages/NewCars/Compare";
 import My_Request from "./pages/user/myRequest/My_Request";
+import UsedCarPostAd_2 from "./pages/usedCar/postAd/postAd_2";
 
 function App() {
   // const {user , dispatch} = useContext(UserContext)
@@ -74,6 +75,7 @@ function App() {
             <Route path="/service/request" element={<ServiceRequest/>} />
             {/* //Used car */}
             <Route path="/used-car/post-ad" element={<UsedCarPostAd />} />
+            <Route path="/used-car/post-ad_2" element={<UsedCarPostAd_2 />} />
             {/* --- New --- */}
             <Route path="/PostAd_ListitForyou" element={<PostAd_ListitForyou />} />
             {/* --- New --- */}

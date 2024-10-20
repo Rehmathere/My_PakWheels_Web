@@ -18,7 +18,7 @@ const UserProfile = () => {
                 padding: "0em 0em 0em 1.5em"
               }}
               ></i>{" "}
-            <b>User-ID : </b> &nbsp;&nbsp; {user ? user._id : ""}{" "}
+            <b>User ID : </b> &nbsp;&nbsp; {user ? user._id.substring(0, 8) : ""}{" "}
           </p>
           <p>
             <i

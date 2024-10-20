@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import CarModelPicker from "../../../components/carModelPicker/carModelPicker";
-import CityPicker from "../../../components/cityPicker/cityPicker";
 import FeatureSelector from "../../../components/featureSelector/featureSelector";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Upload } from "antd";
@@ -8,6 +7,7 @@ import { UserContext } from "../../../context/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./postAd.scss";
+import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import useRehydrateUser from "../../../hooks/user/rehydrateUser";
 import Modal from "react-modal";
 
@@ -326,7 +326,7 @@ const UsedCarPostAd = () => {
           </div>
           <div className="formFirstDiv padding-10">
             <Form.Item
-              label="Upload"
+              label="Image Upload"
               valuePropName="fileList"
               getValueFromEvent={(e) => e && e.fileList}
             >
@@ -360,22 +360,22 @@ const UsedCarPostAd = () => {
             <div>
               <input
                 type="radio"
-                id="manual"
-                name="transmission"
-                value="Manual"
-                onChange={(e) => setTransmission(e.target.value)}
-              />
-              <label htmlFor="manual">Manual</label>
-            </div>
-            <div>
-              <input
-                type="radio"
                 id="automatic"
                 name="transmission"
                 value="Automatic"
                 onChange={(e) => setTransmission(e.target.value)}
               />
-              <label htmlFor="automatic">Automatic</label>
+              &nbsp;&nbsp;<label htmlFor="automatic"> Automatic </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="manual"
+                name="transmission"
+                value="Manual"
+                onChange={(e) => setTransmission(e.target.value)}
+              />
+              &nbsp;&nbsp;<label htmlFor="manual"> Manual </label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">
@@ -388,7 +388,7 @@ const UsedCarPostAd = () => {
                 value="Imported"
                 onChange={(e) => setAssembly(e.target.value)}
               />
-              <label htmlFor="imported">Imported</label>
+              &nbsp;&nbsp;<label htmlFor="imported">Imported</label>
             </div>
             <div>
               <input
@@ -398,7 +398,7 @@ const UsedCarPostAd = () => {
                 value="Local"
                 onChange={(e) => setAssembly(e.target.value)}
               />
-              <label htmlFor="local">Local</label>
+              &nbsp;&nbsp;<label htmlFor="local">Local</label>
             </div>
           </div>
           <div className="formFirstDiv padding-10">
@@ -411,16 +411,17 @@ const UsedCarPostAd = () => {
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
+          <br />
           <div className="formFirstDiv padding-10">
             <button onClick={handlePostFreeAd} disabled={disabledBtn}>
               Post Free Ad
             </button>
           </div>
-          <div className="formFirstDiv padding-10">
+          {/* <div className="formFirstDiv padding-10">
             <button onClick={handlePostFeaturedAd} disabled={disabledBtn}>
               Post Featured Ad
             </button>
-          </div>
+          </div> */}
         </form>
         {/* ===============================MODAL================================================== */}
 

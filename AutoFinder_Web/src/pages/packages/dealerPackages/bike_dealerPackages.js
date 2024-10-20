@@ -49,8 +49,8 @@ const Bike_dealerPackages = () => {
       {isLoading && <LoaderComponent />}
       <div className={`DealerPackage ${isLoading ? "Fade-out" : "Fade-in"}`}>
         <h1>
-          Bike Dealer Packages{" "}
-          <i class="fa fa-car" style={{ fontSize: 24 }}></i>
+          Bike Dealer Packages{"  "}
+          &nbsp;<i class="fa fa-bicycle" style={{ fontSize: 40 }}></i>
         </h1>
         <div className="content">
           <div className="mainSide">

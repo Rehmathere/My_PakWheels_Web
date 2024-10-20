@@ -167,7 +167,7 @@ const UsedCarBuyNow = () => {
                       color: "white",
                       margin: "1em 0em 1em 0em",
                     }}
-                    onClick={() => setPage(page + 1)}
+                    onClick={() => setPage(page + 2)}
                   >
                     {loadingMore ? "LOADING MORE..." : "LOAD MORE"}
                   </button>

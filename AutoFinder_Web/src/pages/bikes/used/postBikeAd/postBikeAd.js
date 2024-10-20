@@ -4,7 +4,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import useRehydrateUser from "../../../../hooks/user/rehydrateUser";
 import { UserContext } from "../../../../context/userContext";
 import LoaderComponent from "../../../../components/loaderComponent/loaderComponent";
-import CityPicker from "../../../../components/cityPicker/cityPicker";
+// import CityPicker from "../../../../components/cityPicker/cityPicker";
+import CityPicker from "../../../../components/cityPicker/my_cityPicker";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Upload } from "antd";
 import axios from "axios";
@@ -29,8 +30,8 @@ const PostBikeAd = () => {
   const [pictures, setPictures] = useState([]);
   const [images, setImages] = useState([]);
 
-  // disabled 
-  const [disabled , setDisabled] = useState(false)
+  // disabled
+  const [disabled, setDisabled] = useState(false);
 
   // Define valid types
   const validTypes = ["standard", "featured"];
@@ -57,10 +58,10 @@ const PostBikeAd = () => {
   // Function to handle form submission
   const handlePostFreeAd = async (e) => {
     e.preventDefault();
-    if(!isFormValid()){
-      alert("Please fill all the fields")
+    if (!isFormValid()) {
+      alert("Please fill all the fields");
     }
-    setDisabled(true)
+    setDisabled(true);
     const adData = await gatherAdData();
     console.log(adData);
     try {
@@ -79,7 +80,7 @@ const PostBikeAd = () => {
         setKmDriven("");
         setPictures([]);
         setEngineType("");
-        setDisabled(false)
+        setDisabled(false);
       }
     } catch (error) {
       alert("Error occurred while posting ad. Please Try Again Later.");
@@ -97,9 +98,9 @@ const PostBikeAd = () => {
   };
 
   // Function to handle year selection
-  const handleChangeYear = (value)=>{
+  const handleChangeYear = (value) => {
     setYear(value);
-  }
+  };
 
   // Function to handle radio button selection
   const handleFuelChange = (e) => {
@@ -159,7 +160,6 @@ const PostBikeAd = () => {
 
   // Function to gather ad data
   const gatherAdData = async () => {
-
     const imagesURLPromises = images.map((imageObj) =>
       uploadToCloudinary(imageObj)
     );
@@ -208,42 +208,41 @@ const PostBikeAd = () => {
     checkUser();
   }, [user]);
 
-  
   // MODAL
   const [modalIsOpenSelectPackage, setIsSelectPackage] = useState(false);
   function openModal() {
     setIsSelectPackage(true);
   }
-  
+
   function closeModal() {
     setIsSelectPackage(false);
   }
-  
-  
+
   // HANDLE POST "FEATURED AD"
-  const handlePostFeaturedAd =async (e)=>{
-    e.preventDefault()
-    if(isFormValid()){
+  const handlePostFeaturedAd = async (e) => {
+    e.preventDefault();
+    if (isFormValid()) {
       // const adData = await gatherAdData();
       // console.log(adData)
-      openModal()
-    }else{
-      alert("Please fill all the fields")
+      openModal();
+    } else {
+      alert("Please fill all the fields");
     }
     // const adData = createAdData();
-  }
+  };
 
   const handlePackageSelect = async (days, priceToPay) => {
-    setDisabled(true)
+    setDisabled(true);
     let adData = await gatherAdData();
     adData = { ...adData, days, priceToPay, service: "005" };
-    setDisabled(false)
+    setDisabled(false);
     navigate("/select-payment-method", { state: { adData } });
   };
 
   if (loading) return <LoaderComponent />;
   return (
     <div className="PostBikeAd">
+      <br />
       <h1 className="postAdHeading">Post Bike Ad</h1>
       <form>
         <div className="formFirstDiv padding-10">
@@ -310,7 +309,7 @@ const PostBikeAd = () => {
         </div>
         <div className="formFirstDiv padding-10">
           <Form.Item
-            label="Upload"
+            label="Image Upload"
             valuePropName="fileList"
             getValueFromEvent={(e) => e && e.fileList}
           >
@@ -337,7 +336,7 @@ const PostBikeAd = () => {
               checked={fuelType === "petrol"}
               onChange={handleFuelChange}
             />
-            <label htmlFor="petrol">Petrol</label>
+            &nbsp;&nbsp;<label htmlFor="petrol">Petrol</label>
           </div>
           <div>
             <input
@@ -348,7 +347,7 @@ const PostBikeAd = () => {
               checked={fuelType === "electric"}
               onChange={handleFuelChange}
             />
-            <label htmlFor="electric">Electric</label>
+            &nbsp;&nbsp;<label htmlFor="electric">Electric</label>
           </div>
         </div>
 
@@ -363,7 +362,7 @@ const PostBikeAd = () => {
               checked={engineType === "2stroke"}
               onChange={handleEngineChange}
             />
-            <label htmlFor="2stroke">2 Stroke</label>
+            &nbsp;&nbsp;<label htmlFor="2stroke">2 Stroke</label>
           </div>
           <div>
             <input
@@ -374,7 +373,7 @@ const PostBikeAd = () => {
               checked={engineType === "4stroke"}
               onChange={handleEngineChange}
             />
-            <label htmlFor="4stroke">4 Stroke</label>
+            &nbsp;&nbsp;<label htmlFor="4stroke">4 Stroke</label>
           </div>
         </div>
         <div className="formFirstDiv padding-10">
@@ -390,44 +389,48 @@ const PostBikeAd = () => {
         </div>
         {formType && formType === "standard" && (
           <div className="formFirstDiv padding-10">
-            <button onClick={handlePostFreeAd} disabled={disabled}>Post Free Ad</button>
+            <button onClick={handlePostFreeAd} disabled={disabled}>
+              Post Free Ad
+            </button>
           </div>
         )}
         {formType && formType === "featured" && (
           <div className="formFirstDiv padding-10">
-            <button onClick={handlePostFeaturedAd} disabled={disabled}>Post Featured Ad</button>
+            <button onClick={handlePostFeaturedAd} disabled={disabled}>
+              Post Featured Ad
+            </button>
           </div>
         )}
       </form>
       {/* ===========================  MODAL    ====================== */}
       <Modal
-          isOpen={modalIsOpenSelectPackage}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Select Pacakge"
-          ariaHideApp={false}
-        >
-          <div className="modalDiv">
-            <h1>Please Select A Desired Pacakge</h1>
+        isOpen={modalIsOpenSelectPackage}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Select Pacakge"
+        ariaHideApp={false}
+      >
+        <div className="modalDiv">
+          <h1>Please Select A Desired Pacakge</h1>
 
-            <div className="modalButtonHolder">
-              <button
-                onClick={() => handlePackageSelect("7", "225")}
-                className="color3"
-                disabled={disabled}
-              >
-                7-Days Package For PKR 225
-              </button>
-              <button
-                onClick={() => handlePackageSelect("30", "525")}
-                className="color2"
-                disabled={disabled}
-              >
-                30-Days Package For PKR 525
-              </button>
-            </div>
+          <div className="modalButtonHolder">
+            <button
+              onClick={() => handlePackageSelect("7", "225")}
+              className="color3"
+              disabled={disabled}
+            >
+              7-Days Package For PKR 225
+            </button>
+            <button
+              onClick={() => handlePackageSelect("30", "525")}
+              className="color2"
+              disabled={disabled}
+            >
+              30-Days Package For PKR 525
+            </button>
           </div>
-        </Modal>
+        </div>
+      </Modal>
     </div>
   );
 };

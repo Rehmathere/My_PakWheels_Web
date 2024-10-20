@@ -4,7 +4,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import useRehydrateUser from "../../../hooks/user/rehydrateUser";
 import { UserContext } from "../../../context/userContext";
 import LoaderComponent from "../../../components/loaderComponent/loaderComponent";
-import CityPicker from "../../../components/cityPicker/cityPicker";
+// import CityPicker from "../../../components/cityPicker/cityPicker";
+import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Upload } from "antd";
 import axios from "axios";
@@ -248,7 +249,7 @@ const Post_AutoPartAd = () => {
         </div>
         <div className="formFirstDiv padding-10">
           <Form.Item
-            label="Upload"
+            label="Image Upload"
             valuePropName="fileList"
             getValueFromEvent={(e) => e && e.fileList}
           >

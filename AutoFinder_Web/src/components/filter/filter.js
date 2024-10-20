@@ -22,8 +22,8 @@ const Filter = ({ onFilterApply }) => {
   const [maxPrice, setMaxPrice] = useState(10000000);
   const [minKMDriven, setMinKMDriven] = useState(0);
   const [maxKMDriven, setMaxKMDriven] = useState(200000);
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [selectedRegisteredLocation, setSelectedRegisteredIn] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState([]);
+  const [selectedRegisteredLocation, setSelectedRegisteredIn] = useState([]);  
   const [selectedBodyColor, setSelectedBodyColor] = useState("");
   const [selectedFuelType, setSelectedFuelType] = useState("");
   const [selectedTransmission, setSelectedTransmission] = useState("");

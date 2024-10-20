@@ -1,8 +1,14 @@
-.CityPicker{
+.CityPicker {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .MeraBtn_Multiple_Location {
+    background-color: transparent;
+    color: #bc0000;
+    text-align: right;
+  }
 
   select {
     border: 0.1px solid rgb(172, 172, 172);
@@ -12,5 +18,4 @@
   select:focus {
     outline: none;
   }
-
 }

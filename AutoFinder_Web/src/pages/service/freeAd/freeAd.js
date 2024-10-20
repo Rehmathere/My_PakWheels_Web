@@ -11,12 +11,12 @@ const FreeAd = () => {
   return (
     <div className="FreeAd">
       <section className="First">
-        <div className="heading">
+        {/* <div className="heading">
           <h1>Sell Your Car Online In Pakistan Instantly</h1>
-          {/* <br /> */}
-          {/* <h1>Choose How To Sell Your Car</h1> */}
-        </div>
-        <div className="firstCardsCont">
+          <br />
+          <h1>Choose How To Sell Your Car</h1>
+        </div> */}
+        {/* <div className="firstCardsCont">
           <div className="card">
             <h2>Post Your Ad on Autofinder</h2>
             <img
@@ -37,17 +37,46 @@ const FreeAd = () => {
               Post An Ad
             </button>
           </div>
-          {/* <div className="card">
-            <h1>Post Your Ad on Autofinder</h1>
-            <img src="https://wsa2.pakwheels.com/assets/postad-img-58f5eb96777aff56872a2ee71b6475fd.png" alt="postad-img" />
-            <ul>
-              <li>✔️ Post your Ad for Free in 3 Easy Steps</li>
-              <li>✔️ Post your Ad for Free in 3 Easy Steps</li>
-              <li>✔️ Post your Ad for Free in 3 Easy Steps</li>
-            </ul>
-            <button>Post An Ad</button>
-          </div> */}
-        </div>
+        </div> */}
+        {/* --- New --- */}
+        <section className="serviceCardSection">
+          <div className="serviceCardDiv">
+            <h2
+              style={{
+                textAlign: "center",
+                margin: "0em 0em 1em 0em",
+                letterSpacing: "2px",
+              }}
+            >
+              Post An Ad
+            </h2>
+            <br />
+            <div className="cardHolder">
+              <div
+                className="serviceCard"
+                onClick={() =>
+                  user
+                    ? navigate("/used-car/post-ad")
+                    : alert("Please Login First")
+                }
+              >
+                <div className="serviceImg freeAdsImage"></div>
+                <p>Post Free Ad</p>
+              </div>
+              <div
+                className="serviceCard"
+                onClick={() =>
+                  user
+                    ? navigate("/used-car/post-ad_2")
+                    : alert("Please Login First")
+                }
+              >
+                <div className="serviceImg featuredAdImage"></div>
+                <p>Post Featured Ad</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );

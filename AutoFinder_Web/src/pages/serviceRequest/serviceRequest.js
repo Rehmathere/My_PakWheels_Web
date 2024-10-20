@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import CityPicker from "../../components/cityPicker/cityPicker";
+// import CityPicker from "../../components/cityPicker/cityPicker";
+import CityPicker from "../../components/cityPicker/my_cityPicker";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import "./serviceRequest.scss";
@@ -191,6 +192,7 @@ const ServiceRequest = () => {
               className="My_Input"
             />
           </div>
+          <br />
           <div className="formFirstDiv padding-10">
             <button type="submit" onClick={handleSubmit}>
               Submit
