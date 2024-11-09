@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e3d52e33.css",
+    "main.js": "/static/js/main.679d2cf1.js",
+    "static/media/My_Bg_1.jpg": "/static/media/My_Bg_1.a4e6a077a9feff1e4cee.jpg",
+    "static/media/Car_1.png": "/static/media/Car_1.24f5e7c3fe1dfbeeccac.png",
+    "static/media/carInspection-ThirdSectionImage.jpg": "/static/media/carInspection-ThirdSectionImage.fd790228786b2c56555d.jpg",
+    "static/media/carInspection-FirstSectionImage.png": "/static/media/carInspection-FirstSectionImage.0e223cfabee48739b4ba.png",
+    "static/media/Car_2.png": "/static/media/Car_2.67c67ba838a7dbdc1085.png",
+    "static/media/car_Compare.jpg": "/static/media/car_Compare.a9e1da36569048f35bec.jpg",
+    "static/media/logo.png": "/static/media/logo.61570df94e740f7a4da6.png",
+    "static/media/premium_ads.png": "/static/media/premium_ads.9ef32dabf96682dc9005.png",
+    "static/media/buy_car_for_me.png": "/static/media/buy_car_for_me.1594a6e283c392f898db.png",
+    "static/media/free_ads.png": "/static/media/free_ads.0b89e3b8fbaf4a7e65a7.png",
+    "static/media/list_it_for_you.png": "/static/media/list_it_for_you.97658764c250f373c2bb.png",
+    "static/media/inspectionCar.png": "/static/media/inspectionCar.d1eb61581ac7a04084b5.png",
+    "static/media/rent_car.png": "/static/media/rent_car.18f5569611d388087f51.png",
+    "static/media/DFSK.png": "/static/media/DFSK.328e66a85b306e9da01e.png",
+    "static/media/Yamaha.png": "/static/media/Yamaha.a6e3d232dabcebbf9e91.png",
+    "static/media/proton.png": "/static/media/proton.e3da124cee218bea90d2.png",
+    "static/media/Tyota.png": "/static/media/Tyota.1d6bf5b5917383fc6b9c.png",
+    "static/media/prince.png": "/static/media/prince.24d9b27686284bf9f522.png",
+    "static/media/mercedes.png": "/static/media/mercedes.cba1ccfeb34bb6cc4b83.png",
+    "static/media/bmw.png": "/static/media/bmw.fde0f57a85664f3a0f81.png",
+    "static/media/peugeot.png": "/static/media/peugeot.3850a4f229ae1432549b.png",
+    "static/media/hyundai.png": "/static/media/hyundai.3eb9005b98292c698230.png",
+    "static/media/FAW.png": "/static/media/FAW.70f6eaee7f6e92279d40.png",
+    "static/media/Super-Power.png": "/static/media/Super-Power.acbeb336597b9db979e7.png",
+    "static/media/baic.png": "/static/media/baic.25305b514bb4cc487266.png",
+    "static/media/mg.png": "/static/media/mg.c3fe638495af5c69f481.png",
+    "static/media/Road-prince.png": "/static/media/Road-prince.13472f0778f7610d754c.png",
+    "index.html": "/index.html",
+    "main.e3d52e33.css.map": "/static/css/main.e3d52e33.css.map",
+    "main.679d2cf1.js.map": "/static/js/main.679d2cf1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3d52e33.css",
+    "static/js/main.679d2cf1.js"
+  ]
+}
