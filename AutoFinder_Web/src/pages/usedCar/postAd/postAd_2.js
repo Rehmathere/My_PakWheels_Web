@@ -6,10 +6,13 @@ import { Form, Upload } from "antd";
 import { UserContext } from "../../../context/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./postAd.scss";
 import CityPicker from "../../../components/cityPicker/my_cityPicker";
 import useRehydrateUser from "../../../hooks/user/rehydrateUser";
 import Modal from "react-modal";
+// Image
+import select from "../../../assets/images/select.png";
+// CSS
+import "./postAd.scss";
 
 const UsedCarPostAd_2 = () => {
   const { rehydrateUser } = useRehydrateUser();
@@ -432,27 +435,32 @@ const UsedCarPostAd_2 = () => {
           contentLabel="Select Pacakge"
           ariaHideApp={false}
         >
-          <div className="modalDiv">
+          <div className="modalDiv" style={{ borderRadius: "20px",  }}>
             <h1>Please Select A Desired Pacakge</h1>
-
+            <div className="Parent_Img">
+              <img src={select} alt="NA" />
+            </div>
             <div className="modalButtonHolder">
               <button
                 onClick={() => handlePackageSelect("7", "1500")}
                 className="color3"
-              >
-                7-Days Package For PKR 1500
+                style={{ backgroundColor: "#fd2121", letterSpacing: "1px", borderRadius: "50px", }}
+                >
+                7 Days Package For PKR 1500
               </button>
               <button
                 onClick={() => handlePackageSelect("15", "2250")}
                 className="color1"
-              >
-                15-Days Package For PKR 2250
+                style={{ backgroundColor: "#bc0000", letterSpacing: "1px", borderRadius: "50px", }}
+                >
+                15 Days Package For PKR 2250
               </button>
               <button
                 onClick={() => handlePackageSelect("30", "3150")}
                 className="color2"
+                style={{ backgroundColor: "#550000", letterSpacing: "1px", borderRadius: "50px", }}
               >
-                30-Days Package For PKR 3150
+                30 Days Package For PKR 3150
               </button>
             </div>
           </div>
@@ -495,6 +503,8 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: "#f4f4f4",
+    borderRadius: "10px",
+    padding: "2.5em",
   },
   overlay: {
     position: "fixed",

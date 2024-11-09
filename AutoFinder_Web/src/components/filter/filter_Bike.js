@@ -47,7 +47,7 @@ const Filter_Bike = ({ onFilterApply }) => {
     "Pink",
     "Beige",
   ];
-  const engineTypeData = ["2 Stroke", "4 Stroke"];
+  const engineTypeData = ["2 Stroke", "4 Stroke", "Electric"];
   const brandData = [
     "honda",
     "suzuki",

@@ -83,22 +83,41 @@ textarea{
 .modalDiv{
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 3em 5em;
+  border-radius: 20px;
+
+  .Parent_Img {
+    border: 0px solid transparent;
+    padding: 3em 0em;
+    
+    img {
+      width: 30%;
+      display: block;
+      margin: 0em auto 1em auto;
+    }
+  }
+
   h1{
     text-align: center;
+    padding: 0.2em 0em 0.5em 0em;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    font-weight: 600;
   }
+  
   .modalButtonHolder{
 
     display: flex;
     flex-direction: column;
-    gap: 10px ;
-    padding: 10px;
+    gap: 15px ;
+    padding: 0px;
+
     button{
       outline: none;
       border: none;
       color: white;
-      padding: 15px;
-      font-size: 16px;
+      padding: 0px;
+      font-size: 10px;
       border-radius: 10px;
       cursor: pointer;
       &:hover{
@@ -111,13 +130,13 @@ textarea{
 
 
 .color1{
-  background-color: #1789FC;
+  background-color: #fd2121;
 }
 
 .color2{
-  background-color: #296EB4;
+  background-color: #Bc0000;
 }
 
 .color3{
-  background-color: #7B8CDE;
+  background-color: #550000;
 }

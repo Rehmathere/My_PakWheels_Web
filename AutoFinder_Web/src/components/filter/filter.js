@@ -387,7 +387,7 @@ const Filter = ({ onFilterApply }) => {
         </button>
       </div>
       <div className="filterDiv">
-        <label onClick={() => setShowBox(!showBox)}>Year Range :</label>
+        <label onClick={() => setShowBox(!showBox)}>Model Year :</label>
         {showBox && (
           <div style={{ transition: "opacity 0.5s", opacity: showBox ? 1 : 0 }}>
             <Slider
@@ -525,7 +525,7 @@ const Filter = ({ onFilterApply }) => {
         )}
       </div>
       <div className="filterDiv">
-        <label onClick={() => setShowBox_5(!showBox_5)}>Transmission :</label>
+        <label onClick={() => setShowBox_5(!showBox_5)}>Assembly :</label>
         {showBox_5 && (
           <div
             style={{ transition: "opacity 0.5s", opacity: showBox_5 ? 1 : 0 }}

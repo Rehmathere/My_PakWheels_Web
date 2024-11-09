@@ -6,6 +6,8 @@ import Modal from "react-modal";
 import "./serviceRequest.scss";
 import { UserContext } from "../../context/userContext";
 import useRehydrateUser from "../../hooks/user/rehydrateUser";
+// Image
+import select from "../../assets/images/select.png";
 
 const ServiceRequest = () => {
   const { rehydrateUser } = useRehydrateUser();
@@ -157,7 +159,7 @@ const ServiceRequest = () => {
               onChange={(e) => setYear(e.target.value)}
               placeholder=" Enter Year "
               className="My_Input"
-              />
+            />
           </div>
           {/* Brand Input */}
           <div className="formFirstDiv">
@@ -168,7 +170,7 @@ const ServiceRequest = () => {
               onChange={(e) => setBrand(e.target.value)}
               placeholder=" Enter Brand "
               className="My_Input"
-              />
+            />
           </div>
           {/* Model Input */}
           <div className="formFirstDiv">
@@ -179,7 +181,7 @@ const ServiceRequest = () => {
               onChange={(e) => setModel(e.target.value)}
               placeholder=" Enter Model "
               className="My_Input"
-              />
+            />
           </div>
           {/* Variant Input */}
           <div className="formFirstDiv">
@@ -190,7 +192,20 @@ const ServiceRequest = () => {
               onChange={(e) => setVarient(e.target.value)}
               placeholder=" Enter Varient "
               className="My_Input"
-            />
+              />
+          </div>
+          {/* --- Budget Input --- */}
+          <div className="formFirstDiv">
+            <label>Information :</label>
+            <textarea
+              name=""
+              id=""
+              cols="47"
+              rows="10"
+              // value={varient}
+              style={{ border: "0.1px solid #CCCCCC", borderRadius: "5px", }}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
           </div>
           <br />
           <div className="formFirstDiv padding-10">
@@ -208,8 +223,11 @@ const ServiceRequest = () => {
           ariaHideApp={false}
         >
           <div className="modalDiv">
-            <h1>Please Select A Desired Package</h1>
-            <div>
+            <h1>Please Select A Desired Pacakge</h1>
+            {/* <div className="Parent_Img">
+              <img src={select} alt="NA" />
+            </div> */}
+            <div style={{ padding: "1em 0em" }}>
               {service !== "003" ? (
                 <>
                   <p>
@@ -250,18 +268,33 @@ const ServiceRequest = () => {
                   <button
                     className="silver"
                     onClick={() => handleSelectPackage("Silver")}
+                    style={{
+                      backgroundColor: "#fd2121",
+                      letterSpacing: "1px",
+                      borderRadius: "50px",
+                    }}
                   >
                     Silver Package
                   </button>
                   <button
                     className="deepSkyBlue"
                     onClick={() => handleSelectPackage("Diamond")}
+                    style={{
+                      backgroundColor: "#fd2121",
+                      letterSpacing: "1px",
+                      borderRadius: "50px",
+                    }}
                   >
                     Diamond Package
                   </button>
                   <button
                     className="silver"
                     onClick={() => handleSelectPackage("Platinum")}
+                    style={{
+                      backgroundColor: "#bc0000",
+                      letterSpacing: "1px",
+                      borderRadius: "50px",
+                    }}
                   >
                     Platinum Package
                   </button>
@@ -270,6 +303,11 @@ const ServiceRequest = () => {
                 <button
                   className="silver"
                   onClick={() => handleSelectPackage("Standard")}
+                  style={{
+                    backgroundColor: "#550000",
+                    letterSpacing: "1px",
+                    borderRadius: "50px",
+                  }}
                 >
                   Standard Payment
                 </button>
@@ -292,6 +330,8 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: "#f4f4f4",
+    borderRadius: "10px",
+    padding: "2.5em",
   },
   overlay: {
     position: "fixed",
