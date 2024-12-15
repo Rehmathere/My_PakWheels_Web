@@ -40,6 +40,7 @@ const UsedCarBuyNow = () => {
           });
 
           setData(sortedData);
+          // setData(response.data.data);
           setIsLoading(false);
           setLoadingMore(false);
         }

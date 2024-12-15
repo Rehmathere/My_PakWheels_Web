@@ -10,6 +10,7 @@ const DealerPackages = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,9 +19,15 @@ const DealerPackages = () => {
           "https://autofinder-backend.vercel.app/api/dealerPackage/getAll"
         );
         console.timeLog("timer");
-        setData(response.data.data);
+        // Sort data based on the numeric value of the heading
+        const sortedData = response.data.data.sort((a, b) => {
+          const headingA = parseInt(a.heading, 10);
+          const headingB = parseInt(b.heading, 10);
+          return headingA - headingB;
+        });
+        setData(sortedData);
         setIsLoading(false);
-        console.log(response.data.data);
+        console.log(sortedData);
       } catch (error) {
         console.log(error);
       }
@@ -48,34 +55,37 @@ const DealerPackages = () => {
     <>
       {isLoading && <LoaderComponent />}
       <div className={`DealerPackage ${isLoading ? "Fade-out" : "Fade-in"}`}>
-        <h1>Car Dealer Packages</h1>
+        <h1>
+          Car Dealer Packages{"  "}
+          &nbsp;<i class="fa fa-car" style={{ fontSize: 40 }}></i>
+        </h1>
         <div className="content">
           <div className="mainSide">
             <div className="packagesHolder">
               {data.length > 0 &&
                 data.map((packagee) => (
-                  <div className="packageCard">
-                    <h2>{packagee.heading}</h2>
+                  <div key={packagee._id} className="packageCard">
+                    <div id="Parent_Heading">
+                      <h2>{packagee.heading}</h2>
+                    </div>
                     <p>
-                      {" "}
-                      <b>Premium Bundles : </b> &nbsp; {packagee.premiumBundles}{" "}
+                      <span>Package Name : </span> &nbsp;
+                      {packagee.packageType}
                     </p>
                     <p>
-                      {" "}
-                      <b>Booster Packs : </b> &nbsp; {packagee.freeBoosterPack}{" "}
+                      <span>Booster Packs : </span> &nbsp;
+                      {packagee.freeBoosterPack}
                     </p>
                     <p>
-                      {" "}
-                      <b>Actural Price : </b> &nbsp; {packagee.actualPrice}{" "}
+                      <span>Actual Price : </span> &nbsp;
+                      {packagee.actualPrice}
                     </p>
                     <p>
-                      {" "}
-                      <b>Discounted Price : &nbsp; </b>{" "}
+                      <span>Discounted Price : &nbsp; </span>
                       {packagee.discountedRate}
                     </p>
                     <p>
-                      {" "}
-                      <b>Saved : </b> &nbsp; {packagee.saved}{" "}
+                      <span>Saved : </span> &nbsp; {packagee.saved}
                     </p>
                     <button onClick={() => handleBuyPackage(packagee)}>
                       Buy Now
@@ -84,9 +94,9 @@ const DealerPackages = () => {
                 ))}
             </div>
           </div>
-          <aside>
-            {/* <div>THIS IS SIDE DIV INSTRUCTIONS WILL COME HERE</div> */}
-          </aside>
+          {/* <aside>
+            <div>THIS IS SIDE DIV INSTRUCTIONS WILL COME HERE</div>
+          </aside> */}
         </div>
       </div>
     </>

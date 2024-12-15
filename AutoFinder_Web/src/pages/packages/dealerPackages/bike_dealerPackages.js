@@ -58,30 +58,26 @@ const Bike_dealerPackages = () => {
               {data.length > 0 &&
                 data.map((packagee) => (
                   <div className="packageCard">
-                    <h2>{packagee.heading}</h2>
+                    <div id="Parent_Heading">
+                      <h2>{packagee.heading.slice(1)}</h2>
+                    </div>
                     <p>
-                      {" "}
-                      <b>Package Name : </b> {packagee.packageType}{" "}
+                      <span>Package Name : </span> &nbsp; {packagee.packageType}
                     </p>
                     <p>
-                      {" "}
-                      <b>Premium Bundles : </b> {packagee.premiumBundles}{" "}
+                      <span>Premium Bundles : </span> &nbsp; {packagee.premiumBundles}
                     </p>
                     <p>
-                      {" "}
-                      <b>Booster Packs : </b> {packagee.freeBoosterPack}{" "}
+                      <span>Booster Packs : </span> &nbsp; {packagee.freeBoosterPack}
                     </p>
                     <p>
-                      {" "}
-                      <b>Actural Price : </b> {packagee.actualPrice}{" "}
+                      <span>Actual Price : </span> &nbsp; {packagee.actualPrice}
                     </p>
                     <p>
-                      {" "}
-                      <b>Discounted Price : </b> {packagee.discountedRate}
+                      <span>Discounted Price : </span> &nbsp; {packagee.discountedRate}
                     </p>
                     <p>
-                      {" "}
-                      <b>Saved : </b> {packagee.saved}{" "}
+                      <span>Saved : </span> &nbsp; {packagee.saved}
                     </p>
                     <button onClick={() => handleBuyPackage(packagee)}>
                       Buy Now
@@ -90,9 +86,9 @@ const Bike_dealerPackages = () => {
                 ))}
             </div>
           </div>
-          <aside>
+          {/* <aside>
             <div>THIS IS SIDE DIV INSTRUCTIONS WILL COME HERE</div>
-          </aside>
+          </aside> */}
         </div>
       </div>
     </>
